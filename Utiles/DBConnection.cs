@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Utiles
 {
     public class DBConnection
     {
         string connectionString = Properties.Resources.ConnectionString;
-        public bool Insert(string query) 
+        public bool query(string query)
         {
             var objeto = new object();
             var objeto1 = new object();
 
-            var cn = new SqlConnection(@"Server=DESKTOP-H982BU0\SQLEXPRESS; Initial Catalog=LastraJulianDev;Integrated Security=True");
+            var cn = new SqlConnection(@"Server=DESKTOP-CUHS3KR\SQLEXPRESS; Initial Catalog=campo;Integrated Security=True");
             var cmd = new SqlCommand();
 
             cn.Open();
@@ -61,6 +62,45 @@ namespace Utiles
             catch (Exception e)
             {
                 throw e;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        public bool NoTransactionQuery(string query)
+        {
+            var objeto = new object();
+            var objeto1 = new object();
+
+            var cn = new SqlConnection(@"Server=DESKTOP-CUHS3KR\SQLEXPRESS; Initial Catalog=campo;Integrated Security=True");
+            var cmd = new SqlCommand();
+
+            cn.Open();
+
+            cmd.CommandTimeout = 5;
+
+            SqlTransaction myTrans;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cn;
+            cmd.CommandText = query;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show($"SQL Exception triggered: {e}");
+                return false;
+                //throw e;
+            }
+            catch (Exception e)
+            {
+                return false;
+                //throw e;
             }
             finally
             {
