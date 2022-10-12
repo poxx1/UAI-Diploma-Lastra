@@ -49,6 +49,7 @@
     <Compile Include="interfaces\ILanguageObserbable.cs" />
     <Compile Include="language\Language.cs" />
     <Compile Include="language\Translation.cs" />
+    <Compile Include="LogModel.cs" />
     <Compile Include="Machines.cs" />
     <Compile Include="seguridad\Component.cs" />
     <Compile Include="seguridad\Family.cs" />

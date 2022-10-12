@@ -71,6 +71,12 @@
     <Compile Include="frmBackupDB.Designer.cs">
       <DependentUpon>frmBackupDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBitacora.Designer.cs">
+      <DependentUpon>frmBitacora.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCalculadora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,12 +112,6 @@
     </Compile>
     <Compile Include="frmLanguage.Designer.cs">
       <DependentUpon>frmLanguage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLogger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogger.Designer.cs">
-      <DependentUpon>frmLogger.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -174,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBackupDB.resx">
       <DependentUpon>frmBackupDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBitacora.resx">
+      <DependentUpon>frmBitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalculadora.resx">
       <DependentUpon>frmCalculadora.cs</DependentUpon>
