@@ -47,6 +47,8 @@
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.eBackupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +60,8 @@
             this.usuariosToolStripMenuItem,
             this.seguridadToolStripMenuItem,
             this.idiomasToolStripMenuItem,
-            this.crearUsuarioToolStripMenuItem});
+            this.crearUsuarioToolStripMenuItem,
+            this.eBackupRestoreToolStripMenuItem});
             this.fileMenu.ForeColor = System.Drawing.Color.White;
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
@@ -228,6 +231,23 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "label1";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(5, 390);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Dark side of the moon - 1973";
+            // 
+            // eBackupRestoreToolStripMenuItem
+            // 
+            this.eBackupRestoreToolStripMenuItem.Name = "eBackupRestoreToolStripMenuItem";
+            this.eBackupRestoreToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.eBackupRestoreToolStripMenuItem.Text = "1. E Backup/Restore";
+            this.eBackupRestoreToolStripMenuItem.Click += new System.EventHandler(this.eBackupRestoreToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +256,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(632, 453);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
@@ -279,6 +300,8 @@
         private System.Windows.Forms.ToolStripMenuItem crearUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eDashboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fCalculadoraToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem eBackupRestoreToolStripMenuItem;
     }
 }
 

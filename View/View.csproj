@@ -59,6 +59,18 @@
     <Compile Include="Asignaciones.Designer.cs">
       <DependentUpon>Asignaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Distribuidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Distribuidores.Designer.cs">
+      <DependentUpon>Distribuidores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBackupDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackupDB.Designer.cs">
+      <DependentUpon>frmBackupDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCalculadora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +82,12 @@
     </Compile>
     <Compile Include="frmCreateUser.Designer.cs">
       <DependentUpon>frmCreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDigitoVerificador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDigitoVerificador.Designer.cs">
+      <DependentUpon>frmDigitoVerificador.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGerente.cs">
       <SubType>Form</SubType>
@@ -88,6 +106,12 @@
     </Compile>
     <Compile Include="frmLanguage.Designer.cs">
       <DependentUpon>frmLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogger.Designer.cs">
+      <DependentUpon>frmLogger.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -113,6 +137,12 @@
     <Compile Include="frmReparaciones.Designer.cs">
       <DependentUpon>frmReparaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReparacionV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReparacionV2.Designer.cs">
+      <DependentUpon>frmReparacionV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +151,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockView.Designer.cs">
+      <DependentUpon>StockView.cs</DependentUpon>
+    </Compile>
     <Compile Include="testLanguage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,11 +169,20 @@
     <EmbeddedResource Include="Asignaciones.resx">
       <DependentUpon>Asignaciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Distribuidores.resx">
+      <DependentUpon>Distribuidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBackupDB.resx">
+      <DependentUpon>frmBackupDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCalculadora.resx">
       <DependentUpon>frmCalculadora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreateUser.resx">
       <DependentUpon>frmCreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDigitoVerificador.resx">
+      <DependentUpon>frmDigitoVerificador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGerente.resx">
       <DependentUpon>frmGerente.cs</DependentUpon>
@@ -174,6 +219,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StockView.resx">
+      <DependentUpon>StockView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="testLanguage.resx">
       <DependentUpon>testLanguage.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,7 +241,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
-      <Project>{427c0196-d78a-4367-b617-631245b8b53d}</Project>
+      <Project>{427C0196-D78A-4367-B617-631245B8B53D}</Project>
       <Name>Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
@@ -205,7 +253,7 @@
       <Name>Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utiles\Utiles.csproj">
-      <Project>{211eab57-6205-473b-b60d-3c8f9889261c}</Project>
+      <Project>{211EAB57-6205-473B-B60D-3C8F9889261C}</Project>
       <Name>Utiles</Name>
     </ProjectReference>
   </ItemGroup>
