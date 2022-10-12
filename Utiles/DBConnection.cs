@@ -81,7 +81,7 @@ namespace Utiles
 
             cmd.CommandTimeout = 5;
 
-            SqlTransaction myTrans;
+            
             cmd.CommandType = CommandType.Text;
             cmd.Connection = cn;
             cmd.CommandText = query;
@@ -97,7 +97,7 @@ namespace Utiles
                 return false;
                 //throw e;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
                 //throw e;

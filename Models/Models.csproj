@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorModel.cs" />
+    <Compile Include="DistribuidorModel.cs" />
     <Compile Include="enums\MachineType.cs" />
     <Compile Include="interfaces\ILanguageObserber.cs" />
     <Compile Include="interfaces\ILanguageObserbable.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="seguridad\PermissionsEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="seguridad\Session.cs" />
+    <Compile Include="StockModel.cs" />
     <Compile Include="User.cs" />
     <Compile Include="User_MachineModel.cs" />
     <Compile Include="user_typeModel.cs" />

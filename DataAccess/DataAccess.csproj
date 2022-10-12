@@ -50,17 +50,17 @@
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Documents\UAI\Cuatrimestre 2\Trabajo de Diploma\Repo\Campo - Entrega final\Repo\Utiles\Utiles.csproj">
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{AE6101DE-B0B6-40A1-83F3-6E72EDB26A9D}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utiles\Utiles.csproj">
       <Project>{211EAB57-6205-473B-B60D-3C8F9889261C}</Project>
       <Name>Utiles</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{ae6101de-b0b6-40a1-83f3-6e72edb26a9d}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
