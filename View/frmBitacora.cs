@@ -30,6 +30,10 @@ namespace View
             dateTimePicker1.MaxDate = DateTime.Now;           
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yy";
+
+            dateTimePicker2.MaxDate = DateTime.Now;
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.CustomFormat = "dd/MM/yy";
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -45,7 +49,7 @@ namespace View
         private void button1_Click(object sender, EventArgs e)
         {//El tolist del orto hacia que no funcione el LINQ porque guardaba lalista vacia el estupido.
             if (rbUsuario.Checked) dataGridView1.DataSource = listOfLogs.Where(x => x.UserID == int.Parse(comboBox1.Text)).ToList();
-            if (rbFecha.Checked) dataGridView1.DataSource = listOfLogs.Where(x => x.Fecha == dateTimePicker1.Text).ToList();
+            if (rbFecha.Checked) dataGridView1.DataSource = listOfLogs.Where(x => DateTime.Parse(x.Fecha) >= dateTimePicker1.Value).Where(x => DateTime.Parse(x.Fecha) < dateTimePicker1.Value).ToList();
             if (rbAmbos.Checked) dataGridView1.DataSource = listOfLogs.Where(x => x.Fecha == dateTimePicker1.Text).Where(x => x.UserID == Int32.Parse(comboBox1.Text)).ToList();
         }
 

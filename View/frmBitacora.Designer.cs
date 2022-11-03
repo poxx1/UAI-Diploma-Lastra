@@ -41,6 +41,9 @@
             this.rbFecha = new System.Windows.Forms.RadioButton();
             this.rbUsuario = new System.Windows.Forms.RadioButton();
             this.rbAmbos = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.Fe = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +69,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 50);
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 42);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(210, 20);
             this.dateTimePicker1.TabIndex = 2;
@@ -102,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 34);
+            this.label4.Location = new System.Drawing.Point(13, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 6;
@@ -110,6 +113,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(584, 19);
             this.button2.Name = "button2";
@@ -121,8 +125,12 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 100);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 113);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(643, 240);
             this.dataGridView1.TabIndex = 8;
@@ -162,6 +170,31 @@
             this.rbAmbos.Text = "Ambos";
             this.rbAmbos.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(12, 81);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(210, 20);
+            this.dateTimePicker2.TabIndex = 12;
+            // 
+            // Fe
+            // 
+            this.Fe.AutoSize = true;
+            this.Fe.Location = new System.Drawing.Point(9, 26);
+            this.Fe.Name = "Fe";
+            this.Fe.Size = new System.Drawing.Size(38, 13);
+            this.Fe.TabIndex = 13;
+            this.Fe.Text = "Desde";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Hasta";
+            // 
             // frmBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +203,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(671, 375);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Fe);
+            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.rbAmbos);
             this.Controls.Add(this.rbUsuario);
             this.Controls.Add(this.rbFecha);
@@ -205,5 +241,8 @@
         private System.Windows.Forms.RadioButton rbFecha;
         private System.Windows.Forms.RadioButton rbUsuario;
         private System.Windows.Forms.RadioButton rbAmbos;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label Fe;
+        private System.Windows.Forms.Label label6;
     }
 }
