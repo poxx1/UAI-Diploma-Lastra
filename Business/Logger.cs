@@ -28,11 +28,11 @@ namespace Business
         }
         public string getCurrentUser()
         {
-            return SessionManager.getInstance.user.Name;
+            return Session.GetInstance.usuario.Name;
         }
         public int getCurrentUserID()
         {
-            return SessionManager.getInstance.user.Id;
+            return Session.GetInstance.usuario.Id;
         }
 
         public bool LogData(string actividad, string informacion)

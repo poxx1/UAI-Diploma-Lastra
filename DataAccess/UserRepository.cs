@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DBModel;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -567,6 +568,44 @@ namespace DataAccess
                 connection.Close();
                 throw;
             }
+        }
+        public List<DBUsers> ListDBUsers()
+        {
+            SqlConnection connection = ConnectionSingleton.getConnection();
+            connection.Open();
+            var cmd = new SqlCommand();
+            cmd.Connection = connection;
+
+            var sql = $@"select * from Users;";
+
+            cmd.CommandText = sql;
+
+            var reader = cmd.ExecuteReader();
+
+            var lista = new List<DBUsers>();
+
+            while (reader.Read())
+            {
+                DBUsers user = new DBUsers()
+                {
+                    ID = int.Parse(reader.GetValue(reader.GetOrdinal("id_usuario")).ToString()),
+                    UserName = reader.GetValue(reader.GetOrdinal("UserName")).ToString(),
+                    Password = reader.GetValue(reader.GetOrdinal("Password")).ToString(),
+                    Email = reader.GetValue(reader.GetOrdinal("Email")).ToString(),
+                    Key_idioma = int.Parse(reader.GetValue(reader.GetOrdinal("key_idioma")).ToString()),
+                    Tries = int.Parse(reader.GetValue(reader.GetOrdinal("Tries")).ToString()),
+                    isBlocked = reader.GetBoolean(reader.GetOrdinal("isBlocked")),
+                    id_tipo = int.Parse(reader.GetValue(reader.GetOrdinal("id_tipo")).ToString()),
+                    id_dv = int.Parse(reader.GetValue(reader.GetOrdinal("id_div")).ToString()),
+                    digitoVerificador = reader.GetValue(reader.GetOrdinal("digitoverificador")).ToString(),
+                };
+                lista.Add(user);
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return lista;
         }
     }
 }

@@ -24,17 +24,23 @@ namespace View
 
         private void button1_Click(object sender, EventArgs e)
         {
+   ;
             try
             {
-                sessionService.Login(textBox1.Text, textBox2.Text);
+                sessionService.Login(textBox1.Text, textBox2.Text);              
                 this.Hide();
-                new frmMain(this).Show();      
+                new frmMain(this).Show();
+
+                Logger log = new Logger();
+                log.LogData("Log-in", "El usuario se logueo correctamente");
             }
             catch (Exception ex)
             {
                 button1.ForeColor = System.Drawing.Color.Red;
                 MessageBox.Show(ex.Message);
 
+                Logger log = new Logger();
+                //log.LogData("Log-in", "El usuario no se logueo correctamente");
             }
             finally
             {

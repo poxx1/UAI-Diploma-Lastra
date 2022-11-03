@@ -138,7 +138,7 @@ namespace View
                 frm.Show();
             }
 
-          }
+        }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -150,6 +150,9 @@ namespace View
             Session.GetInstance.removeObserber(this);
 
             sesionService.Logout();
+
+            Logger log = new Logger();
+            log.LogData("Log-Out", "El usuario se des-logueo correctamente");
             Application.Exit();
         }
 
@@ -360,6 +363,14 @@ namespace View
         private void gStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new StockView();
+            //Form frm = new testLanguage();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void gMensajesDeBienvenidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmMensajesBievenida();
             //Form frm = new testLanguage();
             frm.MdiParent = this;
             frm.Show();
