@@ -24,7 +24,7 @@ namespace Business
             //Para no tener problemas con las fechas, le hardcodeo a la verga la cultura y siempre
             //me mantiene el mismo formato. Si en la bd lo guardo como date y no como string soy un tarado.
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
-            return DateTime.Now.ToString("dd/MM/yy");
+            return DateTime.Now.ToString("MM/dd/yy");
         }
         public string getCurrentUser()
         {
@@ -35,7 +35,7 @@ namespace Business
             return Session.GetInstance.usuario.Id;
         }
 
-        public bool LogData(string actividad, string informacion)
+        public bool LogData(string actividad, string informacion, string prioridad)
         {
             LogModel log = new LogModel();
             log.Usuario = getCurrentUser();
@@ -44,6 +44,7 @@ namespace Business
             log.Fecha = getCurrentDate();
             log.Details = actividad;
             log.Info = informacion;
+            log.Priority = prioridad;
 
             LogRepository logRepo = new LogRepository();
 

@@ -152,7 +152,7 @@ namespace View
             sesionService.Logout();
 
             Logger log = new Logger();
-            log.LogData("Log-Out", "El usuario se des-logueo correctamente");
+            log.LogData("Log-Out", "El usuario se des-logueo correctamente", "Informacion");
             Application.Exit();
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,8 +49,15 @@ namespace View
 
         private void button1_Click(object sender, EventArgs e)
         {//El tolist del orto hacia que no funcione el LINQ porque guardaba lalista vacia el estupido.
+
+            DateTime fechaDesde = dateTimePicker1.Value;
+            DateTime fechaHasta = dateTimePicker2.Value;
+            DateTime fechaTest = DateTime.Parse("11/20/22");
+
+            //if (fechaDesde > fechaTest) MessageBox.Show("es menor");
+
             if (rbUsuario.Checked) dataGridView1.DataSource = listOfLogs.Where(x => x.UserID == int.Parse(comboBox1.Text)).ToList();
-            if (rbFecha.Checked) dataGridView1.DataSource = listOfLogs.Where(x => DateTime.Parse(x.Fecha) >= dateTimePicker1.Value).Where(x => DateTime.Parse(x.Fecha) < dateTimePicker1.Value).ToList();
+            if (rbFecha.Checked) dataGridView1.DataSource = (listOfLogs.Where(x => (DateTime.Parse(x.Fecha)) <= fechaDesde)).ToList();//.Where(x => DateTime.Parse(x.Fecha) < dateTimePicker1.Value).ToList();
             if (rbAmbos.Checked) dataGridView1.DataSource = listOfLogs.Where(x => x.Fecha == dateTimePicker1.Text).Where(x => x.UserID == Int32.Parse(comboBox1.Text)).ToList();
         }
 

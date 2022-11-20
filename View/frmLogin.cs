@@ -32,7 +32,7 @@ namespace View
                 new frmMain(this).Show();
 
                 Logger log = new Logger();
-                log.LogData("Log-in", "El usuario se logueo correctamente");
+                log.LogData("Log-in", "El usuario se logueo correctamente","Informacion");
             }
             catch (Exception ex)
             {

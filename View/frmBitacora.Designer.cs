@@ -44,6 +44,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.Fe = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,7 +140,7 @@
             // rbFecha
             // 
             this.rbFecha.AutoSize = true;
-            this.rbFecha.Location = new System.Drawing.Point(503, 12);
+            this.rbFecha.Location = new System.Drawing.Point(503, 5);
             this.rbFecha.Name = "rbFecha";
             this.rbFecha.Size = new System.Drawing.Size(55, 17);
             this.rbFecha.TabIndex = 9;
@@ -151,7 +152,7 @@
             // rbUsuario
             // 
             this.rbUsuario.AutoSize = true;
-            this.rbUsuario.Location = new System.Drawing.Point(503, 30);
+            this.rbUsuario.Location = new System.Drawing.Point(503, 26);
             this.rbUsuario.Name = "rbUsuario";
             this.rbUsuario.Size = new System.Drawing.Size(61, 17);
             this.rbUsuario.TabIndex = 10;
@@ -162,7 +163,7 @@
             // rbAmbos
             // 
             this.rbAmbos.AutoSize = true;
-            this.rbAmbos.Location = new System.Drawing.Point(503, 49);
+            this.rbAmbos.Location = new System.Drawing.Point(503, 72);
             this.rbAmbos.Name = "rbAmbos";
             this.rbAmbos.Size = new System.Drawing.Size(57, 17);
             this.rbAmbos.TabIndex = 11;
@@ -195,6 +196,17 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Hasta";
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(503, 49);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(68, 17);
+            this.radioButton1.TabIndex = 15;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Criticidad";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // frmBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +215,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(671, 375);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Fe);
             this.Controls.Add(this.dateTimePicker2);
@@ -244,5 +257,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label Fe;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

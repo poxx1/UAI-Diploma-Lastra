@@ -15,5 +15,7 @@ namespace Models
         public string Info { get; set; }
         public string Usuario { get; set; }
         public int UserID { get; set; }
+
+        public string Priority { get; set; }
     }
 }

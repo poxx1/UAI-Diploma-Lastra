@@ -117,9 +117,9 @@ namespace View
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                //MessageBox.Show(""); Que la chupe este form de mierda
             }
         }
         public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)
@@ -137,5 +137,9 @@ namespace View
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
