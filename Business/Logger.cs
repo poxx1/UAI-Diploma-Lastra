@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Models;
 using DataAccess;
 using Utiles;
+using System.Windows.Forms;
 
 namespace Business
 {
@@ -28,7 +29,16 @@ namespace Business
         }
         public string getCurrentUser()
         {
-            return Session.GetInstance.usuario.Name;
+            try
+            {
+                return Session.GetInstance.usuario.Name;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error obteniendo el usuario actual");
+                MessageBox.Show(ex.Message);
+                return "error";
+            }
         }
         public int getCurrentUserID()
         {

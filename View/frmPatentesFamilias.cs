@@ -38,6 +38,10 @@ namespace View
         {
             updateLanguage(Session.GetInstance.language);
             LlenarPatentesFamilias();
+
+            Logger log = new Logger();
+            log.LogData("Ingreso Patentes", "El usuario ingreso a las patentes", "Warning");
+            Application.Exit();
         }
         private void BtnGuardarPatente_Click(object sender, EventArgs e)
         {
@@ -232,7 +236,7 @@ namespace View
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Error ingresando a patentes" + ex);
             }
         }
         public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)
