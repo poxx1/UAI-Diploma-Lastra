@@ -37,6 +37,7 @@ namespace DataAccess
                     mm.Hora = reader.GetString(reader.GetOrdinal("Time"));
                     mm.Info = reader.GetString(reader.GetOrdinal("Info"));
                     mm.Details = reader.GetString(reader.GetOrdinal("Activity"));
+                    mm.Priority = reader.GetString(reader.GetOrdinal("Priority"));
 
                     list.Add(mm);
                 }
@@ -63,15 +64,16 @@ namespace DataAccess
                             ,[Date]
                             ,[Time]
                             ,[Info]
-                            ,[Activity])            
+                            ,[Activity]
+                            ,[Priority])            
                         VALUES
                             ( @User_ID
                             , @Date
                             , @Time
                             , @Info
-                            , @Activity                     
+                            , @Activity    
+                            , @Priority
                             )";
-
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = query;
@@ -83,7 +85,8 @@ namespace DataAccess
                 cmd.Parameters.Add(new SqlParameter("Time", log.Hora));
                 cmd.Parameters.Add(new SqlParameter("Info", log.Info));
                 cmd.Parameters.Add(new SqlParameter("Activity", log.Details));
-               
+                cmd.Parameters.Add(new SqlParameter("Priority", log.Priority));
+
                 cmd.ExecuteNonQuery();
                 connection.Close();
 

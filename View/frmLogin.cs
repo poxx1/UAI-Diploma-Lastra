@@ -59,6 +59,20 @@ namespace View
         private void frmLogin_Load(object sender, EventArgs e)
         {
             textBox1.Focus();
+
+            try
+            {
+                DBChecker db = new DBChecker();
+                if (db.dbExists()) { }
+                else
+                {
+                    db.CreateDB(db.readScript(@"c:\"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de la DB. Se intento crear pero algo fallo" + ex);
+            }
         }
 
         private void button2_Click_1(object sender, EventArgs e)

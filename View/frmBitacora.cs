@@ -66,5 +66,10 @@ namespace View
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listOfLogs;
         }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

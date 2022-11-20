@@ -92,6 +92,7 @@
   <ItemGroup>
     <Compile Include="ConnectionSingleton.cs" />
     <Compile Include="Crypt.cs" />
+    <Compile Include="DBChecker.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="JsonWork.cs" />
     <Compile Include="KeyGen.cs" />

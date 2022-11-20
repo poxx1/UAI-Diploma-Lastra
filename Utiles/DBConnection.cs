@@ -170,7 +170,7 @@ namespace Utiles
         }
         public bool TestConnection()
         {
-            SqlConnection _conexion = new SqlConnection(@"DESKTOP-CUHS3KR\SQLEXPRESS; Initial Catalog=Lastra_Campo;Integrated Security=True");
+            SqlConnection _conexion = new SqlConnection(@"Server=DESKTOP-CUHS3KR\SQLEXPRESS; Initial Catalog=campo;Integrated Security=True");
 
             //Abro la conexion
             try
@@ -183,7 +183,8 @@ namespace Utiles
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Cant connect to database!\r\n");
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                throw e;
+                //
+                return false;
             }
             return true;
         }
