@@ -138,6 +138,10 @@ namespace View
                 frm.Show();
             }
 
+            MensajeBienvenidaService ms = new MensajeBienvenidaService();
+            
+            ms.mostrarMensajes();
+
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

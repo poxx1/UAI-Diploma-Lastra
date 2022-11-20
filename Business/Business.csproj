@@ -57,6 +57,7 @@
     <Compile Include="LanguageService.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="MachinesService.cs" />
+    <Compile Include="MensajeBienvenidaService.cs" />
     <Compile Include="NotificationService.cs" />
     <Compile Include="exceptions\LoginException.cs" />
     <Compile Include="PermissionsService.cs" />

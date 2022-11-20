@@ -36,6 +36,8 @@
             this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eBackupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gMensajesDeBienvenidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hDigitoVerificadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.maquinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +53,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.gMensajesDeBienvenidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hDigitoVerificadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -122,6 +122,19 @@
             this.fBitacoraToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
             this.fBitacoraToolStripMenuItem.Text = "1. F Bitacora";
             this.fBitacoraToolStripMenuItem.Click += new System.EventHandler(this.fBitacoraToolStripMenuItem_Click);
+            // 
+            // gMensajesDeBienvenidaToolStripMenuItem
+            // 
+            this.gMensajesDeBienvenidaToolStripMenuItem.Name = "gMensajesDeBienvenidaToolStripMenuItem";
+            this.gMensajesDeBienvenidaToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.gMensajesDeBienvenidaToolStripMenuItem.Text = "1. G Mensajes de Bienvenida";
+            this.gMensajesDeBienvenidaToolStripMenuItem.Click += new System.EventHandler(this.gMensajesDeBienvenidaToolStripMenuItem_Click);
+            // 
+            // hDigitoVerificadorToolStripMenuItem
+            // 
+            this.hDigitoVerificadorToolStripMenuItem.Name = "hDigitoVerificadorToolStripMenuItem";
+            this.hDigitoVerificadorToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.hDigitoVerificadorToolStripMenuItem.Text = "1. H Digito Verificador";
             // 
             // menuStrip
             // 
@@ -269,19 +282,6 @@
             this.label2.Size = new System.Drawing.Size(144, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Dark side of the moon - 1973";
-            // 
-            // gMensajesDeBienvenidaToolStripMenuItem
-            // 
-            this.gMensajesDeBienvenidaToolStripMenuItem.Name = "gMensajesDeBienvenidaToolStripMenuItem";
-            this.gMensajesDeBienvenidaToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
-            this.gMensajesDeBienvenidaToolStripMenuItem.Text = "1. G Mensajes de Bienvenida";
-            this.gMensajesDeBienvenidaToolStripMenuItem.Click += new System.EventHandler(this.gMensajesDeBienvenidaToolStripMenuItem_Click);
-            // 
-            // hDigitoVerificadorToolStripMenuItem
-            // 
-            this.hDigitoVerificadorToolStripMenuItem.Name = "hDigitoVerificadorToolStripMenuItem";
-            this.hDigitoVerificadorToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
-            this.hDigitoVerificadorToolStripMenuItem.Text = "1. H Digito Verificador";
             // 
             // frmMain
             // 

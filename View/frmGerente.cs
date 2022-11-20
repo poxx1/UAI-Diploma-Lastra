@@ -11,6 +11,7 @@ using Business;
 using Models;
 using Models.interfaces;
 using Models.language;
+using Utiles;
 
 namespace View
 {
@@ -66,6 +67,9 @@ namespace View
                 progressBar2.Maximum = ms.GetAll().Count;
 
                 listBox1.DataSource = machines;
+
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = machines;
 
                 //Load Maquinas sin revisar
 
@@ -139,7 +143,8 @@ namespace View
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            PDFConverter pdf = new PDFConverter();
+            pdf.ConvertToPdf(dataGridView1);
         }
     }
 }
