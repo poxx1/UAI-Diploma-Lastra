@@ -45,6 +45,8 @@
             this.Fe = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,12 +203,29 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(503, 49);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(68, 17);
+            this.radioButton1.Size = new System.Drawing.Size(66, 17);
             this.radioButton1.TabIndex = 15;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Criticidad";
+            this.radioButton1.Text = "Prioridad";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_1);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(228, 88);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(165, 21);
+            this.comboBox2.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(234, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Prioridad";
             // 
             // frmBitacora
             // 
@@ -216,6 +235,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(671, 375);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Fe);
@@ -259,5 +280,7 @@
         private System.Windows.Forms.Label Fe;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label5;
     }
 }

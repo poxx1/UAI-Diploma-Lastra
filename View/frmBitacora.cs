@@ -24,9 +24,14 @@ namespace View
         private void frmBitacora_Load(object sender, EventArgs e)
         {
             Logger log = new Logger();
+            UserService us = new UserService();
             listOfLogs = log.ListLogs();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listOfLogs;
+
+            comboBox1.DataSource = null;
+            comboBox1.DataSource = us.GetAll();
+            comboBox1.DisplayMember = "Name";
 
             dateTimePicker1.MaxDate = DateTime.Now;           
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -35,6 +40,10 @@ namespace View
             dateTimePicker2.MaxDate = DateTime.Now;
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yy";
+
+            comboBox2.Items.Add("Informacion");
+            comboBox2.Items.Add("Warning");
+            comboBox2.Items.Add("Error");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,16 +58,40 @@ namespace View
 
         private void button1_Click(object sender, EventArgs e)
         {//El tolist del orto hacia que no funcione el LINQ porque guardaba lalista vacia el estupido.
+            try
+            {
+                DateTime fechaDesde = dateTimePicker1.Value.AddDays(-1);
+                DateTime fechaHasta = dateTimePicker2.Value; //.AddDays(1);
 
-            DateTime fechaDesde = dateTimePicker1.Value;
-            DateTime fechaHasta = dateTimePicker2.Value;
-            DateTime fechaTest = DateTime.Parse("11/20/22");
+                //Por usuario
+                if (rbUsuario.Checked)
+                {
+                    User user = (User)comboBox1.SelectedItem;
+                    dataGridView1.DataSource = listOfLogs.Where(x => x.UserID == int.Parse(user.Id.ToString())).ToList();
+                }
+                if (rbFecha.Checked) //Fecha
+                {
+                    var list = (listOfLogs.Where(x => (DateTime.Parse(x.Fecha)) >= fechaDesde)).ToList();
+                    dataGridView1.DataSource = list.Where(x => (DateTime.Parse(x.Fecha)) <= fechaHasta).ToList();
+                }
+                //Por prioridad
+                if (radioButton1.Checked) dataGridView1.DataSource = listOfLogs.Where(x => x.Priority == comboBox2.SelectedItem.ToString()).ToList();
 
-            //if (fechaDesde > fechaTest) MessageBox.Show("es menor");
-
-            if (rbUsuario.Checked) dataGridView1.DataSource = listOfLogs.Where(x => x.UserID == int.Parse(comboBox1.Text)).ToList();
-            if (rbFecha.Checked) dataGridView1.DataSource = (listOfLogs.Where(x => (DateTime.Parse(x.Fecha)) <= fechaDesde)).ToList();//.Where(x => DateTime.Parse(x.Fecha) < dateTimePicker1.Value).ToList();
-            if (rbAmbos.Checked) dataGridView1.DataSource = listOfLogs.Where(x => x.Fecha == dateTimePicker1.Text).Where(x => x.UserID == Int32.Parse(comboBox1.Text)).ToList();
+                //Por todos
+                if (rbAmbos.Checked)
+                {
+                    var list = (listOfLogs.Where(x => (DateTime.Parse(x.Fecha)) >= fechaDesde)).ToList();
+                    var list2 = list.Where(x => (DateTime.Parse(x.Fecha)) <= fechaHasta).ToList();
+                    User user = (User)comboBox1.SelectedItem;
+                    var list3 = list2.Where(x => x.UserID == int.Parse(user.Id.ToString())).ToList();
+                    dataGridView1.DataSource = list3.Where(x => x.Priority == comboBox2.SelectedItem.ToString()).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error aplicando el filtro");
+                MessageBox.Show(ex.Message);  
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
