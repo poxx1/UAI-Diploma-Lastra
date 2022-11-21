@@ -155,9 +155,13 @@ namespace View
             agregarFamiliaBtn.Enabled = false;
             eliminarPatenteBtn.Enabled = false;
             agregarPatenteBtn.Enabled = false;
-
+            
             guardarPermisosBtn.Enabled = false;
             resetPasswordBtn.Enabled = false;
+
+            Logger log = new Logger();
+            log.LogData("Ingreso Usuarios", "El usuario ingreso a la configracion de usuario", "Warning");
+            Application.Exit();
         }
 
         private void cboPatentes_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,6 +219,10 @@ namespace View
                     {
                         user.Permissions.Remove(patent);
                         MostrarPermisos(user);
+
+                        Logger log = new Logger();
+                        log.LogData("Modificacion Usuarios", "El usuario modifico a la configracion de usuario", "Warning");
+                        Application.Exit();
                     }
                 }
             }
@@ -269,7 +277,8 @@ namespace View
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Error mostrando los usuarios");
+                MessageBox.Show(ex.Message);
             }
         }
         public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)

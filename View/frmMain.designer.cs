@@ -135,6 +135,7 @@
             this.hDigitoVerificadorToolStripMenuItem.Name = "hDigitoVerificadorToolStripMenuItem";
             this.hDigitoVerificadorToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
             this.hDigitoVerificadorToolStripMenuItem.Text = "1. H Digito Verificador";
+            this.hDigitoVerificadorToolStripMenuItem.Click += new System.EventHandler(this.hDigitoVerificadorToolStripMenuItem_Click);
             // 
             // menuStrip
             // 

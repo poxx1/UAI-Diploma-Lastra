@@ -596,7 +596,7 @@ namespace DataAccess
                     Tries = int.Parse(reader.GetValue(reader.GetOrdinal("Tries")).ToString()),
                     isBlocked = reader.GetBoolean(reader.GetOrdinal("isBlocked")),
                     id_tipo = int.Parse(reader.GetValue(reader.GetOrdinal("id_tipo")).ToString()),
-                    id_dv = int.Parse(reader.GetValue(reader.GetOrdinal("id_div")).ToString()),
+                    id_dv = int.Parse(reader.GetValue(reader.GetOrdinal("id_dv")).ToString()),
                     digitoVerificador = reader.GetValue(reader.GetOrdinal("digitoverificador")).ToString(),
                 };
                 lista.Add(user);
@@ -606,6 +606,46 @@ namespace DataAccess
             connection.Close();
 
             return lista;
+        }
+
+        public List<DigitoVerificadorModel> ListDigitoVerificadorHorizontal()
+        {
+            try
+            {
+                SqlConnection connection = ConnectionSingleton.getConnection();
+                connection.Open();
+                var cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                var sql = $@"select * from DigitoVerificador;";
+
+                cmd.CommandText = sql;
+
+                var reader = cmd.ExecuteReader();
+
+                var lista = new List<DigitoVerificadorModel>();
+
+                while (reader.Read())
+                {
+                    DigitoVerificadorModel user = new DigitoVerificadorModel()
+                    {
+                        id_dv = reader.GetValue(reader.GetOrdinal("id_dv")).ToString(),
+                        digitoVerificador = reader.GetValue(reader.GetOrdinal("digitoVerificador")).ToString(),
+                    };
+                    lista.Add(user);
+                }
+
+                reader.Close();
+                connection.Close();
+                return lista;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error listando digitos verificadores");
+                MessageBox.Show(ex.Message);
+                return new List<DigitoVerificadorModel>();
+            }
         }
     }
 }

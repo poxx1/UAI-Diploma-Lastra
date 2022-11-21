@@ -34,6 +34,58 @@ namespace Business
 
             return cr.Encrypt(rowSinHashear); 
         }
+        public List<DBUsers> ObtenerHashHorizontal()
+        {
+            List<DBUsers> usuarios = new List<DBUsers>();
+            usuarios = ListdBUsers();
+
+            try
+            {
+                foreach (DBUsers user in usuarios)
+                {
+                    user.digitoVerificador = DigitoVerificarUsuario(user);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error digitoverificando");
+                MessageBox.Show(ex.Message);
+                return new List<DBUsers>();
+            }
+
+            return usuarios;
+        }
+
+        public List<DigitoVerificadorModel> ListarDigitoVerificadorHorizontal()
+        {
+            try
+            {
+                UserRepository userRepository = new UserRepository();
+                List<DigitoVerificadorModel> lista = new List<DigitoVerificadorModel>();
+                lista = userRepository.ListDigitoVerificadorHorizontal();
+                return lista;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error trayendo datos desde la BD");
+                MessageBox.Show(ex.Message);
+                return new List<DigitoVerificadorModel>();
+            }
+        }
+
+        public bool CompararDigitoVerificadorHorizontal()
+        {
+            List<DBUsers> dBUsers = new List<DBUsers>();
+            List<DigitoVerificadorModel> digitos = new List<DigitoVerificadorModel>();
+
+            dBUsers = ObtenerHashHorizontal();
+            digitos = ListarDigitoVerificadorHorizontal();
+
+
+
+            return true;
+        }
 
         public string recuperarUsuario(List<DBUsers> usuariosDB)
         {

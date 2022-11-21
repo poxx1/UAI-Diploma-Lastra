@@ -42,7 +42,16 @@ namespace Business
         }
         public int getCurrentUserID()
         {
-            return Session.GetInstance.usuario.Id;
+            try
+            {
+                return Session.GetInstance.usuario.Id;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error obteniendo el usuario actual");
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
         }
 
         public bool LogData(string actividad, string informacion, string prioridad)

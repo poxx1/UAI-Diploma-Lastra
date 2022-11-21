@@ -33,7 +33,14 @@ namespace View
             user.isBlocked = false;
             user.id_tipo = 0;
 
-            us.DigitoVerificarUsuario(user);
+            MessageBox.Show(us.DigitoVerificarUsuario(user));
+
+            us.ObtenerHashHorizontal();
+
         }
+
+     
+
+        
     }
 }
