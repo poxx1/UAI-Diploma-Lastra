@@ -39,7 +39,6 @@ namespace DataAccess
                 throw;
             }
         }
-
         public void UpdateHorizontal(DigitoVerificadorModel user)
         {
 
@@ -66,12 +65,11 @@ namespace DataAccess
         }
         public void UpdateVertical(DigitoVerificadorModel user)
         {
-
             SqlConnection connection = ConnectionSingleton.getConnection();
             try
             {
                 connection.Open();
-                string query = $@"update DigitoVerificador set digitoVerificador = @digitoverificador where id_dv_v =@id";
+                string query = $@"update DigitoVerificadorVertical set digitoVerificador = @digitoverificador where id_dv_v =@id";
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = query;

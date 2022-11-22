@@ -45,6 +45,8 @@ namespace DataAccess
                                     ,@isBlocked
                                     ,@Tries
                                     ,@Tipo
+                                    ,@id_dv
+                                    ,@digitoverificador
                                      )";
 
                     cmd.Connection = connection;
@@ -56,6 +58,8 @@ namespace DataAccess
                     cmd.Parameters.Add(new SqlParameter("isBlocked", user.isBlocked));
                     cmd.Parameters.Add(new SqlParameter("Tries", user.Tries));
                     cmd.Parameters.Add(new SqlParameter("Tipo", user.Tipo));
+                    cmd.Parameters.Add(new SqlParameter("id_dv", 0)); //Hardcodeado aproposito porque despues se pisa
+                    cmd.Parameters.Add(new SqlParameter("digitoverificador", "asd"));
 
                     cmd.ExecuteNonQuery();
 
@@ -116,7 +120,6 @@ namespace DataAccess
                 throw;
             }
         }
-
         public bool CheckIfExistUserName(User user)
         {
             try
@@ -165,7 +168,6 @@ namespace DataAccess
             }
 
         }
-
         public bool CheckIfExist(User user)
         {
             try
@@ -213,7 +215,6 @@ namespace DataAccess
 
             //return false;
         }
-
         public List<user_typeModel> GetAllTypes()
         {
             try
@@ -252,7 +253,6 @@ namespace DataAccess
                 throw ex;
             }
         }
-
         public User Get(String Name)
         {
             User user = null;

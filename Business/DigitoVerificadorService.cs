@@ -197,5 +197,21 @@ namespace Business
 
             return true;
         }
+
+        public DBUsers convertToDBUser(User user)
+        {
+            DBUsers newUser = new DBUsers();
+
+            newUser.ID = user.Id;
+            newUser.UserName = user.UserName;
+            newUser.isBlocked = user.isBlocked;
+            newUser.id_tipo = user.Tipo;
+            newUser.Tries = user.Tries;
+            newUser.id_dv = 1;
+            newUser.Key_idioma = 1;
+            newUser.Email = user.Email;
+
+            return newUser;
+        }
     }
 }

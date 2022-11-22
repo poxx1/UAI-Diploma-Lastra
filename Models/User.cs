@@ -33,5 +33,7 @@ namespace Models
                 return _Permissions;
             }
         }
+        public String digitoVerificador { get; set; }
+        public int id_dv { get; set; }
     }
 }

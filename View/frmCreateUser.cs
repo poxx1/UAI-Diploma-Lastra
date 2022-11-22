@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
 using Models;
+using Models.DBModel;
 using Models.interfaces;
 using Models.language;
 using Utiles;
@@ -26,10 +27,7 @@ namespace View
             InitializeComponent();
             Session.GetInstance.addObserber(this);
             permissionsService = new PermissionsService();
-
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -54,33 +52,47 @@ namespace View
                 if (isValidData)
                 {
 
-                user.Name = textBox1.Text;
-                user.LastName = textBox2.Text;
-                user.Dni = textBox3.Text;
-                user.UserName = textBox4.Text;
+                    user.Name = textBox1.Text;
+                    user.LastName = textBox2.Text;
+                    user.Dni = textBox3.Text;
+                    user.UserName = textBox4.Text;
 
-                user.Password = crypt.Encrypt(textBox5.Text);
-                user.Email = textBox8.Text;
-                user.Phone = textBox6.Text;
-                user.Adress = textBox7.Text;
-                user_typeModel id = (user_typeModel)comboBox1.SelectedItem;
-                user.Tipo = id.id;
-                user.Language = (Models.language.Language)comboBox2.SelectedItem;
-                user.isBlocked = false;
-                user.Tries = 0;
-                //user.Permissions Le clavo el default
+                    user.Password = crypt.Encrypt(textBox5.Text);
+                    user.Email = textBox8.Text;
+                    user.Phone = textBox6.Text;
+                    user.Adress = textBox7.Text;
+                    user_typeModel id = (user_typeModel)comboBox1.SelectedItem;
+                    user.Tipo = id.id;
+                    user.Language = (Models.language.Language)comboBox2.SelectedItem;
+                    user.isBlocked = false;
+                    user.Tries = 0;
+                    //user.Permissions Le clavo el default
                 #endregion
 
-                //pregunto si existe el nombre de usuario y el dni
-                if (!us.CheckIfExist(user) && !us.CheckIfExistUserName(user))
-                {
-                    us.Save(user);
-                    MessageBox.Show("c creo el usuario");
-                }
-                else
-                {
-                    MessageBox.Show("No c pudo crear el usuario, ya existe");
-                }
+                    //pregunto si existe el nombre de usuario y el dni
+                    if (!us.CheckIfExist(user) && !us.CheckIfExistUserName(user))
+                    {
+                        //DBUser aca
+                        DBUsers userDV = new DBUsers();
+
+                        DigitoVerificadorService dg = new DigitoVerificadorService();
+
+                        userDV = dg.convertToDBUser(user);
+
+                        dg.DigitoVerificarUsuario(userDV);
+
+                        //Lo guardo con un DV temporal
+                        us.Save(user);
+
+                        //Le updateo el DV para que no se rompa
+                        dg.UpdateDigitoVerificadorHorizontalUsuario();
+                        
+                        MessageBox.Show("c creo el usuario");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No c pudo crear el usuario, ya existe");
+                    }
 
                 }
                 else { MessageBox.Show("Hay errores en los datos ingresados"); }
