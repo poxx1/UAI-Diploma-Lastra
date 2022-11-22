@@ -63,6 +63,12 @@ namespace DataAccess
                 throw;
             }
         }
+
+        public object ListarControlCambios()
+        {
+            throw new NotImplementedException();
+        }
+
         public void UpdateVertical(DigitoVerificadorModel user)
         {
             SqlConnection connection = ConnectionSingleton.getConnection();

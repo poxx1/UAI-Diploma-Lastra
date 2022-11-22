@@ -34,6 +34,14 @@ namespace Business
 
             return cr.Encrypt(rowSinHashear); 
         }
+
+        public object ListarControlCambios()
+        {
+            DigitoVerificadorRepository dg = new DigitoVerificadorRepository();
+            var list = dg.ListarControlCambios();
+            return list;
+        }
+
         public List<DBUsers> ObtenerHashHorizontal()
         {
             List<DBUsers> usuarios = new List<DBUsers>();
