@@ -67,7 +67,7 @@ namespace View
                     user.isBlocked = false;
                     user.Tries = 0;
                     //user.Permissions Le clavo el default
-                #endregion
+                    #endregion
 
                     //pregunto si existe el nombre de usuario y el dni
                     if (!us.CheckIfExist(user) && !us.CheckIfExistUserName(user))
@@ -79,13 +79,32 @@ namespace View
 
                         userDV = dg.convertToDBUser(user);
 
-                        dg.DigitoVerificarUsuario(userDV);
+                        DigitoVerificadorModel dv = new DigitoVerificadorModel();
+                        dv.id_dv = userDV.id_dv.ToString();
+
+                        dv.digitoVerificador = dg.DigitoVerificarUsuario(userDV);
 
                         //Lo guardo con un DV temporal
                         us.Save(user);
 
                         //Le updateo el DV para que no se rompa
-                        dg.UpdateDigitoVerificadorHorizontalUsuario();
+
+                        var lista = us.GetAll();
+                        var conDigito = lista.Where(x => x.Dni == user.Dni).ToList().First();
+
+                        dv.id_dv = conDigito.id_dv.ToString();
+
+                        //Hay que crear la referencia porque sino la cago.
+
+                        if (dg.InsertDigitoVerificador(dv))
+                        {
+                            if (dg.UpdateDigitoVerificadorHorizontalUsuario(dv))
+                                if (dg.UpdateDigitoVerificadorVerticalUsuario()) { }
+                                else MessageBox.Show("error aplicando el digito verificador en la DB");
+                            else MessageBox.Show("error aplicando el digito verificador en la DB");
+                        }
+                        else { MessageBox.Show("error aplicando el digito verificador en la DB"); }
+                        //Al crear un usuario nuevo tambien voy a tener que digitoVerificar Verticalmente
                         
                         MessageBox.Show("c creo el usuario");
                     }

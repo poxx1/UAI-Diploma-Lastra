@@ -115,6 +115,25 @@ namespace Business
                 return false;
             }
         }
+
+        public bool InsertDigitoVerificador(DigitoVerificadorModel dv)
+        {
+            try
+            {
+                List<DigitoVerificadorModel> digitos = new List<DigitoVerificadorModel>();
+                DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
+
+                dr.InsertHorizontal(dv);
+
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            }
+
         public string recuperarUsuario(List<DBUsers> usuariosDB)
         {
             //id + UserName +  Password + Email + key_idioma + tries + isBlocked + id_tipo
@@ -169,6 +188,14 @@ namespace Business
                 string hashadaDVs = crypt.Encrypt(sinhashearDVs);
 
                 MessageBox.Show(hashadaDVs);
+
+                DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
+
+                DigitoVerificadorModel dm = new DigitoVerificadorModel();
+                dm.id_dv = "1";
+                dm.digitoVerificador = hashadaDVs;
+                dr.UpdateVertical(dm);
+
                 return true;
             }
             catch (Exception ex)
@@ -187,14 +214,15 @@ namespace Business
 
             return result;
         }
-        public bool UpdateDigitoVerificadorHorizontalUsuario()
+        public bool UpdateDigitoVerificadorHorizontalUsuario(DigitoVerificadorModel digito)
         {
-
+            DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
+            dr.UpdateHorizontal(digito);
             return true;
         }
         public bool UpdateDigitoVerificadorVerticalUsuario()
         {
-
+            verificarVerticalUsuarios();
             return true;
         }
 
@@ -210,6 +238,8 @@ namespace Business
             newUser.id_dv = 1;
             newUser.Key_idioma = 1;
             newUser.Email = user.Email;
+
+            //Falta completar seguro
 
             return newUser;
         }

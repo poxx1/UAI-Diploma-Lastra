@@ -12,8 +12,8 @@ namespace DataAccess
 {
     public class DigitoVerificadorRepository
     {
-        PermissionsRepository permisosRepository;
-        LanguageRepository languageRepository;
+        //PermissionsRepository permisosRepository;
+        //LanguageRepository languageRepository;
 
         public void UpdateVertical(DBUsers user)
         {
@@ -46,8 +46,8 @@ namespace DataAccess
             try
             {
                 connection.Open();
-                string query = $@"update DigitoVerificador set digitoVerificador = @digitoverificador where id_dv =@id";
-
+                string query = $@"update DigitoVerificador set digitoVerificador = @digitoverificador where id_dv = @id";
+                //Esto anda mal porque los ID no coinciden, entonces no updatea una verga
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
@@ -69,7 +69,7 @@ namespace DataAccess
             try
             {
                 connection.Open();
-                string query = $@"update DigitoVerificadorVertical set digitoVerificador = @digitoverificador where id_dv_v =@id";
+                string query = $@"update DigitoVerificadorVertical set digitoVerificador = @digitoverificador where id_dv_v =@id_dv_v";
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = query;
@@ -84,6 +84,40 @@ namespace DataAccess
             {
                 connection.Close();
                 throw;
+            }
+        }
+
+        public bool InsertHorizontal(DigitoVerificadorModel digitoVerificadorModel)
+        {
+            try
+            {
+                SqlConnection connection = ConnectionSingleton.getConnection();
+                connection.Open();
+                string query = $@"INSERT into [DigitoVerificador]
+                            ([id_dv]
+                            ,[digitoVerificador]
+                            )            
+                        VALUES
+                            ( @id_dv
+                            , @digitoVerificador                        
+                             )";
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+
+                cmd.Parameters.Add(new SqlParameter("id_dv", digitoVerificadorModel.id_dv));
+                cmd.Parameters.Add(new SqlParameter("digitoVerificador", digitoVerificadorModel.digitoVerificador));
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw ex;
             }
         }
     }
