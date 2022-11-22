@@ -607,7 +607,6 @@ namespace DataAccess
 
             return lista;
         }
-
         public List<DigitoVerificadorModel> ListDigitoVerificadorHorizontal()
         {
             try

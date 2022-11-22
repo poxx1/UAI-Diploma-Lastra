@@ -18,6 +18,8 @@ namespace View
         public frmDigitoVerificador()
         {
             InitializeComponent();
+            button2.Enabled = false;
+            label4.Text = "Debido a un error en la verificacion del DV, debe realizar una accion";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,14 +35,31 @@ namespace View
             user.isBlocked = false;
             user.id_tipo = 0;
 
-            MessageBox.Show(us.DigitoVerificarUsuario(user));
+            //MessageBox.Show(us.DigitoVerificarUsuario(user));
 
-            us.ObtenerHashHorizontal();
+            if (us.CompararDigitoVerificadorHorizontal()) {
+                MessageBox.Show("Se valido correctamente el digito verificador");
+            }
 
         }
 
-     
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "asd")
+            {
+                button2.Enabled = true;
+            }
+            else label4.Text = "Error validando la clave de recuperacion";
+        }
+
+        private void frmDigitoVerificador_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -55,7 +55,6 @@ namespace Business
 
             return usuarios;
         }
-
         public List<DigitoVerificadorModel> ListarDigitoVerificadorHorizontal()
         {
             try
@@ -73,7 +72,6 @@ namespace Business
                 return new List<DigitoVerificadorModel>();
             }
         }
-
         public bool CompararDigitoVerificadorHorizontal()
         {
             List<DBUsers> dBUsers = new List<DBUsers>();
@@ -82,11 +80,41 @@ namespace Business
             dBUsers = ObtenerHashHorizontal();
             digitos = ListarDigitoVerificadorHorizontal();
 
+            bool check = true;
+            List<bool> listaChecker= new List<bool>();
 
+            if (digitos.Count > 0 && dBUsers.Count > 0)
+            {
+                foreach (DBUsers user in dBUsers)
+                {
+                    foreach (DigitoVerificadorModel digito in digitos)
+                    {
+                        if(digito.digitoVerificador == user.digitoVerificador)
+                        {
+                            listaChecker.Add(true);
+                            break;
+                        }
+                    }
+                }
+                    
+                if (listaChecker.Contains(false) || listaChecker.Count != digitos.Count)
+                {
+                    check = false;
+                    MessageBox.Show("Hay un item que no concuerda con la verificacion");
+                }
+            }
+            else {
+                MessageBox.Show("Error trayendo datos para verificar usuario, listas vacias");
+                return false;
+            }
 
-            return true;
+            if (check) return true;
+            else
+            {
+                MessageBox.Show("Error en la verificacion de los digitos");
+                return false;
+            }
         }
-
         public string recuperarUsuario(List<DBUsers> usuariosDB)
         {
             //id + UserName +  Password + Email + key_idioma + tries + isBlocked + id_tipo
@@ -107,6 +135,67 @@ namespace Business
             }
 
             return "";
+        }
+        public bool verificarVerticalUsuarios()
+        {
+            try
+            {
+                //Verificar verticalmente usuarios
+                string sinhashear = "";
+                List<DBUsers> usuarios = ObtenerHashHorizontal();
+                foreach (DBUsers user in usuarios)
+                {
+                    sinhashear += user.digitoVerificador + "##";
+                }
+
+                MessageBox.Show(sinhashear);
+
+                Crypt crypt = new Crypt();
+                string hashada = crypt.Encrypt(sinhashear);
+
+                MessageBox.Show(hashada);
+
+                //Verificar verticalmente tabla horizontal
+                string sinhashearDVs = "";
+                List<DigitoVerificadorModel> digitos = ListarDigitoVerificadorHorizontal();
+
+                foreach (DigitoVerificadorModel digito in digitos)
+                {
+                    sinhashearDVs += digito.digitoVerificador;
+                }
+
+                MessageBox.Show(sinhashearDVs);
+
+                string hashadaDVs = crypt.Encrypt(sinhashearDVs);
+
+                MessageBox.Show(hashadaDVs);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error calculando el digito vertical");
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool dobleVerificacion()
+        {
+            bool result = false;
+
+            if (verificarVerticalUsuarios() && CompararDigitoVerificadorHorizontal())
+                result = true;
+
+            return result;
+        }
+        public bool UpdateDigitoVerificadorHorizontalUsuario()
+        {
+
+            return true;
+        }
+        public bool UpdateDigitoVerificadorVerticalUsuario()
+        {
+
+            return true;
         }
     }
 }

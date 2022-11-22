@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DigitoVerificadorRepository.cs" />
     <Compile Include="LanguageRepository.cs" />
     <Compile Include="LogRepository.cs" />
     <Compile Include="MachineRepository.cs" />
