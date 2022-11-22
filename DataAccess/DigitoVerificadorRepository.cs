@@ -15,20 +15,20 @@ namespace DataAccess
         PermissionsRepository permisosRepository;
         LanguageRepository languageRepository;
 
-        public void UpdateVertical(User user)
+        public void UpdateVertical(DBUsers user)
         {
 
             SqlConnection connection = ConnectionSingleton.getConnection();
             try
             {
                 connection.Open();
-                string query = $@"update Users set Password = @password where id_usuario =@id";
+                string query = $@"update Users set digitoverificador = @digitoverificador where id_usuario =@id";
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
-                cmd.Parameters.Add(new SqlParameter("id", user.Id));
-                cmd.Parameters.Add(new SqlParameter("Password", user.Password));
+                cmd.Parameters.Add(new SqlParameter("id", user.ID));
+                cmd.Parameters.Add(new SqlParameter("digitoverificador", user.digitoVerificador));
 
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -40,20 +40,44 @@ namespace DataAccess
             }
         }
 
-        public void UpdateHorizontal(User user)
+        public void UpdateHorizontal(DigitoVerificadorModel user)
         {
 
             SqlConnection connection = ConnectionSingleton.getConnection();
             try
             {
                 connection.Open();
-                string query = $@"update Users set Password = @password where id_usuario =@id";
+                string query = $@"update DigitoVerificador set digitoVerificador = @digitoverificador where id_dv =@id";
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
-                cmd.Parameters.Add(new SqlParameter("id", user.Id));
-                cmd.Parameters.Add(new SqlParameter("Password", user.Password));
+                cmd.Parameters.Add(new SqlParameter("id", user.id_dv));
+                cmd.Parameters.Add(new SqlParameter("digitoverificador", user.digitoVerificador));
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch
+            {
+                connection.Close();
+                throw;
+            }
+        }
+        public void UpdateVertical(DigitoVerificadorModel user)
+        {
+
+            SqlConnection connection = ConnectionSingleton.getConnection();
+            try
+            {
+                connection.Open();
+                string query = $@"update DigitoVerificador set digitoVerificador = @digitoverificador where id_dv_v =@id";
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.Parameters.Add(new SqlParameter("id_dv_v", user.id_dv));
+                cmd.Parameters.Add(new SqlParameter("digitoVerificador", user.digitoVerificador));
 
                 cmd.ExecuteNonQuery();
                 connection.Close();
