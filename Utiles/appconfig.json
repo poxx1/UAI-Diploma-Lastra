@@ -1,5 +1,6 @@
 {
-    "DBConnection": "",
-    "Password": "",
+    "ConnectionString": "",
+    "HelperFile":  "",
+    "RecoveryCode": "",
     ""
 }
