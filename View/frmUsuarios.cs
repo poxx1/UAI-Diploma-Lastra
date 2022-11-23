@@ -161,7 +161,6 @@ namespace View
 
             Logger log = new Logger();
             log.LogData("Ingreso Usuarios", "El usuario ingreso a la configracion de usuario", "Warning");
-            Application.Exit();
         }
 
         private void cboPatentes_SelectedIndexChanged(object sender, EventArgs e)

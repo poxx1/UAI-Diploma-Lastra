@@ -41,7 +41,6 @@ namespace View
 
             Logger log = new Logger();
             log.LogData("Ingreso Patentes", "El usuario ingreso a las patentes", "Warning");
-            Application.Exit();
         }
         private void BtnGuardarPatente_Click(object sender, EventArgs e)
         {
