@@ -151,5 +151,11 @@ namespace View
         {
 
         }
+
+        private void frmGerente_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            Help.ShowHelp(this, @"D:\Diploma-Lastra\Documentation\Proyecto.chm"); //, "content.html"
+
+        }
     }
 }

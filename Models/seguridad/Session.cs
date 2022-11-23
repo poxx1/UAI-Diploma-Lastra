@@ -88,6 +88,7 @@ namespace Models
 
         public void Logout()
         {
+
             _sesion.usuario = null;
             _sesion.language = null;
         }

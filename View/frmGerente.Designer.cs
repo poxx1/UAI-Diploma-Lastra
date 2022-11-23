@@ -176,6 +176,7 @@
             this.Name = "frmGerente";
             this.Text = "frmGerente";
             this.Load += new System.EventHandler(this.frmGerente_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmGerente_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

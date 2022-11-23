@@ -38,6 +38,7 @@
             this.fBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gMensajesDeBienvenidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hDigitoVerificadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iControlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.maquinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.iControlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -138,6 +138,13 @@
             this.hDigitoVerificadorToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
             this.hDigitoVerificadorToolStripMenuItem.Text = "1. H Digito Verificador";
             this.hDigitoVerificadorToolStripMenuItem.Click += new System.EventHandler(this.hDigitoVerificadorToolStripMenuItem_Click);
+            // 
+            // iControlDeCambiosToolStripMenuItem
+            // 
+            this.iControlDeCambiosToolStripMenuItem.Name = "iControlDeCambiosToolStripMenuItem";
+            this.iControlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.iControlDeCambiosToolStripMenuItem.Text = "1. I Control de Cambios";
+            this.iControlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.iControlDeCambiosToolStripMenuItem_Click);
             // 
             // menuStrip
             // 
@@ -285,13 +292,6 @@
             this.label2.Size = new System.Drawing.Size(144, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Dark side of the moon - 1973";
-            // 
-            // iControlDeCambiosToolStripMenuItem
-            // 
-            this.iControlDeCambiosToolStripMenuItem.Name = "iControlDeCambiosToolStripMenuItem";
-            this.iControlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
-            this.iControlDeCambiosToolStripMenuItem.Text = "1. I Control de Cambios";
-            this.iControlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.iControlDeCambiosToolStripMenuItem_Click);
             // 
             // frmMain
             // 

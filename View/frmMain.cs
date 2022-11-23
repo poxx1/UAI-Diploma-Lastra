@@ -151,12 +151,10 @@ namespace View
         }
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
+          
             Session.GetInstance.removeObserber(this);
 
             sesionService.Logout();
-
-            Logger log = new Logger();
-            log.LogData("Log-Out", "El usuario se des-logueo correctamente", "Informacion");
             Application.Exit();
         }
 
@@ -232,6 +230,10 @@ namespace View
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Logger log = new Logger();
+            log.LogData("Log-Out", "El usuario se des-logueo correctamente", "Informacion");
+
+
             Session.GetInstance.removeObserber(this);
             sesionService.Logout();
             Application.Exit();
