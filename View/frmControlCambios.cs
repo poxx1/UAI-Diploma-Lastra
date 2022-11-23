@@ -33,7 +33,7 @@ namespace View
                 ControlCambiosModel cambio = (ControlCambiosModel)dataGridView1.CurrentRow.DataBoundItem;
                 //DBUsers usuarioRecuperado = ds.recuperarUsuario(cambio.change_data);
                 Crypt cr = new Crypt();
-                string stringlara = cr.Decrypt("p5nWNy/d6vw6Yud0xh64YwbZJ5+J2pNXjmK2NMlnAT4gScc2z9gU4VgN7sVKu90zGzjYE4xdCRQbgajWT+cMNpipNRaw6jXR");
+                string stringlara = cr.Decrypt("KQOn+5zThKs8L1Eyms69Qz/dJ495pO7E9ibDCc6mh9rCiMm5dS3ch77YM2O9YGKs");
 
                 UserRepository ur = new UserRepository();
                 ur.updateUser(ds.obtenerUsuario(stringlara));

@@ -490,17 +490,14 @@ namespace DataAccess
                     SqlCommand cmd;
 
                     string query = $@"UPDATE [dbo].[Users]
-                   SET [Email] = @Email
-                      ,[UserName] = @UserName
-                      ,[UserName] = @UserName
-                      ,[UserName] = @UserName
-                      ,[UserName] = @UserName
-                      ,[UserName] = @UserName
-                      ,[UserName] = @UserName
-                      ,[UserName] = @UserName
-                      ,[UserName] = @UserName                
-                      ,[UserName] = @UserName                  
-                      where id_usuario =@id
+                   SET [UserName] = @UserName
+                      ,[Password] = @Password
+                      ,[Email] = @Email
+                      ,[key_idioma] = @key_idioma
+                      ,[Tries] = @Tries
+                      ,[isBlocked] = @isBlocked
+                      ,[id_tipo] = @id_tipo             
+                      where id_usuario = @id_usuario
                     ";
 
                     cmd = new SqlCommand();
