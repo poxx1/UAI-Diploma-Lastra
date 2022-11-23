@@ -53,6 +53,8 @@ namespace View
                     dr.UpdateHorizontalUsuario(dv);
                     dg.UpdateDigitoVerificadorVerticalUsuario();
 
+                    dg.InsertarCambioDB(user);
+
                     Logger log = new Logger();
                     log.LogData("Cambio en usuario",$"Se modifico el usuario {user.UserName}", "Error");
 

@@ -268,7 +268,6 @@ namespace Business
 
             return newUser;
         }
-
         public bool InsertarCambioDB(DBUsers user)
         {
             try

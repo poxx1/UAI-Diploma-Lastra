@@ -127,7 +127,9 @@ namespace DataAccess
             catch (Exception e)
             {
                 connection.Close();
-                throw e;
+                MessageBox.Show(e.Message);
+                return new List<ControlCambiosModel>();
+                //throw e;
             }
             
         }
@@ -194,17 +196,17 @@ namespace DataAccess
             {
                 SqlConnection connection = ConnectionSingleton.getConnection();
                 connection.Open();
-                string query = $@"INSERT into [DigitoVerificador]
+                string query = $@"INSERT into [ControlCambios]
                             ([id_change]
                             ,[change_data]
-                            ,[change_data]
-                            ,[change_data]
+                            ,[change_date]
+                            ,[change_userAffected]
                             )            
                         VALUES
                             ( @id_change
                             , @change_data                        
-                            , @change_data                        
-                            , @change_data                        
+                            , @change_date                        
+                            , @change_userAffected                        
                              )";
 
                 SqlCommand cmd = new SqlCommand();
@@ -213,8 +215,8 @@ namespace DataAccess
 
                 cmd.Parameters.Add(new SqlParameter("id_change", user.id_change));
                 cmd.Parameters.Add(new SqlParameter("change_data", user.change_data));
-                cmd.Parameters.Add(new SqlParameter("change_data", user.change_data));
-                cmd.Parameters.Add(new SqlParameter("change_data", user.change_data));
+                cmd.Parameters.Add(new SqlParameter("change_date", user.change_date));
+                cmd.Parameters.Add(new SqlParameter("change_data", user.change_userAffected));
 
                 cmd.ExecuteNonQuery();
                 connection.Close();
