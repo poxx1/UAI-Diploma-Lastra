@@ -29,20 +29,24 @@ namespace View
         {
             try
             {
-                DigitoVerificadorService ds = new DigitoVerificadorService();
-                ControlCambiosModel cambio = (ControlCambiosModel)dataGridView1.CurrentRow.DataBoundItem;
-                //DBUsers usuarioRecuperado = ds.recuperarUsuario(cambio.change_data);
-                Crypt cr = new Crypt();
-                string stringlara = cr.Decrypt("KQOn+5zThKs8L1Eyms69Qz/dJ495pO7E9ibDCc6mh9rCiMm5dS3ch77YM2O9YGKs");
+                DialogResult response = MessageBox.Show("Esta seguro que desea restaurar el usuario?", "Restaurar", MessageBoxButtons.OKCancel);
+                if (response == DialogResult.OK)
+                {
+                    DigitoVerificadorService ds = new DigitoVerificadorService();
+                    ControlCambiosModel cambio = (ControlCambiosModel)dataGridView1.CurrentRow.DataBoundItem;
+                    //DBUsers usuarioRecuperado = ds.recuperarUsuario(cambio.change_data);
+                    Crypt cr = new Crypt();
+                    string stringlara = cr.Decrypt(cambio.change_data);
 
-                UserRepository ur = new UserRepository();
-                ur.updateUser(ds.obtenerUsuario(stringlara));
+                    UserRepository ur = new UserRepository();
+                    ur.updateUser(ds.obtenerUsuario(stringlara));
 
-                //>> Falta updatear estos dos perro
-                //ds.UpdateDigitoVerificadorHorizontalUsuario(); 
-                //ds.UpdateDigitoVerificadorVerticalUsuario();
+                    //>> Falta updatear estos dos perro
+                    //ds.UpdateDigitoVerificadorHorizontalUsuario(); 
+                    //ds.UpdateDigitoVerificadorVerticalUsuario();
 
-                label1.Text = "Se restauro correctamente el usuario al estado original";
+                    label1.Text = "Se restauro correctamente el usuario al estado original";
+                }
             }
             catch (Exception ex)
             {
