@@ -37,6 +37,11 @@ namespace View
 
                 UserRepository ur = new UserRepository();
                 ur.updateUser(ds.obtenerUsuario(stringlara));
+
+                //>> Falta updatear estos dos perro
+                //ds.UpdateDigitoVerificadorHorizontalUsuario(); 
+                //ds.UpdateDigitoVerificadorVerticalUsuario();
+
                 label1.Text = "Se restauro correctamente el usuario al estado original";
             }
             catch (Exception ex)
