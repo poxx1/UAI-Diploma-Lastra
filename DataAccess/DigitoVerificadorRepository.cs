@@ -63,7 +63,6 @@ namespace DataAccess
                 throw;
             }
         }
-
         public bool UpdateHorizontalUsuario(DigitoVerificadorModel user)
         {
             SqlConnection connection = ConnectionSingleton.getConnection();
@@ -90,7 +89,6 @@ namespace DataAccess
                 return false;
             }
         }
-
         public List<ControlCambiosModel> ListarControlCambios()
         {        
             SqlConnection connection = ConnectionSingleton.getConnection();
@@ -133,7 +131,6 @@ namespace DataAccess
             }
             
         }
-
         public void UpdateVertical(DigitoVerificadorModel user)
         {
             SqlConnection connection = ConnectionSingleton.getConnection();
@@ -157,7 +154,6 @@ namespace DataAccess
                 throw;
             }
         }
-
         public bool InsertHorizontal(DigitoVerificadorModel digitoVerificadorModel)
         {
             try
@@ -179,6 +175,46 @@ namespace DataAccess
 
                 cmd.Parameters.Add(new SqlParameter("id_dv", digitoVerificadorModel.id_dv));
                 cmd.Parameters.Add(new SqlParameter("digitoVerificador", digitoVerificadorModel.digitoVerificador));
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw ex;
+            }
+        }
+
+        public bool InsertarCambioDB(ControlCambiosModel user)
+        {
+            try
+            {
+                SqlConnection connection = ConnectionSingleton.getConnection();
+                connection.Open();
+                string query = $@"INSERT into [DigitoVerificador]
+                            ([id_change]
+                            ,[change_data]
+                            ,[change_data]
+                            ,[change_data]
+                            )            
+                        VALUES
+                            ( @id_change
+                            , @change_data                        
+                            , @change_data                        
+                            , @change_data                        
+                             )";
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+
+                cmd.Parameters.Add(new SqlParameter("id_change", user.id_change));
+                cmd.Parameters.Add(new SqlParameter("change_data", user.change_data));
+                cmd.Parameters.Add(new SqlParameter("change_data", user.change_data));
+                cmd.Parameters.Add(new SqlParameter("change_data", user.change_data));
 
                 cmd.ExecuteNonQuery();
                 connection.Close();

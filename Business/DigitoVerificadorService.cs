@@ -34,14 +34,12 @@ namespace Business
 
             return cr.Encrypt(rowSinHashear); 
         }
-
-        public object ListarControlCambios()
+        public List<ControlCambiosModel> ListarControlCambios()
         {
             DigitoVerificadorRepository dg = new DigitoVerificadorRepository();
             var list = dg.ListarControlCambios();
             return list;
         }
-
         public List<DBUsers> ObtenerHashHorizontal()
         {
             List<DBUsers> usuarios = new List<DBUsers>();
@@ -142,7 +140,6 @@ namespace Business
                 return false;
             }
             }
-
         public string recuperarUsuario(List<DBUsers> usuariosDB)
         {
             //id + UserName +  Password + Email + key_idioma + tries + isBlocked + id_tipo
@@ -252,7 +249,6 @@ namespace Business
             verificarVerticalUsuarios();
             return true;
         }
-
         public DBUsers convertToDBUser(User user)
         {
             DBUsers newUser = new DBUsers();
@@ -271,6 +267,31 @@ namespace Business
             //Falta completar seguro
 
             return newUser;
+        }
+
+        public bool InsertarCambioDB(DBUsers user)
+        {
+            try
+            {
+                DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
+                ControlCambiosModel ccm = new ControlCambiosModel();
+                List<ControlCambiosModel> lista = new List<ControlCambiosModel>();
+                lista = ListarControlCambios();
+
+                ccm.id_change = lista.Count + 1;
+                ccm.change_data = user.digitoVerificador;
+                ccm.change_userAffected = user.ID.ToString();
+                ccm.change_date = DateTime.Now.ToString("MM/dd/YYYY");
+
+                dr.InsertarCambioDB(ccm);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
     }
 }
