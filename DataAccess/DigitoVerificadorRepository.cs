@@ -216,15 +216,16 @@ namespace DataAccess
                 cmd.Parameters.Add(new SqlParameter("id_change", user.id_change));
                 cmd.Parameters.Add(new SqlParameter("change_data", user.change_data));
                 cmd.Parameters.Add(new SqlParameter("change_date", user.change_date));
-                cmd.Parameters.Add(new SqlParameter("change_data", user.change_userAffected));
+                cmd.Parameters.Add(new SqlParameter("change_userAffected", user.change_userAffected));
 
                 cmd.ExecuteNonQuery();
                 connection.Close();
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
                 //throw ex;
             }

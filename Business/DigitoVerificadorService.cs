@@ -280,7 +280,7 @@ namespace Business
                 ccm.id_change = lista.Count + 1;
                 ccm.change_data = user.digitoVerificador;
                 ccm.change_userAffected = user.ID.ToString();
-                ccm.change_date = DateTime.Now.ToString("MM/dd/YYYY");
+                ccm.change_date = DateTime.Now.ToString("MM/dd/yyyy");
 
                 dr.InsertarCambioDB(ccm);
 
