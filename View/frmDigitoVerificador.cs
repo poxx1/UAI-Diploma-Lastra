@@ -40,7 +40,6 @@ namespace View
             if (us.CompararDigitoVerificadorHorizontal()) {
                 MessageBox.Show("Se valido correctamente el digito verificador");
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -66,6 +65,11 @@ namespace View
         {
             //DigitoVerificadorService ds = new DigitoVerificadorService();
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

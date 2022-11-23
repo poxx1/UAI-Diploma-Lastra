@@ -123,7 +123,6 @@ namespace Business
                 return false;
             }
         }
-
         public bool InsertDigitoVerificador(DigitoVerificadorModel dv)
         {
             try
@@ -132,6 +131,8 @@ namespace Business
                 DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
 
                 dr.InsertHorizontal(dv);
+
+                dr.UpdateHorizontalUsuario(dv);
 
                 return true;
             }

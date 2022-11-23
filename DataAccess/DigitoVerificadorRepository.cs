@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Models;
 using Models.DBModel;
 using Utiles;
@@ -41,7 +42,6 @@ namespace DataAccess
         }
         public void UpdateHorizontal(DigitoVerificadorModel user)
         {
-
             SqlConnection connection = ConnectionSingleton.getConnection();
             try
             {
@@ -61,6 +61,34 @@ namespace DataAccess
             {
                 connection.Close();
                 throw;
+            }
+        }
+
+        public bool UpdateHorizontalUsuario(DigitoVerificadorModel user)
+        {
+
+            SqlConnection connection = ConnectionSingleton.getConnection();
+            try
+            {
+                connection.Open();
+                string query = $@"update Users set digitoVerificador = @digitoverificador where id_dv = @id";
+                //Esto anda mal porque los ID no coinciden, entonces no updatea una verga
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.Parameters.Add(new SqlParameter("id", user.id_dv));
+                cmd.Parameters.Add(new SqlParameter("digitoverificador", user.digitoVerificador));
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                return true;
+            }
+            catch(Exception ex)
+            {
+                connection.Close();
+                MessageBox.Show(ex.Message);
+                return false;
             }
         }
 

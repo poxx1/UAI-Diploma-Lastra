@@ -80,7 +80,7 @@ namespace View
                         userDV = dg.convertToDBUser(user);
 
                         DigitoVerificadorModel dv = new DigitoVerificadorModel();
-                        dv.id_dv = userDV.id_dv.ToString();
+                        //dv.id_dv = userDV.id_dv.ToString();
 
                         dv.digitoVerificador = dg.DigitoVerificarUsuario(userDV);
 
@@ -98,9 +98,9 @@ namespace View
 
                         if (dg.InsertDigitoVerificador(dv))
                         {
-                            if (dg.UpdateDigitoVerificadorHorizontalUsuario(dv))
-                                if (dg.UpdateDigitoVerificadorVerticalUsuario()) { }
-                                else MessageBox.Show("error aplicando el digito verificador en la DB");
+                            dg.UpdateDigitoVerificadorHorizontalUsuario(dv);
+
+                            if (dg.UpdateDigitoVerificadorVerticalUsuario()) { }
                             else MessageBox.Show("error aplicando el digito verificador en la DB");
                         }
                         else { MessageBox.Show("error aplicando el digito verificador en la DB"); }
