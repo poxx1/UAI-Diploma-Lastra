@@ -145,7 +145,7 @@ namespace DataAccess
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
-                cmd.Parameters.Add(new SqlParameter("id_dv_v", user.id_dv));
+                cmd.Parameters.Add(new SqlParameter("id_dv_v", "1"));
                 cmd.Parameters.Add(new SqlParameter("digitoVerificador", user.digitoVerificador));
 
                 cmd.ExecuteNonQuery();

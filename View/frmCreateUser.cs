@@ -85,20 +85,24 @@ namespace View
                         dv.digitoVerificador = dg.DigitoVerificarUsuario(userDV);
 
                         //Lo guardo con un DV temporal
+
+                        var lista = us.GetAll();
+                        int listacount = lista.Count;
+                        dv.id_dv = (listacount + 1).ToString();//conDigito.id_dv.ToString();
+                        user.id_dv = Int32.Parse(dv.id_dv);
+                        user.digitoVerificador = dv.digitoVerificador;
+
                         us.Save(user);
 
                         //Le updateo el DV para que no se rompa
 
-                        var lista = us.GetAll();
-                        var conDigito = lista.Where(x => x.Dni == user.Dni).ToList().First();
-
-                        dv.id_dv = conDigito.id_dv.ToString();
+                        //var conDigito = lista.Where(x => x.Dni == user.Dni).ToList().First();
 
                         //Hay que crear la referencia porque sino la cago.
 
                         if (dg.InsertDigitoVerificador(dv))
                         {
-                            dg.UpdateDigitoVerificadorHorizontalUsuario(dv);
+                            //dg.UpdateDigitoVerificadorHorizontalUsuario(dv);
 
                             if (dg.UpdateDigitoVerificadorVerticalUsuario()) { }
                             else MessageBox.Show("error aplicando el digito verificador en la DB");

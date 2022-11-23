@@ -60,8 +60,8 @@ namespace DataAccess
                     cmd.Parameters.Add(new SqlParameter("isBlocked", user.isBlocked));
                     cmd.Parameters.Add(new SqlParameter("Tries", user.Tries));
                     cmd.Parameters.Add(new SqlParameter("Tipo", user.Tipo));
-                    cmd.Parameters.Add(new SqlParameter("id_dv", 999)); //Hardcodeado aproposito porque despues se pisa
-                    cmd.Parameters.Add(new SqlParameter("digitoverificador", "asd"));
+                    cmd.Parameters.Add(new SqlParameter("id_dv", user.id_dv)); //Hardcodeado aproposito porque despues se pisa
+                    cmd.Parameters.Add(new SqlParameter("digitoverificador", user.digitoVerificador));
 
                     cmd.ExecuteNonQuery();
 

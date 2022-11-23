@@ -259,11 +259,13 @@ namespace Business
 
             newUser.ID = user.Id;
             newUser.UserName = user.UserName;
+            newUser.Password = user.Password;
             newUser.isBlocked = user.isBlocked;
             newUser.id_tipo = user.Tipo;
             newUser.Tries = user.Tries;
-            newUser.id_dv = 1;
+            newUser.id_dv = user.id_dv;
             newUser.Key_idioma = 1;
+            newUser.digitoVerificador = user.digitoVerificador;
             newUser.Email = user.Email;
 
             //Falta completar seguro

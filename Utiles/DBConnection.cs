@@ -181,7 +181,7 @@ namespace Utiles
             catch (Exception e)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Cant connect to database!\r\n");
+                Console.WriteLine($"Cant connect to database!\r\n + {e}");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 //
                 return false;
