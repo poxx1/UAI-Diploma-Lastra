@@ -74,6 +74,12 @@
     <Compile Include="Distribuidores.Designer.cs">
       <DependentUpon>Distribuidores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmActualizarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActualizarUsuario.Designer.cs">
+      <DependentUpon>frmActualizarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBackupDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Distribuidores.resx">
       <DependentUpon>Distribuidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmActualizarUsuario.resx">
+      <DependentUpon>frmActualizarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBackupDB.resx">
       <DependentUpon>frmBackupDB.cs</DependentUpon>

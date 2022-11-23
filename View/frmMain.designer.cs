@@ -54,6 +54,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.jActualizarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,8 @@
             this.fBitacoraToolStripMenuItem,
             this.gMensajesDeBienvenidaToolStripMenuItem,
             this.hDigitoVerificadorToolStripMenuItem,
-            this.iControlDeCambiosToolStripMenuItem});
+            this.iControlDeCambiosToolStripMenuItem,
+            this.jActualizarUsuarioToolStripMenuItem});
             this.fileMenu.ForeColor = System.Drawing.Color.White;
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
@@ -293,6 +295,13 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Dark side of the moon - 1973";
             // 
+            // jActualizarUsuarioToolStripMenuItem
+            // 
+            this.jActualizarUsuarioToolStripMenuItem.Name = "jActualizarUsuarioToolStripMenuItem";
+            this.jActualizarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.jActualizarUsuarioToolStripMenuItem.Text = "1. J Actualizar Usuario";
+            this.jActualizarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.jActualizarUsuarioToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,6 +361,7 @@
         private System.Windows.Forms.ToolStripMenuItem gMensajesDeBienvenidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hDigitoVerificadorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iControlDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jActualizarUsuarioToolStripMenuItem;
     }
 }
 

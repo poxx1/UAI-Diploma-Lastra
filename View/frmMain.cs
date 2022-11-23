@@ -397,5 +397,13 @@ namespace View
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void jActualizarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmActualizarUsuario();
+            //Form frm = new testLanguage();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 } 

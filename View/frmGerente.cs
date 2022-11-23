@@ -149,7 +149,7 @@ namespace View
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Help.ShowHelp(this, @"D:\Diploma-Lastra\Documentation\Proyecto.chm"); //, "content.html"
         }
 
         private void frmGerente_HelpRequested(object sender, HelpEventArgs hlpevent)
