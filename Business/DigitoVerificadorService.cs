@@ -163,6 +163,24 @@ namespace Business
 
             return "";
         }
+        public DBUsers obtenerUsuario(string hash)
+        {
+            //id + UserName +  Password + Email + key_idioma + tries + isBlocked + id_tipo
+       
+            string[] usuario = hash.Split(new string[] { "##" }, StringSplitOptions.None);
+
+            DBUsers user = new DBUsers();
+            user.ID = Int32.Parse(usuario[0]);
+            user.UserName = usuario[1];
+            user.Password = usuario[2];
+            user.Email = usuario[3];
+            user.Key_idioma = Int32.Parse(usuario[4]);
+            user.Tries = Int32.Parse(usuario[5]);
+            user.isBlocked = bool.Parse(usuario[6]);
+            user.id_tipo = Int32.Parse(usuario[7]);
+
+            return user;
+        }
         public bool verificarVerticalUsuarios()
         {
             try

@@ -387,5 +387,13 @@ namespace View
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void iControlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmControlCambios();
+            //Form frm = new testLanguage();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 } 

@@ -64,9 +64,47 @@ namespace DataAccess
             }
         }
 
-        public object ListarControlCambios()
-        {
-            throw new NotImplementedException();
+        public List<ControlCambiosModel> ListarControlCambios()
+        {        
+            SqlConnection connection = ConnectionSingleton.getConnection();
+
+            try
+            {
+                connection.Open();
+                var cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                var sql = $@"SELECT * from ControlCambios";
+
+                cmd.CommandText = sql;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                List<ControlCambiosModel> list = new List<ControlCambiosModel>();
+
+                //Machines machine = new Machines();
+                while (reader.Read())
+                {
+                    ControlCambiosModel mm = new ControlCambiosModel();              
+                    mm.id_change = int.Parse(reader.GetString(reader.GetOrdinal("id_change")));
+                    mm.change_date = reader.GetString(reader.GetOrdinal("change_date"));
+                    mm.change_data = reader.GetString(reader.GetOrdinal("change_data"));
+                    mm.change_userAffected = reader.GetString(reader.GetOrdinal("change_userAffected"));
+
+                    list.Add(mm);
+                }
+
+                reader.Close();
+                connection.Close();
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                throw e;
+            }
+            
         }
 
         public void UpdateVertical(DigitoVerificadorModel user)

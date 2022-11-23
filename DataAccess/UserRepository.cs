@@ -475,6 +475,65 @@ namespace DataAccess
                 throw;
             }
         }
+
+        public void updateUser(DBUsers user)
+        {
+            SqlConnection connection = ConnectionSingleton.getConnection();
+
+            SqlTransaction transaction;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                try
+                {
+                    SqlCommand cmd;
+
+                    string query = $@"UPDATE [dbo].[Users]
+                   SET [Email] = @Email
+                      ,[UserName] = @UserName
+                      ,[UserName] = @UserName
+                      ,[UserName] = @UserName
+                      ,[UserName] = @UserName
+                      ,[UserName] = @UserName
+                      ,[UserName] = @UserName
+                      ,[UserName] = @UserName
+                      ,[UserName] = @UserName                
+                      ,[UserName] = @UserName                  
+                      where id_usuario =@id
+                    ";
+
+                    cmd = new SqlCommand();
+                    cmd.Transaction = transaction;
+                    cmd.CommandText = query;
+                    cmd.Connection = connection;
+                    cmd.Parameters.Add(new SqlParameter("id_usuario", user.ID));
+                    cmd.Parameters.Add(new SqlParameter("UserName", user.UserName));
+                    cmd.Parameters.Add(new SqlParameter("Password", user.Password));
+                    cmd.Parameters.Add(new SqlParameter("Email", user.Email));
+                    cmd.Parameters.Add(new SqlParameter("key_idioma", user.Key_idioma));
+                    cmd.Parameters.Add(new SqlParameter("Tries", user.Tries));
+                    cmd.Parameters.Add(new SqlParameter("isBlocked", user.isBlocked));
+                    cmd.Parameters.Add(new SqlParameter("id_tipo", user.id_tipo));
+
+                    cmd.ExecuteNonQuery();
+
+                    transaction.Commit();
+
+                    connection.Close();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+            catch
+            {
+                connection.Close();
+                throw;
+            }
+        }
         public void addTries(User user)
         {
 

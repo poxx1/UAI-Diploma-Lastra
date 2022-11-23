@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorModel.cs" />
+    <Compile Include="DBModel\ControlCambiosModel.cs" />
     <Compile Include="DBModel\DBUsers.cs" />
     <Compile Include="DBModel\DigitoVerificadorModel.cs" />
     <Compile Include="DistribuidorModel.cs" />

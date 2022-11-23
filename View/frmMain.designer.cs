@@ -53,6 +53,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.iControlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +69,8 @@
             this.eBackupRestoreToolStripMenuItem,
             this.fBitacoraToolStripMenuItem,
             this.gMensajesDeBienvenidaToolStripMenuItem,
-            this.hDigitoVerificadorToolStripMenuItem});
+            this.hDigitoVerificadorToolStripMenuItem,
+            this.iControlDeCambiosToolStripMenuItem});
             this.fileMenu.ForeColor = System.Drawing.Color.White;
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
@@ -284,6 +286,13 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Dark side of the moon - 1973";
             // 
+            // iControlDeCambiosToolStripMenuItem
+            // 
+            this.iControlDeCambiosToolStripMenuItem.Name = "iControlDeCambiosToolStripMenuItem";
+            this.iControlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.iControlDeCambiosToolStripMenuItem.Text = "1. I Control de Cambios";
+            this.iControlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.iControlDeCambiosToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,6 +351,7 @@
         private System.Windows.Forms.ToolStripMenuItem gStockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gMensajesDeBienvenidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hDigitoVerificadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iControlDeCambiosToolStripMenuItem;
     }
 }
 
