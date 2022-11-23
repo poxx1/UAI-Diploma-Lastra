@@ -194,12 +194,12 @@ namespace Business
                     sinhashear += user.digitoVerificador + "##";
                 }
 
-                MessageBox.Show(sinhashear);
+                //MessageBox.Show(sinhashear);
 
                 Crypt crypt = new Crypt();
                 string hashada = crypt.Encrypt(sinhashear);
 
-                MessageBox.Show(hashada);
+                //MessageBox.Show(hashada);
 
                 //Verificar verticalmente tabla horizontal
                 string sinhashearDVs = "";
@@ -210,11 +210,11 @@ namespace Business
                     sinhashearDVs += digito.digitoVerificador;
                 }
 
-                MessageBox.Show(sinhashearDVs);
+                //MessageBox.Show(sinhashearDVs);
 
                 string hashadaDVs = crypt.Encrypt(sinhashearDVs);
 
-                MessageBox.Show(hashadaDVs);
+                //MessageBox.Show(hashadaDVs);
 
                 DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
 

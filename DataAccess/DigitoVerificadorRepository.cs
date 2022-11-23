@@ -66,12 +66,11 @@ namespace DataAccess
 
         public bool UpdateHorizontalUsuario(DigitoVerificadorModel user)
         {
-
             SqlConnection connection = ConnectionSingleton.getConnection();
             try
             {
                 connection.Open();
-                string query = $@"update Users set digitoVerificador = @digitoverificador where id_dv = @id";
+                string query = $@"update Users set digitoverificador = @digitoverificador where id_dv = @id";
                 //Esto anda mal porque los ID no coinciden, entonces no updatea una verga
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = query;
