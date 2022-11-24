@@ -31,7 +31,7 @@ namespace View
             if (response == DialogResult.Yes)
             {
                 BackupRestoreService backupRestoreService = new BackupRestoreService();
-                string path = "";
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Backup\backup.bak";
                 backupRestoreService.restoreBackup($"EXEC[] @path= {path}");
                 label3.ForeColor = Color.Green;
                 label3.Text = "Se restauro la base de datos correctamente";
@@ -47,9 +47,10 @@ namespace View
         {
             if (folderBrowserDialog1.SelectedPath != null)
             {
-                string path = "";
                 BackupRestoreService backupRestoreService = new BackupRestoreService();
                 //backupRestoreService.makeBackup($"EXEC[updateTicket] @ticket_ID = N'" + ticketNumber + "', @time_Alerted = N'" + DateTime.Now + "', @ticket_Priority = N'" + ticketPriority + "'" = '{folderBrowserDialog1.SelectedPath}'");
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Backup\backup.bak";
+
                 backupRestoreService.makeBackup($"EXEC[store_backup] @path = {path}");
             }
         }

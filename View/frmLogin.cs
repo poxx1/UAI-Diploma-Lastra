@@ -40,7 +40,7 @@ namespace View
                 button1.ForeColor = System.Drawing.Color.Red;
                 MessageBox.Show(ex.Message);
 
-                Logger log = new Logger();
+                //Logger log = new Logger();
                 //log.LogData("Log-in", "El usuario no se logueo correctamente");
             }
             finally
@@ -70,6 +70,22 @@ namespace View
                     string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\createDB.sql";
                     db.CreateDB(db.readScript(path));
                 }
+
+                //Digito verificar
+                DigitoVerificadorService us = new DigitoVerificadorService();
+                if (us.dobleVerificacion())
+                {
+
+                }
+                else 
+                {
+                    this.Hide();
+                    button1.Enabled = false;
+                    //MessageBox.Show("Debido al error de verificacion no puede iniciar sesion.");
+                    frmDigitoVerificador frmDigitoVerificador = new frmDigitoVerificador();
+                    frmDigitoVerificador.Show();       
+                }
+
             }
             catch (Exception ex)
             {
