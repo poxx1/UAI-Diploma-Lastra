@@ -19,9 +19,9 @@ namespace View
         {
             InitializeComponent();
             button2.Enabled = false;
+            //button5.Enabled = false;
             label4.Text = "Debido a un error en la verificacion del DV, debe realizar una accion";
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             DigitoVerificadorService us = new DigitoVerificadorService();
@@ -41,15 +41,13 @@ namespace View
                 MessageBox.Show("Se valido correctamente el digito verificador");
             }
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "asd")
+            if (textBox1.Text == "MyQce23+1e0=")
             {
                 button2.Enabled = true;
             }
@@ -63,11 +61,16 @@ namespace View
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //DigitoVerificadorService ds = new DigitoVerificadorService();
+            DigitoVerificadorService ds = new DigitoVerificadorService();
             
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
 
         }

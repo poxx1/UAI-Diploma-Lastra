@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
 using Business;
@@ -71,6 +72,20 @@ namespace View
                     db.CreateDB(db.readScript(path));
                 }
 
+                Utiles.CredentialManager cm = new CredentialManager();
+
+                if (cm.User())
+                {
+                    bool isAdmin = false;
+                    using (WindowsIdentity identity = WindowsIdentity.GetCurrent())
+                    {
+                        WindowsPrincipal principal = new WindowsPrincipal(identity);
+                        isAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);
+                    }
+                    if(isAdmin) { MessageBox.Show("Clave copiada al clipboard."); }
+                    else { MessageBox.Show("No tiene permisos para poder obtener la clave"); }
+                }
+                
                 //Digito verificar
                 DigitoVerificadorService us = new DigitoVerificadorService();
                 if (us.dobleVerificacion())

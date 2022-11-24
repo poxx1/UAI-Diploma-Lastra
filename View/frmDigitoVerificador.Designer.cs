@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -61,7 +62,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(159, 12);
+            this.button2.Location = new System.Drawing.Point(130, 25);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 42);
             this.button2.TabIndex = 8;
@@ -71,7 +72,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(254, 12);
+            this.button3.Location = new System.Drawing.Point(249, 25);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(89, 42);
             this.button3.TabIndex = 9;
@@ -107,13 +108,23 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(291, 60);
+            this.button5.Location = new System.Drawing.Point(7, 25);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(52, 23);
+            this.button5.Size = new System.Drawing.Size(89, 42);
             this.button5.TabIndex = 13;
-            this.button5.Text = "TEST";
+            this.button5.Text = "Validar cambios";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(263, 128);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 40);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Credential Manager";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmDigitoVerificador
             // 
@@ -122,6 +133,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(350, 197);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button1;
     }
 }
