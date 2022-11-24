@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using DataAccess;
 using Models;
 using Models.DBModel;
 using Models.interfaces;
@@ -109,7 +110,27 @@ namespace View
                         }
                         else { MessageBox.Show("error aplicando el digito verificador en la DB"); }
                         //Al crear un usuario nuevo tambien voy a tener que digitoVerificar Verticalmente
-                        
+
+                        dg.verificarVerticalUsuarios();
+
+                        DigitoVerificadorService ds = new DigitoVerificadorService();
+                        DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
+
+                        foreach (DBUsers dx in ds.ListdBUsers())
+                        {
+                            string digito = ds.DigitoVerificarUsuario(dx);
+
+                            foreach (DigitoVerificadorModel model in ds.ListarDigitoVerificadorHorizontal())
+                            {
+                                if (model.id_dv == user.id_dv.ToString())
+                                {
+                                    model.digitoVerificador = digito;
+                                    dr.UpdateHorizontalUsuario(model);
+                                    dr.UpdateHorizontal(model);
+                                }
+                            }
+                        }
+
                         MessageBox.Show("c creo el usuario");
                     }
                     else
