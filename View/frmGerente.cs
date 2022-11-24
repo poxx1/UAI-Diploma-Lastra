@@ -146,18 +146,17 @@ namespace View
             PDFConverter pdf = new PDFConverter();
             pdf.ConvertToPdf(dataGridView1);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
-            Help.ShowHelp(this, path + @"\Proyecto.chm"); //, "content.html"
+            //string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
             //Help.ShowHelp(this, System.Reflection.Assembly.GetEntryAssembly().Location+@"\Proyecto.chm"); //, "content.html"
         }
-
         private void frmGerente_HelpRequested(object sender, HelpEventArgs hlpevent)
         {
             string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
-            Help.ShowHelp(this, path+@"\Proyecto.chm"); //, "content.html"
+            Help.ShowHelp(this, path+ @"\Extras\Proyecto.chm"); //, "content.html"
             MessageBox.Show(path);
         }
     }

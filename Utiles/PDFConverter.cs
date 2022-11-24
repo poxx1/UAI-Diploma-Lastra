@@ -18,7 +18,7 @@ namespace Utiles
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
-                sfd.FileName = "Output.pdf";
+                sfd.FileName = "Informe.pdf";
                 bool fileError = false;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -32,7 +32,7 @@ namespace Utiles
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                            MessageBox.Show("No se pudo escribir en el disco, revise sus permisos" + ex.Message);
                             return false;
                         }
                     }
@@ -69,7 +69,7 @@ namespace Utiles
                                 stream.Close();
                             }
 
-                            MessageBox.Show("Data Exported Successfully !!!", "Info");
+                            MessageBox.Show("Se exporto el PDF en la ruta que usted eligio", "Info");
 
                             return true;
                         }
@@ -84,7 +84,7 @@ namespace Utiles
             }
             else
             {
-                MessageBox.Show("No Record To Export !!!", "Info");
+                MessageBox.Show("No hay nada para exportar", "Info");
                 return false;
             }
         }

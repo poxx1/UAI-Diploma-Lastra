@@ -15,9 +15,12 @@ namespace Business
         {
             JsonWork jw = new JsonWork();
 
-            foreach(MensajeBienvenidaModel mensaje in jw.DeserializarMensaje(jw.ReadJson(@"D:\Diploma-Lastra\Extras\jason.json")))
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            path = path + @"\Extras\jason.json"; //, "content.html"
+
+            foreach (MensajeBienvenidaModel mensaje in jw.DeserializarMensaje(jw.ReadJson(path)))
             {
-                //MessageBox.Show(mensaje.mensaje); Descomentar no seas boludo
+                MessageBox.Show(mensaje.mensaje); //Descomentar no seas boludo
             }
             return true;
         }
