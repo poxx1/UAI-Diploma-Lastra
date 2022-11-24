@@ -28,6 +28,12 @@ namespace Models
         IngresarMaquina,
         ModificarIdiomas,
         CrearUsuario,
-        Asignacion
+        Asignacion,
+        //Diploma
+        DigitoVerificador,
+        ControlCambios,
+        ActualizarUsuario,
+        BackupRestore,
+        Bitacora
     }
 }

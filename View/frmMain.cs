@@ -352,18 +352,36 @@ namespace View
 
         private void eBackupRestoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmBackupDB();
-            //Form frm = new testLanguage();
-            frm.MdiParent = this;
-            frm.Show();
+
+            if (Session.GetInstance.IsInRole(PermissionsEnum.BackupRestore))
+            {
+                Form frm = new frmBackupDB();
+                //Form frm = new testLanguage();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este fomrulario");
+            }
+         
         }
 
         private void fBitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmBitacora();
-            //Form frm = new testLanguage();
-            frm.MdiParent = this;
-            frm.Show();
+           
+            if (Session.GetInstance.IsInRole(PermissionsEnum.Bitacora))
+            {
+                Form frm = new frmBitacora();
+                //Form frm = new testLanguage();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este fomrulario");
+            }
+
         }
 
         private void gStockToolStripMenuItem_Click(object sender, EventArgs e)
@@ -384,26 +402,55 @@ namespace View
 
         private void hDigitoVerificadorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmDigitoVerificador();
-            //Form frm = new testLanguage();
-            frm.MdiParent = this;
-            frm.Show();
+          
+
+            if (Session.GetInstance.IsInRole(PermissionsEnum.DigitoVerificador))
+            {
+                Form frm = new frmDigitoVerificador();
+                //Form frm = new testLanguage();
+                frm.MdiParent = this;
+                frm.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este fomrulario");
+            }
         }
 
         private void iControlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmControlCambios();
-            //Form frm = new testLanguage();
-            frm.MdiParent = this;
-            frm.Show();
+
+            if (Session.GetInstance.IsInRole(PermissionsEnum.ControlCambios))
+            {
+                Form frm = new frmControlCambios();
+                //Form frm = new testLanguage();
+                frm.MdiParent = this;
+                frm.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este fomrulario");
+            
         }
 
         private void jActualizarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmActualizarUsuario();
-            //Form frm = new testLanguage();
-            frm.MdiParent = this;
-            frm.Show();
+          
+
+            if (Session.GetInstance.IsInRole(PermissionsEnum.ActualizarUsuario))
+            {
+                Form frm = new frmActualizarUsuario();
+                //Form frm = new testLanguage();
+                frm.MdiParent = this;
+                frm.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este fomrulario");
+            }
         }
     }
 } 
