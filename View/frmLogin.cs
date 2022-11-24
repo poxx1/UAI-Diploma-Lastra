@@ -15,6 +15,7 @@ namespace View
             InitializeComponent();
             sessionService = new SessionService();
             
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,7 +67,8 @@ namespace View
                 if (db.dbExists()) { }
                 else
                 {
-                    db.CreateDB(db.readScript(@"c:\"));
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\createDB.sql";
+                    db.CreateDB(db.readScript(path));
                 }
             }
             catch (Exception ex)
