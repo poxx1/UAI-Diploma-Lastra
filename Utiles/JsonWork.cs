@@ -33,9 +33,18 @@ namespace Utiles
 
         public List<MensajeBienvenidaModel> DeserializarMensaje(string json)
         {
-            List<MensajeBienvenidaModel> lista = JsonConvert.DeserializeObject<List<MensajeBienvenidaModel>>(json);
-            return lista;
-        }
+            try
+            {
+                List<MensajeBienvenidaModel> lista = JsonConvert.DeserializeObject<List<MensajeBienvenidaModel>>(json);
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de lectura");
+                return new List<MensajeBienvenidaModel>();
+            }
+          }
 
         public string SerializarMensaje(List<MensajeBienvenidaModel> lista)
         {

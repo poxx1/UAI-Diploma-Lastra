@@ -48,7 +48,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(40, 9);
+            this.label1.Location = new System.Drawing.Point(222, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 18);
             this.label1.TabIndex = 0;
@@ -67,7 +67,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 34);
+            this.listBox1.Location = new System.Drawing.Point(191, 36);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(164, 147);
             this.listBox1.TabIndex = 2;
@@ -75,7 +75,7 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(191, 34);
+            this.listBox2.Location = new System.Drawing.Point(12, 34);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(164, 147);
             this.listBox2.TabIndex = 5;
@@ -93,7 +93,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(216, 9);
+            this.label2.Location = new System.Drawing.Point(33, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 18);
             this.label2.TabIndex = 3;
@@ -118,6 +118,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 23);
             this.button2.TabIndex = 7;
+            this.button2.Tag = "2EExportarPDF";
             this.button2.Text = "Exportar a PDF";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -148,6 +149,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(90, 23);
             this.button3.TabIndex = 10;
+            this.button3.Tag = "2EAyuda";
             this.button3.Text = "Ayuda en linea";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);

@@ -83,6 +83,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
+            this.label2.Tag = "1EDatabase";
             this.label2.Text = "Database";
             // 
             // label3
@@ -100,6 +101,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
+            this.button1.Tag = "1ERestore";
             this.button1.Text = "Restore";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -123,6 +125,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 7;
+            this.label5.Tag = "1EFolder";
             this.label5.Text = "Folder";
             // 
             // label6
@@ -140,6 +143,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
+            this.button2.Tag = "1ESelect";
             this.button2.Text = "Select folder";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -167,6 +171,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 12;
+            this.label8.Tag = "1EServer";
             this.label8.Text = "Server Name";
             // 
             // button3
@@ -175,6 +180,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(65, 23);
             this.button3.TabIndex = 13;
+            this.button3.Tag = "1EBackupB";
             this.button3.Text = "Backup";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);

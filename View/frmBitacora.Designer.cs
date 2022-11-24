@@ -92,6 +92,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 4;
+            this.button1.Tag = "1Filtrar";
             this.button1.Text = "Filtrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -103,6 +104,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 5;
+            this.label3.Tag = "1FUser";
             this.label3.Text = "Usuario";
             // 
             // label4
@@ -112,6 +114,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 6;
+            this.label4.Tag = "1FDate";
             this.label4.Text = "Fecha";
             // 
             // button2
@@ -122,6 +125,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 43);
             this.button2.TabIndex = 7;
+            this.button2.Tag = "1FClean";
             this.button2.Text = "Limpiar filtros";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -147,6 +151,7 @@
             this.rbFecha.Size = new System.Drawing.Size(55, 17);
             this.rbFecha.TabIndex = 9;
             this.rbFecha.TabStop = true;
+            this.rbFecha.Tag = "1FDate";
             this.rbFecha.Text = "Fecha";
             this.rbFecha.UseVisualStyleBackColor = true;
             this.rbFecha.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
@@ -159,6 +164,7 @@
             this.rbUsuario.Size = new System.Drawing.Size(61, 17);
             this.rbUsuario.TabIndex = 10;
             this.rbUsuario.TabStop = true;
+            this.rbUsuario.Tag = "1FUser";
             this.rbUsuario.Text = "Usuario";
             this.rbUsuario.UseVisualStyleBackColor = true;
             // 
@@ -170,6 +176,7 @@
             this.rbAmbos.Size = new System.Drawing.Size(57, 17);
             this.rbAmbos.TabIndex = 11;
             this.rbAmbos.TabStop = true;
+            this.rbAmbos.Tag = "1FAll";
             this.rbAmbos.Text = "Ambos";
             this.rbAmbos.UseVisualStyleBackColor = true;
             // 
@@ -187,6 +194,7 @@
             this.Fe.Name = "Fe";
             this.Fe.Size = new System.Drawing.Size(38, 13);
             this.Fe.TabIndex = 13;
+            this.Fe.Tag = "1FFrom";
             this.Fe.Text = "Desde";
             // 
             // label6
@@ -196,6 +204,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 14;
+            this.label6.Tag = "1FHasta";
             this.label6.Text = "Hasta";
             // 
             // radioButton1
@@ -206,6 +215,7 @@
             this.radioButton1.Size = new System.Drawing.Size(66, 17);
             this.radioButton1.TabIndex = 15;
             this.radioButton1.TabStop = true;
+            this.radioButton1.Tag = "1FPrio";
             this.radioButton1.Text = "Prioridad";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_1);
@@ -225,6 +235,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 17;
+            this.label5.Tag = "1FPrio";
             this.label5.Text = "Prioridad";
             // 
             // frmBitacora

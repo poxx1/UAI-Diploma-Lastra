@@ -117,6 +117,7 @@
             // 
             this.eBackupRestoreToolStripMenuItem.Name = "eBackupRestoreToolStripMenuItem";
             this.eBackupRestoreToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.eBackupRestoreToolStripMenuItem.Tag = "1EBackup";
             this.eBackupRestoreToolStripMenuItem.Text = "1. E Backup/Restore";
             this.eBackupRestoreToolStripMenuItem.Click += new System.EventHandler(this.eBackupRestoreToolStripMenuItem_Click);
             // 
@@ -124,6 +125,7 @@
             // 
             this.fBitacoraToolStripMenuItem.Name = "fBitacoraToolStripMenuItem";
             this.fBitacoraToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.fBitacoraToolStripMenuItem.Tag = "1EBitacora";
             this.fBitacoraToolStripMenuItem.Text = "1. F Bitacora";
             this.fBitacoraToolStripMenuItem.Click += new System.EventHandler(this.fBitacoraToolStripMenuItem_Click);
             // 
@@ -131,6 +133,7 @@
             // 
             this.gMensajesDeBienvenidaToolStripMenuItem.Name = "gMensajesDeBienvenidaToolStripMenuItem";
             this.gMensajesDeBienvenidaToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.gMensajesDeBienvenidaToolStripMenuItem.Tag = "1GBienvenida";
             this.gMensajesDeBienvenidaToolStripMenuItem.Text = "1. G Mensajes de Bienvenida";
             this.gMensajesDeBienvenidaToolStripMenuItem.Click += new System.EventHandler(this.gMensajesDeBienvenidaToolStripMenuItem_Click);
             // 
@@ -138,6 +141,7 @@
             // 
             this.hDigitoVerificadorToolStripMenuItem.Name = "hDigitoVerificadorToolStripMenuItem";
             this.hDigitoVerificadorToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.hDigitoVerificadorToolStripMenuItem.Tag = "1HDigito";
             this.hDigitoVerificadorToolStripMenuItem.Text = "1. H Digito Verificador";
             this.hDigitoVerificadorToolStripMenuItem.Click += new System.EventHandler(this.hDigitoVerificadorToolStripMenuItem_Click);
             // 
@@ -145,6 +149,7 @@
             // 
             this.iControlDeCambiosToolStripMenuItem.Name = "iControlDeCambiosToolStripMenuItem";
             this.iControlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.iControlDeCambiosToolStripMenuItem.Tag = "1IControl";
             this.iControlDeCambiosToolStripMenuItem.Text = "1. I Control de Cambios";
             this.iControlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.iControlDeCambiosToolStripMenuItem_Click);
             // 
@@ -152,6 +157,7 @@
             // 
             this.jActualizarUsuarioToolStripMenuItem.Name = "jActualizarUsuarioToolStripMenuItem";
             this.jActualizarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.jActualizarUsuarioToolStripMenuItem.Tag = "1JActualizar";
             this.jActualizarUsuarioToolStripMenuItem.Text = "1. J Actualizar Usuario";
             this.jActualizarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.jActualizarUsuarioToolStripMenuItem_Click);
             // 
@@ -193,7 +199,7 @@
             // ingresosToolStripMenuItem
             // 
             this.ingresosToolStripMenuItem.Name = "ingresosToolStripMenuItem";
-            this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.ingresosToolStripMenuItem.Tag = "2AIngresos";
             this.ingresosToolStripMenuItem.Text = "Ingresos";
             this.ingresosToolStripMenuItem.Click += new System.EventHandler(this.ingresosToolStripMenuItem_Click);
@@ -201,7 +207,7 @@
             // reparacionesToolStripMenuItem
             // 
             this.reparacionesToolStripMenuItem.Name = "reparacionesToolStripMenuItem";
-            this.reparacionesToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.reparacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.reparacionesToolStripMenuItem.Tag = "2BReparaciones";
             this.reparacionesToolStripMenuItem.Text = "Reparaciones";
             this.reparacionesToolStripMenuItem.Click += new System.EventHandler(this.reparacionesToolStripMenuItem_Click);
@@ -209,7 +215,7 @@
             // aprob
             // 
             this.aprob.Name = "aprob";
-            this.aprob.Size = new System.Drawing.Size(170, 24);
+            this.aprob.Size = new System.Drawing.Size(180, 24);
             this.aprob.Tag = "2CAprobaciones";
             this.aprob.Text = "Aprobaciones";
             this.aprob.Click += new System.EventHandler(this.aprobacionesToolStripMenuItem_Click);
@@ -217,7 +223,7 @@
             // dAsignacionesToolStripMenuItem
             // 
             this.dAsignacionesToolStripMenuItem.Name = "dAsignacionesToolStripMenuItem";
-            this.dAsignacionesToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.dAsignacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.dAsignacionesToolStripMenuItem.Tag = "2DAsignaciones";
             this.dAsignacionesToolStripMenuItem.Text = "2. D Asignaciones";
             this.dAsignacionesToolStripMenuItem.Click += new System.EventHandler(this.dAsignacionesToolStripMenuItem_Click);
@@ -225,7 +231,7 @@
             // eDashboardToolStripMenuItem
             // 
             this.eDashboardToolStripMenuItem.Name = "eDashboardToolStripMenuItem";
-            this.eDashboardToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.eDashboardToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.eDashboardToolStripMenuItem.Tag = "2EDashboard";
             this.eDashboardToolStripMenuItem.Text = "2. E Dashboard";
             this.eDashboardToolStripMenuItem.Click += new System.EventHandler(this.eDashboardToolStripMenuItem_Click);
@@ -233,7 +239,7 @@
             // fCalculadoraToolStripMenuItem
             // 
             this.fCalculadoraToolStripMenuItem.Name = "fCalculadoraToolStripMenuItem";
-            this.fCalculadoraToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.fCalculadoraToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.fCalculadoraToolStripMenuItem.Tag = "2FCalculadora";
             this.fCalculadoraToolStripMenuItem.Text = "2. F Calculadora";
             this.fCalculadoraToolStripMenuItem.Click += new System.EventHandler(this.fCalculadoraToolStripMenuItem_Click);
@@ -241,7 +247,7 @@
             // gStockToolStripMenuItem
             // 
             this.gStockToolStripMenuItem.Name = "gStockToolStripMenuItem";
-            this.gStockToolStripMenuItem.Size = new System.Drawing.Size(170, 24);
+            this.gStockToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.gStockToolStripMenuItem.Text = "2. G Stock";
             this.gStockToolStripMenuItem.Click += new System.EventHandler(this.gStockToolStripMenuItem_Click);
             // 
