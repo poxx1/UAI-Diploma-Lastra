@@ -122,8 +122,8 @@ namespace View
             DialogResult result = MessageBox.Show("", "", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                DigitoVerificadorService ds = new DigitoVerificadorService();
-
+                frmBackupDB frm = new frmBackupDB();
+                frm.Show();
             }
             else
             {

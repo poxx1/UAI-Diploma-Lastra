@@ -35,6 +35,17 @@ namespace View
                 backupRestoreService.restoreBackup($"EXEC[] @path= {path}");
                 label3.ForeColor = Color.Green;
                 label3.Text = "Se restauro la base de datos correctamente";
+
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.Name == "frmLogin")
+                    {
+                        foreach (Control control in frm.Controls)
+                        {
+                            control.Enabled = true;
+                        }
+                    }
+                }
             }
             else
             {
