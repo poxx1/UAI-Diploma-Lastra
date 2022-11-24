@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
 using DataAccess;
+using Models;
 using Models.DBModel;
+using Models.interfaces;
+using Models.language;
 using Utiles;
 
 namespace View
 {
-    public partial class frmControlCambios : Form
+    public partial class frmControlCambios : Form, ILanguageObserber
     {
         public frmControlCambios()
         {
@@ -53,6 +56,51 @@ namespace View
                 label1.Text = "Error restaurando el usuario";
                 MessageBox.Show(ex.Message);
             }            //Current item o como verga sea
+        }
+
+        private void frmControlCambios_Load(object sender, EventArgs e)
+        {
+            Session.GetInstance.addObserber(this);
+        }
+
+        private void frmControlCambios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Session.GetInstance.removeObserber(this);
+        }
+
+        public void updateLanguage(Language language)
+        {
+            try
+            {
+                foreach (Control control in Controls)
+                {
+                    control.Text = language.Translations.Find(
+                            (translation) => translation.Key.Equals(control.Tag)
+                        )?.Translate ?? control.Text;
+                    if (control.Controls.Count != 0)
+                    {
+                        updateLanguageRecursiveControls(language, control.Controls);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(""); Que la chupe este form de mierda
+            }
+        }
+        public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)
+        {
+            foreach (Control control in parent)
+            {
+                control.Text = language.Translations.Find(
+                        (translation) => translation.Key.Equals(control.Tag)
+                    )?.Translate ?? control.Text;
+
+                if (control.Controls.Count != 0)
+                {
+                    updateLanguageRecursiveControls(language, control.Controls);
+                }
+            }
         }
     }
 }

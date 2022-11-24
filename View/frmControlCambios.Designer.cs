@@ -76,6 +76,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "frmControlCambios";
             this.Text = "frmControlCambios";
+            this.Load += new System.EventHandler(this.frmControlCambios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

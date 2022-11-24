@@ -15,15 +15,15 @@ using Utiles;
 
 namespace View
 {
-    public partial class frmGerente : Form //, ILanguageObserber
+    public partial class frmGerente : Form , ILanguageObserber
     {
-        //PermissionsService permissionsService;
-        //Family seleccion;
+        PermissionsService permissionsService;
+        Family seleccion;
         UserService userService = new UserService();
         public frmGerente()
         {
             InitializeComponent();
-            //Session.GetInstance.addObserber(this);
+            Session.GetInstance.addObserber(this);
         }
 
         private void progressBar1_Click(object sender, EventArgs e)
@@ -34,12 +34,17 @@ namespace View
         private void frmGerente_Load(object sender, EventArgs e)
         {
             Actualizar();
-            //updateLanguage(Session.GetInstance.language);
+            updateLanguage(Session.GetInstance.language);
 
         }
+
         private void frmGerente_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //Session.GetInstance.removeObserber(this);
+            try
+            {
+                Session.GetInstance.removeObserber(this);
+            }
+            catch (Exception ex) { }
         }
         private void Actualizar()
         {
@@ -106,40 +111,40 @@ namespace View
             Actualizar();
         }
 
-        //public void updateLanguage(Language language)
-        //{
-        //    try
-        //    {
-        //        foreach (Control control in Controls)
-        //        {
-        //            control.Text = language.Translations.Find(
-        //                    (translation) => translation.Key.Equals(control.Tag)
-        //                )?.Translate ?? control.Text;
-        //            if (control.Controls.Count != 0)
-        //            {
-        //                updateLanguageRecursiveControls(language, control.Controls);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        //MessageBox.Show(""); Que la chupe este form de mierda
-        //    }
-        //}
-        //public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)
-        //{
-        //    foreach (Control control in parent)
-        //    {
-        //        control.Text = language.Translations.Find(
-        //                (translation) => translation.Key.Equals(control.Tag)
-        //            )?.Translate ?? control.Text;
+        public void updateLanguage(Language language)
+        {
+            try
+            {
+                foreach (Control control in Controls)
+                {
+                    control.Text = language.Translations.Find(
+                            (translation) => translation.Key.Equals(control.Tag)
+                        )?.Translate ?? control.Text;
+                    if (control.Controls.Count != 0)
+                    {
+                        updateLanguageRecursiveControls(language, control.Controls);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cerra el formulario boludo");// Que la chupe este form de mierda
+            }
+        }
+        public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)
+        {
+            foreach (Control control in parent)
+            {
+                control.Text = language.Translations.Find(
+                        (translation) => translation.Key.Equals(control.Tag)
+                    )?.Translate ?? control.Text;
 
-        //        if (control.Controls.Count != 0)
-        //        {
-        //            updateLanguageRecursiveControls(language, control.Controls);
-        //        }
-        //    }
-        //}
+                if (control.Controls.Count != 0)
+                {
+                    updateLanguageRecursiveControls(language, control.Controls);
+                }
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {

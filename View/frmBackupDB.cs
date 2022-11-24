@@ -9,14 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using Models;
+using Models.interfaces;
+using Models.language;
 
 namespace View
 {
-    public partial class frmBackupDB : Form
+    public partial class frmBackupDB : Form, ILanguageObserber
     {
+        PermissionsService permissionsService;
+        Family seleccion;
+        UserService userService = new UserService();
         public frmBackupDB()
         {
             InitializeComponent();
+            Session.GetInstance.addObserber(this);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -121,5 +128,46 @@ namespace View
             comboBox1.Items.Add(System.Environment.MachineName + @"\SQLEXPRESS");
             comboBox2.Items.Add("campo");
         }
+
+        private void frmBackupDB_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Session.GetInstance.removeObserber(this);
+        }
+
+        public void updateLanguage(Language language)
+        {
+            try
+            {
+                foreach (Control control in Controls)
+                {
+                    control.Text = language.Translations.Find(
+                            (translation) => translation.Key.Equals(control.Tag)
+                        )?.Translate ?? control.Text;
+                    if (control.Controls.Count != 0)
+                    {
+                        updateLanguageRecursiveControls(language, control.Controls);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(""); Que la chupe este form de mierda
+            }
+        }
+        public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)
+        {
+            foreach (Control control in parent)
+            {
+                control.Text = language.Translations.Find(
+                        (translation) => translation.Key.Equals(control.Tag)
+                    )?.Translate ?? control.Text;
+
+                if (control.Controls.Count != 0)
+                {
+                    updateLanguageRecursiveControls(language, control.Controls);
+                }
+            }
+        }
+
     }
 }

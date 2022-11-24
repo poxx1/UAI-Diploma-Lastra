@@ -9,15 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
 using DataAccess;
+using Models;
 using Models.DBModel;
+using Models.interfaces;
+using Models.language;
 
 namespace View
 {
-    public partial class frmActualizarUsuario : Form
+    public partial class frmActualizarUsuario : Form, ILanguageObserber
     {
         public frmActualizarUsuario()
         {
             InitializeComponent();
+            Session.GetInstance.addObserber(this);
         }
 
         private void frmActualizarUsuario_Load(object sender, EventArgs e)
@@ -67,5 +71,46 @@ namespace View
 
             else label1.Text = "No se updateo el usuario";
         }
+
+         private void frmActualizarUsuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Session.GetInstance.removeObserber(this);
+        }
+
+        public void updateLanguage(Language language)
+        {
+            try
+            {
+                foreach (Control control in Controls)
+                {
+                    control.Text = language.Translations.Find(
+                            (translation) => translation.Key.Equals(control.Tag)
+                        )?.Translate ?? control.Text;
+                    if (control.Controls.Count != 0)
+                    {
+                        updateLanguageRecursiveControls(language, control.Controls);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(""); Que la chupe este form de mierda
+            }
+        }
+        public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)
+        {
+            foreach (Control control in parent)
+            {
+                control.Text = language.Translations.Find(
+                        (translation) => translation.Key.Equals(control.Tag)
+                    )?.Translate ?? control.Text;
+
+                if (control.Controls.Count != 0)
+                {
+                    updateLanguageRecursiveControls(language, control.Controls);
+                }
+            }
+        }
+
     }
 }

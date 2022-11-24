@@ -11,10 +11,12 @@ using Business;
 using DataAccess;
 using Models;
 using Models.DBModel;
+using Models.interfaces;
+using Models.language;
 
 namespace View
 {
-    public partial class frmDigitoVerificador : Form
+    public partial class frmDigitoVerificador : Form, ILanguageObserber
     {
         public frmDigitoVerificador()
         {
@@ -58,7 +60,7 @@ namespace View
 
         private void frmDigitoVerificador_Load(object sender, EventArgs e)
         {
-
+            Session.GetInstance.addObserber(this);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -134,6 +136,46 @@ namespace View
         private void button1_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("Para utilizar la clave desde el credential manager debe ser administrador, si lo es, su clave se encuentra en su clipboard, haga control + v sobre la casilla de texto y pegue la clave obtenida.");
+        }
+
+        private void frmDigitoVerificador_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Session.GetInstance.removeObserber(this);
+        }
+
+        public void updateLanguage(Language language)
+        {
+            try
+            {
+                foreach (Control control in Controls)
+                {
+                    control.Text = language.Translations.Find(
+                            (translation) => translation.Key.Equals(control.Tag)
+                        )?.Translate ?? control.Text;
+                    if (control.Controls.Count != 0)
+                    {
+                        updateLanguageRecursiveControls(language, control.Controls);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(""); Que la chupe este form de mierda
+            }
+        }
+        public void updateLanguageRecursiveControls(Language language, Control.ControlCollection parent)
+        {
+            foreach (Control control in parent)
+            {
+                control.Text = language.Translations.Find(
+                        (translation) => translation.Key.Equals(control.Tag)
+                    )?.Translate ?? control.Text;
+
+                if (control.Controls.Count != 0)
+                {
+                    updateLanguageRecursiveControls(language, control.Controls);
+                }
+            }
         }
     }
 }
