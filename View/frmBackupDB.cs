@@ -30,6 +30,9 @@ namespace View
             var response = MessageBox.Show("Estas seguro que queres restaurar el backup?","Cuidado!",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (response == DialogResult.Yes)
             {
+                BackupRestoreService backupRestoreService = new BackupRestoreService();
+                string path = "";
+                backupRestoreService.restoreBackup($"EXEC[] @path= {path}");
                 label3.ForeColor = Color.Green;
                 label3.Text = "Se restauro la base de datos correctamente";
             }
@@ -44,9 +47,21 @@ namespace View
         {
             if (folderBrowserDialog1.SelectedPath != null)
             {
+                string path = "";
                 BackupRestoreService backupRestoreService = new BackupRestoreService();
-                backupRestoreService.makeBackup($"Backup database campo to disk = '{folderBrowserDialog1.SelectedPath}'");
+                //backupRestoreService.makeBackup($"EXEC[updateTicket] @ticket_ID = N'" + ticketNumber + "', @time_Alerted = N'" + DateTime.Now + "', @ticket_Priority = N'" + ticketPriority + "'" = '{folderBrowserDialog1.SelectedPath}'");
+                backupRestoreService.makeBackup($"EXEC[store_backup] @path = {path}");
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmBackupDB_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.Add(System.Environment.MachineName + @"\SQLEXPRESS");
         }
     }
 }

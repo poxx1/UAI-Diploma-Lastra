@@ -16,7 +16,7 @@ namespace Utiles
 
             SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
-            cs.DataSource = @"DESKTOP-CUHS3KR\SQLEXPRESS";
+            cs.DataSource = System.Environment.MachineName + @"\SQLEXPRESS";
             cs.InitialCatalog = "campo";
             return new SqlConnection(cs.ConnectionString);
             
