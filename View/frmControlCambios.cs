@@ -102,5 +102,14 @@ namespace View
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ControlCambiosModel cambio = (ControlCambiosModel)dataGridView1.CurrentRow.DataBoundItem;
+            DigitoVerificadorService ds = new DigitoVerificadorService();
+            Crypt crypt = new Crypt();
+            var user = ds.obtenerUsuario(crypt.Decrypt(cambio.change_data.ToString()));
+            MessageBox.Show("Informacion del usuario: \r\n"+user.UserName + "\r\n" + user.Email + "\r\n" + user.id_tipo);
+        }
     }
 }
