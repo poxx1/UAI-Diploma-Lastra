@@ -39,8 +39,8 @@ namespace Utiles
             try
             {
                 cd.Target = "Diploma_Lastra";
-                Username = cd.Username;
-                Password = cd.Password;
+                Username = "Admin";
+                Password = "test";
                 cd.Save();
                 return true;
             }
