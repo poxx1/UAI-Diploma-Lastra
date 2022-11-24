@@ -68,6 +68,7 @@ namespace View
                 if (db.dbExists()) { }
                 else
                 {
+                    MessageBox.Show("Corriendo script para crear db");
                     string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\createDB.sql";
                     db.CreateDB(db.readScript(path));
                 }

@@ -49,7 +49,7 @@ namespace Business
             {
                 foreach (DBUsers user in usuarios)
                 {
-                    user.digitoVerificador = DigitoVerificarUsuario(user);
+                    //user.digitoVerificador = user.digitoVerificador;//DigitoVerificarUsuario(user);
                 }
             }
             catch (Exception ex)
@@ -68,6 +68,23 @@ namespace Business
                 UserRepository userRepository = new UserRepository();
                 List<DigitoVerificadorModel> lista = new List<DigitoVerificadorModel>();
                 lista = userRepository.ListDigitoVerificadorHorizontal();
+                return lista;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error trayendo datos desde la BD");
+                MessageBox.Show(ex.Message);
+                return new List<DigitoVerificadorModel>();
+            }
+        }
+        public List<DigitoVerificadorModel> ListarDigitoVertical()
+        {
+            try
+            {
+                UserRepository userRepository = new UserRepository();
+                List<DigitoVerificadorModel> lista = new List<DigitoVerificadorModel>();
+                lista = userRepository.ListDigitoVertical();
                 return lista;
             }
 
@@ -231,12 +248,84 @@ namespace Business
         }
         public bool dobleVerificacion()
         {
-            bool result = false;
+            try
+            {
+                bool result = false;
 
-            if (verificarVerticalUsuarios() && CompararDigitoVerificadorHorizontal())
-                result = true;
+                if (ComprarDigitoVertical() && CompararDigitoVerificadorHorizontal())
+                    result = true;
 
-            return result;
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+        }
+        public bool ComprarDigitoVertical()
+        {
+            try
+            {
+                var lista = ListarDigitoVertical();
+                if (lista.First().digitoVerificador == ComprarDigitoVerticalVsHorizontal())
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public string ComprarDigitoVerticalVsHorizontal()
+        {
+            try
+            {
+                //Verificar verticalmente usuarios
+                string sinhashear = "";
+                List<DBUsers> usuarios = ObtenerHashHorizontal();
+                foreach (DBUsers user in usuarios)
+                {
+                    sinhashear += user.digitoVerificador + "##";
+                }
+
+                //MessageBox.Show(sinhashear);
+
+                Crypt crypt = new Crypt();
+                string hashada = crypt.Encrypt(sinhashear);
+
+                //MessageBox.Show(hashada);
+
+                //Verificar verticalmente tabla horizontal
+                string sinhashearDVs = "";
+                List<DigitoVerificadorModel> digitos = ListarDigitoVerificadorHorizontal();
+
+                foreach (DigitoVerificadorModel digito in digitos)
+                {
+                    sinhashearDVs += digito.digitoVerificador;
+                }
+
+                //MessageBox.Show(sinhashearDVs);
+
+                string hashadaDVs = crypt.Encrypt(sinhashearDVs);
+
+                //MessageBox.Show(hashadaDVs);
+
+                DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
+
+                DigitoVerificadorModel dm = new DigitoVerificadorModel();
+                dm.id_dv = "1";
+                dm.digitoVerificador = hashadaDVs;
+
+                return dm.digitoVerificador;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error validando el vertical");
+                return "error";
+            }
         }
         public bool UpdateDigitoVerificadorHorizontalUsuario(DigitoVerificadorModel digito)
         {

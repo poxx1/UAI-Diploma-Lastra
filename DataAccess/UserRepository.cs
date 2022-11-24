@@ -704,5 +704,45 @@ namespace DataAccess
                 return new List<DigitoVerificadorModel>();
             }
         }
+
+        public List<DigitoVerificadorModel> ListDigitoVertical()
+        {
+            try
+            {
+                SqlConnection connection = ConnectionSingleton.getConnection();
+                connection.Open();
+                var cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                var sql = $@"select * from DigitoVerificadorVertical;";
+
+                cmd.CommandText = sql;
+
+                var reader = cmd.ExecuteReader();
+
+                var lista = new List<DigitoVerificadorModel>();
+
+                while (reader.Read())
+                {
+                    DigitoVerificadorModel user = new DigitoVerificadorModel()
+                    {
+                        id_dv = reader.GetValue(reader.GetOrdinal("id_dv_v")).ToString(),
+                        digitoVerificador = reader.GetValue(reader.GetOrdinal("digitoVerificador")).ToString(),
+                    };
+                    lista.Add(user);
+                }
+
+                reader.Close();
+                connection.Close();
+                return lista;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error listando digitos verificadores");
+                MessageBox.Show(ex.Message);
+                return new List<DigitoVerificadorModel>();
+            }
+        }
     }
 }
