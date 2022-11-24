@@ -28,6 +28,8 @@ namespace View
             //Foreach item in dir fill combobox.
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Backup\";
 
+            comboBox3.Items.Clear();
+
             DirectoryInfo d = new DirectoryInfo(path); //
 
             FileInfo[] Files = d.GetFiles("*.bak"); //all backups
@@ -43,23 +45,31 @@ namespace View
             var response = MessageBox.Show("Estas seguro que queres restaurar el backup?","Cuidado!",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (response == DialogResult.Yes)
             {
-                BackupRestoreService backupRestoreService = new BackupRestoreService();
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Backup\" + comboBox3.SelectedItem;
-                
-                backupRestoreService.restoreBackup($"EXEC[store_restore] @path = {path}");
-                label3.ForeColor = Color.Green;
-                label3.Text = "Se restauro la base de datos correctamente";
-
-                foreach (Form frm in Application.OpenForms)
+                try
                 {
-                    if (frm.Name == "frmLogin")
+                    BackupRestoreService backupRestoreService = new BackupRestoreService();
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Backup\" + comboBox3.SelectedItem;
+
+                    backupRestoreService.restoreBackup($"EXEC[store_restore] @path = '{path}'");
+                    label3.ForeColor = Color.Green;
+                    label3.Text = "Se restauro la base de datos correctamente";
+
+                    foreach (Form frm in Application.OpenForms)
                     {
-                        foreach (Control control in frm.Controls)
+                        if (frm.Name == "frmLogin")
                         {
-                            control.Enabled = true;
+                            foreach (Control control in frm.Controls)
+                            {
+                                control.Enabled = true;
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error restaurando la db");
+                }
+                Console.WriteLine("Evita que se rompa el codigo por el try adentro del if");
             }
             else
             {
@@ -75,11 +85,11 @@ namespace View
             {
                 BackupRestoreService backupRestoreService = new BackupRestoreService();
                 //backupRestoreService.makeBackup($"EXEC[updateTicket] @ticket_ID = N'" + ticketNumber + "', @time_Alerted = N'" + DateTime.Now + "', @ticket_Priority = N'" + ticketPriority + "'" = '{folderBrowserDialog1.SelectedPath}'");
-                string today = DateTime.Now.ToString("dd/MM/yyyy_hh:mm:ss");
-                MessageBox.Show(today);
+                string today = DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss");
+                //MessageBox.Show(today);
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Backup\" + today + ".bak";
 
-                backupRestoreService.makeBackup($"EXEC[store_backup] @path = {path}");
+                backupRestoreService.makeBackup($"EXEC[store_backup] @path = '{path}'");
             }
         }
 
