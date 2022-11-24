@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
@@ -68,12 +69,40 @@ namespace View
                 if (db.dbExists()) { }
                 else
                 {
-                    MessageBox.Show("Corriendo script para crear db");
-                    string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\createDB.sql";
-                    db.CreateDB(db.readScript(path));
-                }
+                    MessageBox.Show("Se esta creando la base de datos, espere 5 minutos para poder interactuar");
 
-                Utiles.CredentialManager cm = new CredentialManager();
+                        BackupRestoreService backupRestoreService = new BackupRestoreService();
+                        string path1 = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Inicial.bak";
+
+                        backupRestoreService.restoreBackup($"EXEC[store_restore] @path = '{path1}'");
+                        label3.ForeColor = Color.Green;
+                        label3.Text = "Se restauro la base de datos correctamente";
+
+                        foreach (Form frm in Application.OpenForms)
+                        {
+                            if (frm.Name == "frmLogin")
+                            {
+                                foreach (Control control in frm.Controls)
+                                {
+                                    control.Enabled = true;
+                                }
+                            }
+                        }
+                  
+
+                    if (db.dbExists())
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Corriendo script para crear db");
+                        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\createDB.sql";
+                        db.CreateDB(db.readScript(path));
+                    }
+                }       
+
+                    Utiles.CredentialManager cm = new CredentialManager();
 
                 if (cm.User())
                 {
@@ -85,7 +114,9 @@ namespace View
                     }
 
                     if (isAdmin) { } // re molsta esta verga MessageBox.Show("Como es admin se copio la clave al clipboard."); }
-                    else { MessageBox.Show("No tiene permisos para poder obtener la clave"); }
+                    else
+                    { //MessageBox.Show("No tiene permisos para poder obtener la clave"); }
+                    }
                 }
                 
                 //Digito verificar

@@ -112,14 +112,13 @@ namespace Business
                 {
                     foreach (DigitoVerificadorModel digito in digitos)
                     {
-                        if(digito.digitoVerificador == user.digitoVerificador)
+                        if(digito.digitoVerificador == user.digitoVerificador && digito.digitoVerificador == DigitoVerificarUsuario(user))
                         {
                             listaChecker.Add(true);
                             break;
                         }
                     }
                 }
-                    
                 if (listaChecker.Contains(false) || listaChecker.Count != digitos.Count)
                 {
                     check = false;
