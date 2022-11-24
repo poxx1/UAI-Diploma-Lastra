@@ -149,13 +149,16 @@ namespace View
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Help.ShowHelp(this, @"D:\Diploma-Lastra\Documentation\Proyecto.chm"); //, "content.html"
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Proyecto.chm"); //, "content.html"
+            //Help.ShowHelp(this, System.Reflection.Assembly.GetEntryAssembly().Location+@"\Proyecto.chm"); //, "content.html"
         }
 
         private void frmGerente_HelpRequested(object sender, HelpEventArgs hlpevent)
         {
-            Help.ShowHelp(this, @"D:\Diploma-Lastra\Documentation\Proyecto.chm"); //, "content.html"
-
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path+@"\Proyecto.chm"); //, "content.html"
+            MessageBox.Show(path);
         }
     }
 }
