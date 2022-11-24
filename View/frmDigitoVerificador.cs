@@ -20,7 +20,7 @@ namespace View
         {
             InitializeComponent();
             button2.Enabled = false;
-            //button5.Enabled = false;
+             button5.Enabled = false;
             label4.Text = "Debido a un error en la verificacion del DV, debe realizar una accion";
         }
         private void button1_Click(object sender, EventArgs e)
@@ -51,6 +51,7 @@ namespace View
             if (textBox1.Text == "MyQce23+1e0=")
             {
                 button2.Enabled = true;
+                button5.Enabled = true;
             }
             else label4.Text = "Error validando la clave de recuperacion";
         }
