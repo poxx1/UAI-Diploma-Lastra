@@ -94,6 +94,17 @@ namespace View
                 if (ds.dobleVerificacion())
                 {
                     MessageBox.Show("Se validaron los usuarios");
+                    this.Hide();
+                    foreach (Form frm in Application.OpenForms)
+                    {
+                        if (frm.Name == "frmLogin")
+                        {
+                            foreach (Control control in frm.Controls)
+                            {
+                                control.Enabled = true;
+                            }
+                        }
+                    }
                 }
                 else MessageBox.Show("No se pudieron validar los usuarios. Se recomienda restaurara la DB.");
             }
