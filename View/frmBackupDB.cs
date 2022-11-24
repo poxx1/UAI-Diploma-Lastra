@@ -43,7 +43,7 @@ namespace View
         private void button1_Click(object sender, EventArgs e)
         {
             var response = MessageBox.Show("Estas seguro que queres restaurar el backup?","Cuidado!",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (response == DialogResult.Yes)
+            if (response == DialogResult.Yes && folderBrowserDialog1.SelectedPath != null && comboBox3.SelectedItem != null)
             {
                 try
                 {
@@ -67,29 +67,47 @@ namespace View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error restaurando la db");
+                    MessageBox.Show("Error restaurando la db: \r\n" +ex.Message);
+                    label6.ForeColor = Color.Red;
+                    label6.Text = "No se pudo restaurar la base de datos";
                 }
                 Console.WriteLine("Evita que se rompa el codigo por el try adentro del if");
             }
             else
             {
                 label3.ForeColor = Color.Yellow;
-                label3.Text = "Se freno la accion de restaurar.";
+                label3.Text = "Se freno la accion de restaurar. Revisar los path";
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             //Backup
-            if (folderBrowserDialog1.SelectedPath != null)
+            try
             {
-                BackupRestoreService backupRestoreService = new BackupRestoreService();
-                //backupRestoreService.makeBackup($"EXEC[updateTicket] @ticket_ID = N'" + ticketNumber + "', @time_Alerted = N'" + DateTime.Now + "', @ticket_Priority = N'" + ticketPriority + "'" = '{folderBrowserDialog1.SelectedPath}'");
-                string today = DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss");
-                //MessageBox.Show(today);
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Backup\" + today + ".bak";
+                if (folderBrowserDialog1.SelectedPath != null)
+                {
+                    BackupRestoreService backupRestoreService = new BackupRestoreService();
+                    //backupRestoreService.makeBackup($"EXEC[updateTicket] @ticket_ID = N'" + ticketNumber + "', @time_Alerted = N'" + DateTime.Now + "', @ticket_Priority = N'" + ticketPriority + "'" = '{folderBrowserDialog1.SelectedPath}'");
+                    string today = DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss");
+                    //MessageBox.Show(today);
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Backup\" + today + ".bak";
 
-                backupRestoreService.makeBackup($"EXEC[store_backup] @path = '{path}'");
+                    backupRestoreService.makeBackup($"EXEC[store_backup] @path = '{path}'");
+
+                    label3.ForeColor = Color.Green;
+                    label3.Text = path;
+                }
+                else {
+                    label3.ForeColor = Color.Red;
+                    label3.Text = "No selecciono correctamente los path";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error restaurando la db: \r\n" + ex.Message);
+                label3.ForeColor = Color.Red;
+                label3.Text = "No se pudo backupear la base de datos";
             }
         }
 

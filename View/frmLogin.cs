@@ -83,7 +83,7 @@ namespace View
                         isAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);
                     }
 
-                    if(isAdmin) { MessageBox.Show("Como es admin se copio la clave al clipboard."); }
+                    if (isAdmin) { } // re molsta esta verga MessageBox.Show("Como es admin se copio la clave al clipboard."); }
                     else { MessageBox.Show("No tiene permisos para poder obtener la clave"); }
                 }
                 
