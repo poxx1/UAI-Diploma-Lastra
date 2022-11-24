@@ -45,6 +45,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(696, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 39);
