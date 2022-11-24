@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using DataAccess;
 using Models;
 using Models.DBModel;
 
@@ -62,14 +63,60 @@ namespace View
         private void button5_Click(object sender, EventArgs e)
         {
             //Validar cambios
-            DigitoVerificadorService ds = new DigitoVerificadorService();
+            DialogResult result = MessageBox.Show("", "", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                DigitoVerificadorService ds = new DigitoVerificadorService();
+                DigitoVerificadorRepository dr = new DigitoVerificadorRepository();
+                //Verifico todos los usuarios horizontalmente.
+                //Listo los usuarios.
+
+                //Updateo los usuarios con su nuevo digito verificador.
+                foreach (DBUsers user in ds.ListdBUsers())
+                {
+                    string digito = ds.DigitoVerificarUsuario(user);
+                    
+                    foreach (DigitoVerificadorModel model in ds.ListarDigitoVerificadorHorizontal())
+                    {
+                        if (model.id_dv == user.id_dv.ToString())
+                        {
+                            model.digitoVerificador = digito;
+                            dr.UpdateHorizontalUsuario(model);
+                            dr.UpdateHorizontal(model);
+                        }
+                    }
+                }
+
+                //Verifico todos los usuarios verticalmente.
+                ds.verificarVerticalUsuarios();
+
+                //Reviso de nuevo que este todo ok.
+                if (ds.dobleVerificacion())
+                {
+                    MessageBox.Show("Se validaron los usuarios");
+                }
+                else MessageBox.Show("No se pudieron validar los usuarios. Se recomienda restaurara la DB.");
+            }
+            else 
+            {
+                label4.Text = "Eligio no validar los cambios.";
+            }
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //Restaurar DB
+            DialogResult result = MessageBox.Show("", "", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                DigitoVerificadorService ds = new DigitoVerificadorService();
 
+            }
+            else
+            {
+                label4.Text = "Eligio no restaurar la db.";
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
