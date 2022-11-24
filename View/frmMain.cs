@@ -432,7 +432,7 @@ namespace View
             else
             {
                 MessageBox.Show("No tiene permiso para ingresar a este fomrulario");
-            
+            }
         }
 
         private void jActualizarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
