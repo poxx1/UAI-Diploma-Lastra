@@ -21,7 +21,7 @@ namespace Business
         public bool restoreBackup(string query)
         {
             DBConnection db = new DBConnection();
-            if (db.NoTransactionQuery(query))
+            if (db.NoTransactionQueryMaster(query))
                 return true;
             else
                 return false;

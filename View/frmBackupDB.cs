@@ -113,7 +113,7 @@ namespace View
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //EL DIGITO VERIFICADOR VERTICAL NO SE CHEQUEA PELOTUDO
         }
 
         private void frmBackupDB_Load(object sender, EventArgs e)

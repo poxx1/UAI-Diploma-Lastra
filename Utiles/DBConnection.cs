@@ -74,7 +74,46 @@ namespace Utiles
             var objeto = new object();
             var objeto1 = new object();
 
-            var cn = new SqlConnection(@"Server="+ System.Environment.MachineName + @"\SQLEXPRESS" + "; Initial Catalog=campo;Integrated Security=True");
+            var cn = new SqlConnection(@"Server=" + System.Environment.MachineName + @"\SQLEXPRESS" + "; Initial Catalog=campo;Integrated Security=True");
+            var cmd = new SqlCommand();
+
+            cn.Open();
+
+            cmd.CommandTimeout = 5;
+
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cn;
+            cmd.CommandText = query;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show($"SQL Exception triggered: {e}");
+                return false;
+                //throw e;
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw e;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        public bool NoTransactionQueryMaster(string query)
+        {
+            var objeto = new object();
+            var objeto1 = new object();
+
+            var cn = new SqlConnection(@"Server="+ System.Environment.MachineName + @"\SQLEXPRESS" + "; Initial Catalog=master;Integrated Security=True");
             var cmd = new SqlCommand();
 
             cn.Open();
