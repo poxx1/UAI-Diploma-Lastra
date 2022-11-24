@@ -61,18 +61,20 @@ namespace View
 
         private void button5_Click(object sender, EventArgs e)
         {
+            //Validar cambios
             DigitoVerificadorService ds = new DigitoVerificadorService();
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Restaurar DB
 
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Para utilizar la clave desde el credential manager debe ser administrador, si lo es, su clave se encuentra en su clipboard, haga control + v sobre la casilla de texto y pegue la clave obtenida.");
         }
     }
 }

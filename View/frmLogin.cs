@@ -82,7 +82,8 @@ namespace View
                         WindowsPrincipal principal = new WindowsPrincipal(identity);
                         isAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);
                     }
-                    if(isAdmin) { MessageBox.Show("Clave copiada al clipboard."); }
+
+                    if(isAdmin) { MessageBox.Show("Como es admin se copio la clave al clipboard."); }
                     else { MessageBox.Show("No tiene permisos para poder obtener la clave"); }
                 }
                 

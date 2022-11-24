@@ -34,5 +34,21 @@ namespace Utiles
             }
         }
 
+        public bool SaveCredential()
+        {
+            try
+            {
+                cd.Target = "Diploma_Lastra";
+                Username = cd.Username;
+                Password = cd.Password;
+                cd.Save();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
     }
 }
