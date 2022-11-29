@@ -16,7 +16,17 @@ namespace Utiles
 
             SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
-            cs.DataSource = System.Environment.MachineName + @"\SQLEXPRESS";
+
+            if (System.Environment.MachineName.Contains("LAB"))
+            {
+                cs.DataSource = System.Environment.MachineName;
+            }
+            else
+            {
+                cs.DataSource = System.Environment.MachineName + @"\SQLEXPRESS";
+            }
+
+            //System.Environment.MachineName + @"\SQLEXPRESS";
             cs.InitialCatalog = "campo";
             return new SqlConnection(cs.ConnectionString);
             

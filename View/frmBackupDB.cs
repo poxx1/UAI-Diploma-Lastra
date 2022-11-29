@@ -125,8 +125,15 @@ namespace View
 
         private void frmBackupDB_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add(System.Environment.MachineName + @"\SQLEXPRESS");
-            comboBox2.Items.Add("campo");
+            if (System.Environment.MachineName.Contains("LAB"))
+            {
+                comboBox1.Items.Add(System.Environment.MachineName);
+            }
+            else
+            {
+                comboBox1.Items.Add(System.Environment.MachineName + @"\SQLEXPRESS");
+            }
+                comboBox2.Items.Add("campo");
         }
 
         private void frmBackupDB_FormClosed(object sender, FormClosedEventArgs e)

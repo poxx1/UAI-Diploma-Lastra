@@ -113,7 +113,18 @@ namespace Utiles
             var objeto = new object();
             var objeto1 = new object();
 
-            var cn = new SqlConnection(@"Server="+ System.Environment.MachineName + @"\SQLEXPRESS" + "; Initial Catalog=master;Integrated Security=True");
+            string DataSource = "";
+
+            if (System.Environment.MachineName.Contains("LAB"))
+            {
+                DataSource = System.Environment.MachineName;
+            }
+            else
+            {
+                DataSource = System.Environment.MachineName + @"\SQLEXPRESS";
+            }
+
+            var cn = new SqlConnection(@"Server="+ DataSource + "; Initial Catalog=master;Integrated Security=True");
             var cmd = new SqlCommand();
 
             cn.Open();
@@ -209,8 +220,18 @@ namespace Utiles
         }
         public bool TestConnection()
         {
-            SqlConnection _conexion = new SqlConnection(@"Server="+ System.Environment.MachineName + @"\SQLEXPRESS" + "; Initial Catalog=campo;Integrated Security=True");
+            string DataSource = "";
 
+            if (System.Environment.MachineName.Contains("LAB"))
+            {
+                DataSource = System.Environment.MachineName;
+            }
+            else
+            {
+                DataSource = System.Environment.MachineName + @"\SQLEXPRESS";
+            }
+
+            var _conexion = new SqlConnection(@"Server=" + DataSource + "; Initial Catalog=master;Integrated Security=True");
             //Abro la conexion
             try
             {
