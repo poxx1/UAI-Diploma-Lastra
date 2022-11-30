@@ -67,7 +67,7 @@ namespace Utiles
                             //Titulo
                             
 
-                            cell2 = new PdfPCell(new Phrase("\nInforme del listado de maquinas actuales", new Font(Font.FontFamily.TIMES_ROMAN, 20)));
+                            cell2 = new PdfPCell(new Phrase("\nInforme del listado de maquinas actuales por reparar", new Font(Font.FontFamily.TIMES_ROMAN, 20)));
                             cell2.HorizontalAlignment = Element.ALIGN_CENTER;
                             cell2.VerticalAlignment = Element.ALIGN_JUSTIFIED_ALL;
                             cell2.Colspan = 2;

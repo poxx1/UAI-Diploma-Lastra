@@ -124,11 +124,11 @@ namespace View
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Machines m = new Machines();
-            m = (Machines)listBox1.SelectedItem;
-            textBox2.Text = m.Id_Client.ToString();
-            textBox3.Text = m.Brand;
-            textBox4.Text = m.Model;
-            richTextBox2.Text = m.Description;
+            //m = (Machines)listBox1.SelectedItem;
+            textBox2.Text = "luis";//m.Id_Client.ToString();
+            textBox3.Text = "Lusqtoff";// m.Brand;
+            textBox4.Text = "F-100";//m.Model;
+            richTextBox2.Text = "Segun el cliente la maquina no prende";//m.Description;
 
         }
     }
