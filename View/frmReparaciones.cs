@@ -82,6 +82,7 @@ namespace View
             textBox2.Text = u.UserName.ToString();
             textBox3.Text = m.Brand.ToString();
             textBox4.Text = m.Model.ToString();
+            richTextBox3.Text = m.Failure;
         }
         private void cargarMaquinas()
         {

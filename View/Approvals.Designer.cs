@@ -48,6 +48,8 @@ namespace View
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -99,7 +101,7 @@ namespace View
             // 
             this.richTextBox1.Location = new System.Drawing.Point(9, 88);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(158, 92);
+            this.richTextBox1.Size = new System.Drawing.Size(158, 89);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -141,7 +143,7 @@ namespace View
             // 
             this.richTextBox2.Location = new System.Drawing.Point(190, 169);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(100, 101);
+            this.richTextBox2.Size = new System.Drawing.Size(100, 41);
             this.richTextBox2.TabIndex = 27;
             this.richTextBox2.Text = "";
             // 
@@ -219,12 +221,31 @@ namespace View
             this.textBox1.Size = new System.Drawing.Size(72, 20);
             this.textBox1.TabIndex = 29;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(187, 213);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 13);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Falla descripta";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(190, 229);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(100, 41);
+            this.richTextBox3.TabIndex = 31;
+            this.richTextBox3.Text = "";
+            // 
             // Approvals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(304, 282);
+            this.ClientSize = new System.Drawing.Size(301, 282);
+            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.richTextBox2);
@@ -273,5 +294,7 @@ namespace View
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RichTextBox richTextBox3;
     }
 }
