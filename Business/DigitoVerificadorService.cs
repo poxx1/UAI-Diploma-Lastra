@@ -365,10 +365,10 @@ namespace Business
                 List<ControlCambiosModel> lista = new List<ControlCambiosModel>();
                 lista = ListarControlCambios();
 
-                ccm.id_change = lista.Count + 1;
-                ccm.change_data = user.digitoVerificador;
-                ccm.change_userAffected = user.ID.ToString();
-                ccm.change_date = DateTime.Now.ToString("MM/dd/yyyy");
+                ccm.ID_Cambio = lista.Count + 1;
+                ccm.DigitoVerificador = user.digitoVerificador;
+                ccm.Usuario_Afectado = user.ID.ToString();
+                ccm.Fecha = DateTime.Now.ToString("MM/dd/yyyy");
 
                 dr.InsertarCambioDB(ccm);
 

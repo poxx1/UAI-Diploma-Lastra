@@ -53,7 +53,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button1.ForeColor = System.Drawing.Color.Lime;
-            this.button1.Location = new System.Drawing.Point(370, 4);
+            this.button1.Location = new System.Drawing.Point(202, 59);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 44);
             this.button1.TabIndex = 0;
@@ -80,7 +80,7 @@
             this.tb_Marca.ForeColor = System.Drawing.Color.White;
             this.tb_Marca.Location = new System.Drawing.Point(12, 25);
             this.tb_Marca.Name = "tb_Marca";
-            this.tb_Marca.Size = new System.Drawing.Size(100, 20);
+            this.tb_Marca.Size = new System.Drawing.Size(134, 20);
             this.tb_Marca.TabIndex = 2;
             // 
             // tb_Modelo
@@ -89,7 +89,7 @@
             this.tb_Modelo.ForeColor = System.Drawing.Color.White;
             this.tb_Modelo.Location = new System.Drawing.Point(12, 75);
             this.tb_Modelo.Name = "tb_Modelo";
-            this.tb_Modelo.Size = new System.Drawing.Size(100, 20);
+            this.tb_Modelo.Size = new System.Drawing.Size(134, 20);
             this.tb_Modelo.TabIndex = 4;
             // 
             // label2
@@ -110,7 +110,7 @@
             this.tb_Tipo.ForeColor = System.Drawing.Color.White;
             this.tb_Tipo.Location = new System.Drawing.Point(12, 128);
             this.tb_Tipo.Name = "tb_Tipo";
-            this.tb_Tipo.Size = new System.Drawing.Size(100, 20);
+            this.tb_Tipo.Size = new System.Drawing.Size(134, 20);
             this.tb_Tipo.TabIndex = 6;
             // 
             // label3
@@ -155,7 +155,7 @@
             this.rtb_Description.ForeColor = System.Drawing.Color.White;
             this.rtb_Description.Location = new System.Drawing.Point(12, 229);
             this.rtb_Description.Name = "rtb_Description";
-            this.rtb_Description.Size = new System.Drawing.Size(217, 96);
+            this.rtb_Description.Size = new System.Drawing.Size(121, 96);
             this.rtb_Description.TabIndex = 13;
             this.rtb_Description.Text = "";
             // 
@@ -163,9 +163,9 @@
             // 
             this.rtb_Elements.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rtb_Elements.ForeColor = System.Drawing.Color.White;
-            this.rtb_Elements.Location = new System.Drawing.Point(12, 354);
+            this.rtb_Elements.Location = new System.Drawing.Point(148, 229);
             this.rtb_Elements.Name = "rtb_Elements";
-            this.rtb_Elements.Size = new System.Drawing.Size(217, 96);
+            this.rtb_Elements.Size = new System.Drawing.Size(151, 96);
             this.rtb_Elements.TabIndex = 15;
             this.rtb_Elements.Text = "";
             // 
@@ -174,7 +174,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(9, 338);
+            this.label6.Location = new System.Drawing.Point(161, 213);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 13);
             this.label6.TabIndex = 14;
@@ -185,7 +185,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(370, 54);
+            this.button2.Location = new System.Drawing.Point(202, 133);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 44);
             this.button2.TabIndex = 16;
@@ -198,9 +198,9 @@
             // 
             this.rtb_Failures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rtb_Failures.ForeColor = System.Drawing.Color.White;
-            this.rtb_Failures.Location = new System.Drawing.Point(12, 481);
+            this.rtb_Failures.Location = new System.Drawing.Point(12, 372);
             this.rtb_Failures.Name = "rtb_Failures";
-            this.rtb_Failures.Size = new System.Drawing.Size(217, 96);
+            this.rtb_Failures.Size = new System.Drawing.Size(287, 72);
             this.rtb_Failures.TabIndex = 19;
             this.rtb_Failures.Text = "";
             // 
@@ -209,7 +209,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(9, 465);
+            this.label7.Location = new System.Drawing.Point(9, 342);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(111, 13);
             this.label7.TabIndex = 18;
@@ -240,7 +240,7 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(12, 180);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.Size = new System.Drawing.Size(134, 21);
             this.comboBox3.TabIndex = 23;
             // 
             // frmIngresos
@@ -248,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(462, 584);
+            this.ClientSize = new System.Drawing.Size(309, 456);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox1);

@@ -281,7 +281,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGerente";
-            this.Text = "frmGerente";
+            this.Text = "Informes del gerente";
             this.Load += new System.EventHandler(this.frmGerente_Load);
             this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmGerente_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

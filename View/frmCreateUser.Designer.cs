@@ -301,7 +301,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "frmCreateUser";
-            this.Text = "frmCreateUser";
+            this.Text = "Crear usuario";
             this.Load += new System.EventHandler(this.frmCreateUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

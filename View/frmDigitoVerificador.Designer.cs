@@ -161,7 +161,7 @@
             this.Controls.Add(this.label4);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "frmDigitoVerificador";
-            this.Text = "frmDigitoVerificador";
+            this.Text = "Digito verificador";
             this.Load += new System.EventHandler(this.frmDigitoVerificador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

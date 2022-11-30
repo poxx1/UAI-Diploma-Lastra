@@ -111,10 +111,10 @@ namespace DataAccess
                 while (reader.Read())
                 {
                     ControlCambiosModel mm = new ControlCambiosModel();              
-                    mm.id_change = int.Parse(reader.GetString(reader.GetOrdinal("id_change")));
-                    mm.change_date = reader.GetString(reader.GetOrdinal("change_date"));
-                    mm.change_data = reader.GetString(reader.GetOrdinal("change_data"));
-                    mm.change_userAffected = reader.GetString(reader.GetOrdinal("change_userAffected"));
+                    mm.ID_Cambio = int.Parse(reader.GetString(reader.GetOrdinal("id_change")));
+                    mm.Fecha = reader.GetString(reader.GetOrdinal("change_date"));
+                    mm.DigitoVerificador = reader.GetString(reader.GetOrdinal("change_data"));
+                    mm.Usuario_Afectado = reader.GetString(reader.GetOrdinal("change_userAffected"));
 
                     list.Add(mm);
                 }
@@ -213,10 +213,10 @@ namespace DataAccess
                 cmd.CommandText = query;
                 cmd.Connection = connection;
 
-                cmd.Parameters.Add(new SqlParameter("id_change", user.id_change));
-                cmd.Parameters.Add(new SqlParameter("change_data", user.change_data));
-                cmd.Parameters.Add(new SqlParameter("change_date", user.change_date));
-                cmd.Parameters.Add(new SqlParameter("change_userAffected", user.change_userAffected));
+                cmd.Parameters.Add(new SqlParameter("id_change", user.ID_Cambio));
+                cmd.Parameters.Add(new SqlParameter("change_data", user.DigitoVerificador));
+                cmd.Parameters.Add(new SqlParameter("change_date", user.Fecha));
+                cmd.Parameters.Add(new SqlParameter("change_userAffected", user.Usuario_Afectado));
 
                 cmd.ExecuteNonQuery();
                 connection.Close();

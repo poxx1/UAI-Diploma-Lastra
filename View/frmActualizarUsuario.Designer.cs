@@ -75,7 +75,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmActualizarUsuario";
-            this.Text = "frmActualizarUsuario";
+            this.Text = "Actualizar datos del usuario";
             this.Load += new System.EventHandler(this.frmActualizarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -216,7 +216,7 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Name = "frmBackupDB";
-            this.Text = " ";
+            this.Text = " Backup y restore";
             this.Load += new System.EventHandler(this.frmBackupDB_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
