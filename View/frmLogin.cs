@@ -71,14 +71,20 @@ namespace View
                 {
                     MessageBox.Show("Se esta creando la base de datos, espere 5 minutos para poder interactuar");
 
-                        BackupRestoreService backupRestoreService = new BackupRestoreService();
-                        string path1 = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Inicial.bak";
+                    //BackupRestoreService backupRestoreService = new BackupRestoreService();
+                    //string path1 = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\Inicial.bak";
 
-                        backupRestoreService.restoreBackup($"EXEC[store_restore] @path = '{path1}'");
-                        label3.ForeColor = Color.Green;
-                        label3.Text = "Se restauro la base de datos correctamente";
+                    //backupRestoreService.restoreBackup($"EXEC[store_restore] @path = '{path1}'");
+                    //label3.ForeColor = Color.Green;
+                    //label3.Text = "Se restauro la base de datos correctamente";
 
-                        foreach (Form frm in Application.OpenForms)
+                    MessageBox.Show("Corriendo script para crear db");
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\createDB.sql";
+                    db.CreateDB(db.readScript(path));
+
+                    Thread.Sleep(5000);
+
+                    foreach (Form frm in Application.OpenForms)
                         {
                             if (frm.Name == "frmLogin")
                             {
@@ -89,17 +95,6 @@ namespace View
                             }
                         }
                   
-
-                    if (db.dbExists())
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Corriendo script para crear db");
-                        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\createDB.sql";
-                        db.CreateDB(db.readScript(path));
-                    }
                 }       
 
                     Utiles.CredentialManager cm = new CredentialManager();
