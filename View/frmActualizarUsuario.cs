@@ -34,7 +34,7 @@ namespace View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult response = MessageBox.Show("Esta seguro que desea restaurar el usuario?", "Restaurar", MessageBoxButtons.OKCancel);
+            DialogResult response = MessageBox.Show("Esta seguro que desea actualizar el usuario?", "Restaurar", MessageBoxButtons.OKCancel);
             if (response == DialogResult.OK)
             {
                 try
