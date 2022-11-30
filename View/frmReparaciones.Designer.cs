@@ -94,10 +94,10 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 7;
             this.label2.Tag = "2BReparacionesTitulo";
-            this.label2.Text = "Reparaciones";
+            this.label2.Text = "A reparar:";
             // 
             // richTextBox1
             // 
@@ -111,12 +111,12 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(110, 55);
+            this.checkBox1.Location = new System.Drawing.Point(82, 55);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(71, 17);
+            this.checkBox1.Size = new System.Drawing.Size(96, 17);
             this.checkBox1.TabIndex = 8;
             this.checkBox1.Tag = "2BRevisadaCheck";
-            this.checkBox1.Text = "Revisada";
+            this.checkBox1.Text = "Esta revisada?";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox1

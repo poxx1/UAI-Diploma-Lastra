@@ -46,6 +46,8 @@ namespace View
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -57,7 +59,7 @@ namespace View
             this.button1.Size = new System.Drawing.Size(75, 33);
             this.button1.TabIndex = 0;
             this.button1.Tag = "2CAprobarButton";
-            this.button1.Text = "Approve";
+            this.button1.Text = "Aprobar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -66,10 +68,10 @@ namespace View
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.Size = new System.Drawing.Size(188, 13);
             this.label1.TabIndex = 1;
             this.label1.Tag = "2CMaquinasTitulo";
-            this.label1.Text = "Maquinas";
+            this.label1.Text = "Maquinas que quedan presupuestarse";
             // 
             // button2
             // 
@@ -80,7 +82,7 @@ namespace View
             this.button2.Size = new System.Drawing.Size(75, 33);
             this.button2.TabIndex = 2;
             this.button2.Tag = "2CReprobarButton";
-            this.button2.Text = "Revoke";
+            this.button2.Text = "No validar";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -95,9 +97,9 @@ namespace View
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 88);
+            this.richTextBox1.Location = new System.Drawing.Point(9, 88);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(158, 119);
+            this.richTextBox1.Size = new System.Drawing.Size(158, 92);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -116,10 +118,10 @@ namespace View
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(12, 52);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(67, 17);
+            this.checkBox1.Size = new System.Drawing.Size(138, 17);
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Tag = "2CValidadaCheck";
-            this.checkBox1.Text = "Validada";
+            this.checkBox1.Text = "La reviso un reparador?";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -200,12 +202,31 @@ namespace View
             this.label4.TabIndex = 20;
             this.label4.Text = "Cliente";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 186);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Tag = "2CReparaciones";
+            this.label3.Text = "Horas p/reparar";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(95, 183);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(72, 20);
+            this.textBox1.TabIndex = 29;
+            // 
             // Approvals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(304, 282);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox4);
@@ -250,5 +271,7 @@ namespace View
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

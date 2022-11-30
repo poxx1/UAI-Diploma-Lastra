@@ -97,6 +97,7 @@ namespace View
             textBox3.Text = m.Brand;
             textBox4.Text = m.Model;
             richTextBox2.Text = m.Description;
+            textBox1.Text = m.Hours.ToString();
 
             if (m.isApproved == true) { checkBox1.Checked = true; button1.Enabled = false;
                 button2.Enabled = false;
