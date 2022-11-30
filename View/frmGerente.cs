@@ -79,18 +79,30 @@ namespace View
                 List<ReporteMaquinas> listMaquinas = new List<ReporteMaquinas>();
                 ReporteMaquinas rp = new ReporteMaquinas();
 
-                foreach (Machines maquina in machines) 
+
+                UserRepository userRepository = new UserRepository();
+
+
+                foreach (Machines maquina in machines)
                 {
-                    rp = new ReporteMaquinas();
-                    rp.ID_Maquina = maquina.Id_Machine;
-                    rp.Modelo = maquina.Model;
-                    rp.Marca = maquina.Brand;
-                    rp.Falla = maquina.Failure;
-                    rp.Descripcion = maquina.Description;
 
-                    listMaquinas.Add(rp);
+                    try
+                    {
+                        User u = new User();
+                        rp = new ReporteMaquinas();
+
+                        u = userRepository.GetAll().Where(x => x.Id == maquina.Id_Client).ToList().First();
+                        rp.Cliente = u.UserName.ToString();
+                        rp.ID_Maquina = maquina.Id_Machine;
+                        rp.Modelo = maquina.Model;
+                        rp.Marca = maquina.Brand;
+                        rp.Falla = maquina.Failure;
+                        rp.Descripcion = maquina.Description;
+
+                        listMaquinas.Add(rp);
+                    }
+                    catch (Exception) { }
                 }
-
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = listMaquinas;
 
