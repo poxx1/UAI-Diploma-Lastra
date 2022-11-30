@@ -85,6 +85,12 @@ namespace View
         {
             Machines m = new Machines();
             m = (Machines)comboBox1.SelectedItem;
+
+            textBox2.Text = m.Id_Client.ToString();
+            textBox3.Text = m.Brand;
+            textBox4.Text = m.Model;
+            richTextBox2.Text = m.Description;
+
             if (m.isApproved == true) { checkBox1.Checked = true; button1.Enabled = false;
                 button2.Enabled = false;
             }
