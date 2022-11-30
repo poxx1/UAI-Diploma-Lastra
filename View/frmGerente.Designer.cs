@@ -48,7 +48,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +56,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(229, 9);
+            this.label1.Location = new System.Drawing.Point(16, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 18);
             this.label1.TabIndex = 0;
@@ -67,7 +66,7 @@
             // progressBar1
             // 
             this.progressBar1.BackColor = System.Drawing.Color.Black;
-            this.progressBar1.Location = new System.Drawing.Point(12, 112);
+            this.progressBar1.Location = new System.Drawing.Point(136, 109);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(118, 23);
             this.progressBar1.TabIndex = 1;
@@ -76,7 +75,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(225, 34);
+            this.listBox1.Location = new System.Drawing.Point(12, 31);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(118, 69);
             this.listBox1.TabIndex = 2;
@@ -85,7 +84,7 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(12, 34);
+            this.listBox2.Location = new System.Drawing.Point(136, 31);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(118, 69);
             this.listBox2.TabIndex = 5;
@@ -94,7 +93,7 @@
             // progressBar2
             // 
             this.progressBar2.BackColor = System.Drawing.Color.Black;
-            this.progressBar2.Location = new System.Drawing.Point(225, 112);
+            this.progressBar2.Location = new System.Drawing.Point(12, 109);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(118, 23);
             this.progressBar2.TabIndex = 4;
@@ -104,7 +103,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(136, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 18);
             this.label2.TabIndex = 3;
@@ -116,7 +115,7 @@
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(459, 17);
+            this.button1.Location = new System.Drawing.Point(698, 126);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 30);
             this.button1.TabIndex = 6;
@@ -126,9 +125,9 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(136, 34);
+            this.button2.Location = new System.Drawing.Point(260, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 89);
+            this.button2.Size = new System.Drawing.Size(111, 52);
             this.button2.TabIndex = 7;
             this.button2.Tag = "2EExportarPDF";
             this.button2.Text = "Reporte maquinas sin revisar";
@@ -161,12 +160,12 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(459, 73);
+            this.button3.Location = new System.Drawing.Point(377, 8);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(33, 30);
+            this.button3.Size = new System.Drawing.Size(111, 53);
             this.button3.TabIndex = 10;
             this.button3.Tag = "2EAyuda";
-            this.button3.Text = "?";
+            this.button3.Text = "Manual de ayuda en linea";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -239,17 +238,6 @@
             this.label4.TabIndex = 28;
             this.label4.Text = "Cliente";
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(361, 34);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 89);
-            this.button4.TabIndex = 36;
-            this.button4.Tag = "2EExportarPDF";
-            this.button4.Text = "Reporte maquinas sin aprobar";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // frmGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,7 +246,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(743, 316);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox4);
@@ -311,6 +298,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button4;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using DataAccess;
 using Models;
 using Models.interfaces;
 using Models.language;
@@ -184,9 +185,15 @@ namespace View
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             Machines m = new Machines();
             m = (Machines)listBox2.SelectedItem;
-            textBox2.Text = m.Id_Client.ToString();
+
+            User u = new User();
+            UserRepository userRepository = new UserRepository();
+            u = userRepository.GetAll().Where(x => x.Id == m.Id_Client).ToList().First();
+
+            textBox2.Text = u.UserName.ToString();
             textBox3.Text = m.Brand;
             textBox4.Text = m.Model;
             richTextBox2.Text = m.Description;
@@ -195,8 +202,12 @@ namespace View
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Machines m = new Machines();
-            m = (Machines)listBox1.SelectedItem;
-            textBox2.Text = m.Id_Client.ToString();
+            m = (Machines)listBox1.SelectedItem; 
+            User u = new User();
+            UserRepository userRepository = new UserRepository();
+            u = userRepository.GetAll().Where(x => x.Id == m.Id_Client).ToList().First();
+
+            textBox2.Text = u.UserName.ToString();
             textBox3.Text = m.Brand;
             textBox4.Text = m.Model;
             richTextBox2.Text = m.Description;

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Business;
+using DataAccess;
 using Models;
 using Models.interfaces;
 using Models.language;
@@ -55,6 +57,7 @@ namespace View
                 }
             }
             textBox1.Text = countHoras.ToString();
+
         }
 
         #region Idioma
@@ -124,12 +127,20 @@ namespace View
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Machines m = new Machines();
-            //m = (Machines)listBox1.SelectedItem;
-            textBox2.Text = "luis";//m.Id_Client.ToString();
-            textBox3.Text = "Lusqtoff";// m.Brand;
-            textBox4.Text = "F-100";//m.Model;
-            richTextBox2.Text = "Segun el cliente la maquina no prende";//m.Description;
+            User_MachineModel um = new User_MachineModel();
+            um = (User_MachineModel)listBox1.SelectedItem;
+            MachineRepository mr = new MachineRepository();
 
+            m = mr.listMachines().Where(x => x.Id_Machine == um.Id_machine).ToList().First();
+
+            User u = new User();
+            UserRepository userRepository = new UserRepository();
+            u = userRepository.GetAll().Where(x => x.Id == m.Id_Client).ToList().First();
+
+            textBox2.Text = u.UserName.ToString();
+            textBox3.Text = m.Brand;
+            textBox4.Text = m.Model;
+            richTextBox2.Text = m.Description;
         }
     }
 }

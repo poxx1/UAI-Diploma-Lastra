@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Business;
+using DataAccess;
 using Models;
 using Models.interfaces;
 using Models.language;
@@ -73,8 +75,11 @@ namespace View
             richTextBox1.Text = getCurrent().Reparation.ToString();
             Machines m = getCurrent();
             textBox1.Text = m.Hours.ToString();
-            richTextBox2.Text = m.Description.ToString();
-            textBox2.Text = m.Id_Client.ToString();
+            richTextBox2.Text = m.Description.ToString(); User u = new User();
+            UserRepository userRepository = new UserRepository();
+            u = userRepository.GetAll().Where(x => x.Id == m.Id_Client).ToList().First();
+
+            textBox2.Text = u.UserName.ToString();
             textBox3.Text = m.Brand.ToString();
             textBox4.Text = m.Model.ToString();
         }
