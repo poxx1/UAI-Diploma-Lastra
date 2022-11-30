@@ -120,5 +120,16 @@ namespace View
             textBox1.Text = countHoras.ToString();
             listBox1.DisplayMember = "Id_Machine";
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Machines m = new Machines();
+            m = (Machines)listBox1.SelectedItem;
+            textBox2.Text = m.Id_Client.ToString();
+            textBox3.Text = m.Brand;
+            textBox4.Text = m.Model;
+            richTextBox2.Text = m.Description;
+
+        }
     }
 }

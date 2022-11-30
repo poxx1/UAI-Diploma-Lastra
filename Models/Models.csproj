@@ -64,6 +64,7 @@
     <Compile Include="LogModel.cs" />
     <Compile Include="Machines.cs" />
     <Compile Include="MensajeBienvenidaModel.cs" />
+    <Compile Include="ReporteMaquinas.cs" />
     <Compile Include="seguridad\Component.cs" />
     <Compile Include="seguridad\Family.cs" />
     <Compile Include="seguridad\Patent.cs" />

@@ -35,7 +35,7 @@ namespace View
         {
             Actualizar();
             updateLanguage(Session.GetInstance.language);
-
+            dataGridView1.ForeColor = Color.Black;
         }
 
         private void frmGerente_FormClosed(object sender, FormClosedEventArgs e)
@@ -73,8 +73,25 @@ namespace View
 
                 listBox1.DataSource = machines;
 
+                //DataGridView
+
+                List<ReporteMaquinas> listMaquinas = new List<ReporteMaquinas>();
+                ReporteMaquinas rp = new ReporteMaquinas();
+
+                foreach (Machines maquina in machines) 
+                {
+                    rp = new ReporteMaquinas();
+                    rp.ID_Maquina = maquina.Id_Machine;
+                    rp.Modelo = maquina.Model;
+                    rp.Marca = maquina.Brand;
+                    rp.Falla = maquina.Failure;
+                    rp.Descripcion = maquina.Description;
+
+                    listMaquinas.Add(rp);
+                }
+
                 dataGridView1.DataSource = null;
-                dataGridView1.DataSource = machines;
+                dataGridView1.DataSource = listMaquinas;
 
                 //Load Maquinas sin revisar
 
@@ -108,7 +125,7 @@ namespace View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Actualizar();
+            //Actualizar();
         }
 
         public void updateLanguage(Language language)
@@ -162,7 +179,32 @@ namespace View
         {
             string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
             Help.ShowHelp(this, path+ @"\Extras\Proyecto.chm"); //, "content.html"
-            MessageBox.Show(path);
+            //MessageBox.Show(path);
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Machines m = new Machines();
+            m = (Machines)listBox2.SelectedItem;
+            textBox2.Text = m.Id_Client.ToString();
+            textBox3.Text = m.Brand;
+            textBox4.Text = m.Model;
+            richTextBox2.Text = m.Description;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Machines m = new Machines();
+            m = (Machines)listBox1.SelectedItem;
+            textBox2.Text = m.Id_Client.ToString();
+            textBox3.Text = m.Brand;
+            textBox4.Text = m.Model;
+            richTextBox2.Text = m.Description;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

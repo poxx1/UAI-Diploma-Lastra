@@ -18,7 +18,8 @@ namespace Utiles
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
-                sfd.FileName = "Informe.pdf";
+                string fecha = DateTime.Now.ToString("dd-MM-yy_hhmmss");
+                sfd.FileName = "Informe.pdf"+"_"+fecha;
                 bool fileError = false;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -55,7 +56,10 @@ namespace Utiles
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
-                                    pdfTable.AddCell(cell.Value.ToString());
+                                    if (cell.Value != null)
+                                        pdfTable.AddCell(cell.Value.ToString());
+                                    else
+                                        pdfTable.AddCell("S/D");
                                 }
                             }
 
