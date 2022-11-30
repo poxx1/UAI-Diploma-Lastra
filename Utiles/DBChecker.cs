@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Utiles
 {
@@ -26,8 +27,13 @@ namespace Utiles
         public string readScript(string path)
         {
             StreamReader sr = new StreamReader(path);
-            string script = sr.ReadToEnd();
+            //string script = sr.ReadToEnd();
+            //script = script.Replace("\r\n"," ");
             sr.Close();
+            //return script;
+
+            string script = File.ReadAllText(path);
+
             return script;
         }
     }

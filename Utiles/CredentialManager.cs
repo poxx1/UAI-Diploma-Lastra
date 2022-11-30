@@ -40,7 +40,7 @@ namespace Utiles
             {
                 cd.Target = "Diploma_Lastra";
                 Username = "Admin";
-                Password = "test";
+                Password = "MyQce23+1e0=";
                 cd.Save();
                 return true;
             }

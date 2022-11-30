@@ -74,7 +74,7 @@ namespace Utiles
             var objeto = new object();
             var objeto1 = new object();
 
-            var cn = new SqlConnection(@"Server=" + System.Environment.MachineName + @"\SQLEXPRESS" + "; Initial Catalog=campo;Integrated Security=True");
+            var cn = new SqlConnection(@"Server=" + System.Environment.MachineName + @"\SQLEXPRESS" + "; Initial Catalog=master;Integrated Security=True");
             var cmd = new SqlCommand();
 
             cn.Open();
@@ -231,7 +231,7 @@ namespace Utiles
                 DataSource = System.Environment.MachineName + @"\SQLEXPRESS";
             }
 
-            var _conexion = new SqlConnection(@"Server=" + DataSource + "; Initial Catalog=master;Integrated Security=True");
+            var _conexion = new SqlConnection(@"Server=" + DataSource + "; Initial Catalog=campo;Integrated Security=True");
             //Abro la conexion
             try
             {

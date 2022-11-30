@@ -213,7 +213,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(111, 13);
             this.label7.TabIndex = 18;
-            this.label7.Tag = "2ADescripcionTitulo";
+            this.label7.Tag = "2AFallaTitulo";
             this.label7.Text = "Descripcion de la falla";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 

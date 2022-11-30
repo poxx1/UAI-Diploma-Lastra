@@ -80,9 +80,14 @@ namespace View
 
                     MessageBox.Show("Corriendo script para crear db");
                     string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Extras\createDB.sql";
-                    db.CreateDB(db.readScript(path));
-
-                    Thread.Sleep(5000);
+                    if (db.CreateDB(db.readScript(path)))
+                    {
+                        Thread.Sleep(5000);
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERROR Corriendo script para crear db");
+                    }
 
                     foreach (Form frm in Application.OpenForms)
                         {
@@ -97,7 +102,9 @@ namespace View
                   
                 }       
 
-                    Utiles.CredentialManager cm = new CredentialManager();
+                Utiles.CredentialManager cm = new CredentialManager();
+
+                cm.SaveCredential();
 
                 if (cm.User())
                 {

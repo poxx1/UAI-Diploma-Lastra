@@ -73,6 +73,10 @@ namespace View
             richTextBox1.Text = getCurrent().Reparation.ToString();
             Machines m = getCurrent();
             textBox1.Text = m.Hours.ToString();
+            richTextBox2.Text = m.Description.ToString();
+            textBox2.Text = m.Id_Client.ToString();
+            textBox3.Text = m.Brand.ToString();
+            textBox4.Text = m.Model.ToString();
         }
         private void cargarMaquinas()
         {
