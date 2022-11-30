@@ -17,8 +17,8 @@ namespace View
 {
     public partial class frmBackupDB : Form, ILanguageObserber
     {
-        PermissionsService permissionsService;
-        Family seleccion;
+        //PermissionsService permissionsService;
+        //Family seleccion;
         UserService userService = new UserService();
         public frmBackupDB()
         {

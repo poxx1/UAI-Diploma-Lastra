@@ -28,7 +28,7 @@ namespace Utiles
                 Clipboard.SetText(Password);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -44,7 +44,7 @@ namespace Utiles
                 cd.Save();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

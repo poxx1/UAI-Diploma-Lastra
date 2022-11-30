@@ -17,8 +17,8 @@ namespace View
 {
     public partial class frmBitacora : Form, ILanguageObserber
     {
-        PermissionsService permissionsService;
-        Family seleccion;
+        //PermissionsService permissionsService;
+        //Family seleccion;
         UserService userService = new UserService();
         List<LogModel> listOfLogs;
         public frmBitacora()

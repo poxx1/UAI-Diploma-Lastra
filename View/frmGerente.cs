@@ -17,8 +17,8 @@ namespace View
 {
     public partial class frmGerente : Form , ILanguageObserber
     {
-        PermissionsService permissionsService;
-        Family seleccion;
+        //PermissionsService permissionsService;
+        //Family seleccion;
         UserService userService = new UserService();
         public frmGerente()
         {
@@ -44,7 +44,7 @@ namespace View
             {
                 Session.GetInstance.removeObserber(this);
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
         private void Actualizar()
         {

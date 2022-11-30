@@ -39,7 +39,7 @@ namespace Utiles
                 return lista;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error de lectura");
                 return new List<MensajeBienvenidaModel>();

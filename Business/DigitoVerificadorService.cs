@@ -320,7 +320,7 @@ namespace Business
 
                 return dm.digitoVerificador;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("error validando el vertical");
                 return "error";
