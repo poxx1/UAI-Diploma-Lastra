@@ -126,21 +126,28 @@ namespace View
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Machines m = new Machines();
-            User_MachineModel um = new User_MachineModel();
-            um = (User_MachineModel)listBox1.SelectedItem;
-            MachineRepository mr = new MachineRepository();
+            try
+            {
+                Machines m = new Machines();
+                User_MachineModel um = new User_MachineModel();
+                um = (User_MachineModel)listBox1.SelectedItem;
+                MachineRepository mr = new MachineRepository();
 
-            m = mr.listMachines().Where(x => x.Id_Machine == um.Id_machine).ToList().First();
+                m = mr.listMachines().Where(x => x.Id_Machine == um.Id_machine).ToList().First();
 
-            User u = new User();
-            UserRepository userRepository = new UserRepository();
-            u = userRepository.GetAll().Where(x => x.Id == m.Id_Client).ToList().First();
+                User u = new User();
+                UserRepository userRepository = new UserRepository();
+                u = userRepository.GetAll().Where(x => x.Id == m.Id_Client).ToList().First();
 
-            textBox2.Text = u.UserName.ToString();
-            textBox3.Text = m.Brand;
-            textBox4.Text = m.Model;
-            richTextBox2.Text = m.Description;
+                textBox2.Text = u.UserName.ToString();
+                textBox3.Text = m.Brand;
+                textBox4.Text = m.Model;
+                richTextBox2.Text = m.Description;
+            }
+            catch (Exception)
+            {
+            }
+            
         }
     }
 }

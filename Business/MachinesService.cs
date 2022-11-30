@@ -133,7 +133,11 @@ namespace Business
             mr.Approval(machine);
             #endregion
 
-            MessageBox.Show($"La maquina se le asigno al empleado con ID: {elegido.Key}");
+            UserRepository userRepository = new UserRepository();
+            u = userRepository.GetAll().Where(x => x.Id == machine.Id_User).ToList().First();
+
+            MessageBox.Show($"La maquina se le asigno al empleado : {u.Name}");
+
         }
 
         public static List<User_MachineModel> ListMachinesToRepair()

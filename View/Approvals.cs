@@ -46,17 +46,23 @@ namespace View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Calcula las horas y se la pasa a aprobaciones. La marco como revisada.
-            Machines m = new Machines();
-            MachinesService ms = new MachinesService();
-            m = getCurrent();
+            var ds = MessageBox.Show("Realmente desea que la maquina sea reparada por alguien?", "", MessageBoxButtons.OKCancel);
+            if (ds == DialogResult.OK)
+            {
+                MessageBox.Show("La maquina va a ser asignada al reparador con menor carga horaria");
+                //Calcula las horas y se la pasa a aprobaciones. La marco como revisada.
+                Machines m = new Machines();
+                MachinesService ms = new MachinesService();
+                m = getCurrent();
 
-            m.isApproved = true;
+                m.isApproved = true;
 
-            ms.AssingToEmployee(m);
-            //Aca llamo al metodo que asigna las maquinas.
+                ms.AssingToEmployee(m);
+                //Aca llamo al metodo que asigna las maquinas.
 
-            MessageBox.Show("Maquina aprobada");
+                MessageBox.Show("Maquina aprobada y asignada a un usuario");
+            }
+            else { }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
