@@ -223,6 +223,7 @@ namespace View
             textBox3.Text = m.Brand;
             textBox4.Text = m.Model;
             richTextBox2.Text = m.Description;
+            //textBox1.Text = m.Hours.ToString();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -48,8 +48,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,23 +238,6 @@
             this.label4.TabIndex = 28;
             this.label4.Text = "Cliente";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(395, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(97, 20);
-            this.textBox1.TabIndex = 37;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(392, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 13);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "Horas p/reparar";
-            // 
             // frmGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,8 +246,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(743, 316);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox4);
@@ -319,7 +298,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label8;
     }
 }
