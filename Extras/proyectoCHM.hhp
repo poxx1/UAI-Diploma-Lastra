@@ -1,5 +1,31 @@
 [OPTIONS]
+Compatibility=1.1 or later
+Compiled file=proyectoCHM.chm
+Contents file=Table of Contents.hhc
+Default topic=..\Documentation\about.html
+Display compile progress=No
+Index file=C:\Users\julia\Documents\HTMLs\Index.hhk
+Language=0xc0a Español (España, internacional)
+
 
 [FILES]
 ..\Documentation\about.html
-..\Documentation\Content.html
+C:\Users\julia\Documents\HTMLs\Aprobaciones.htm
+C:\Users\julia\Documents\HTMLs\Backup.htm
+C:\Users\julia\Documents\HTMLs\Bitacora.htm
+C:\Users\julia\Documents\HTMLs\ChangesControl.htm
+C:\Users\julia\Documents\HTMLs\Dashboard.htm
+C:\Users\julia\Documents\HTMLs\DigitoVerificador.htm
+C:\Users\julia\Documents\HTMLs\Languages.htm
+C:\Users\julia\Documents\HTMLs\Login.htm
+C:\Users\julia\Documents\HTMLs\MachineIngest.htm
+C:\Users\julia\Documents\HTMLs\Main.htm
+C:\Users\julia\Documents\HTMLs\Reparaciones.htm
+C:\Users\julia\Documents\HTMLs\SecurityControl.htm
+C:\Users\julia\Documents\HTMLs\UserCreation.htm
+C:\Users\julia\Documents\HTMLs\UserGestion.htm
+C:\Users\julia\Documents\HTMLs\UserUpdate.htm
+C:\Users\julia\Documents\HTMLs\Welcome.htm
+
+[INFOTYPES]
+

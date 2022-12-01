@@ -20,7 +20,7 @@ namespace Utiles
         public bool CreateDB(string script)
         {
             DBConnection db = new DBConnection();
-            if (db.NoTransactionQuery(script)) return true;
+            if (db.GOQuery(script)) return true;
             else return false;
         }
 
@@ -29,10 +29,10 @@ namespace Utiles
             StreamReader sr = new StreamReader(path);
             //string script = sr.ReadToEnd();
             //script = script.Replace("\r\n"," ");
-            sr.Close();
             //return script;
 
             string script = File.ReadAllText(path);
+            sr.Close();
 
             return script;
         }
