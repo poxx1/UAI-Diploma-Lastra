@@ -39,13 +39,14 @@ namespace Utiles
             try
             {
                 cd.Target = "Diploma_Lastra";
-                Username = "Admin";
-                Password = "MyQce23+1e0=";
+                cd.Username = "Admin";
+                cd.Password = "MyQce23+1e0=";
                 cd.Save();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show("Cant save user"+ e.Message);
                 return false;
             }
         }

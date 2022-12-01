@@ -100,6 +100,8 @@ namespace Business
             List<DBUsers> dBUsers = new List<DBUsers>();
             List<DigitoVerificadorModel> digitos = new List<DigitoVerificadorModel>();
 
+            DigitoVerificadorService dgs = new DigitoVerificadorService();
+
             dBUsers = ObtenerHashHorizontal();
             digitos = ListarDigitoVerificadorHorizontal();
 
@@ -108,20 +110,47 @@ namespace Business
 
             if (digitos.Count > 0 && dBUsers.Count > 0)
             {
-                foreach (DBUsers user in dBUsers)
+                //foreach (DBUsers user in dBUsers)
+                //{
+                //    foreach (DigitoVerificadorModel digito in digitos)
+                //    {
+                //        if(digito.digitoVerificador == user.digitoVerificador && digito.digitoVerificador == DigitoVerificarUsuario(user))
+                //        {
+                //            listaChecker.Add(true);
+                //            break;
+                //        }
+                //        //else { MessageBox.Show($"El usuario {user.UserName} tiene un cambio no esperado en sus datos. Por favor contacte a un administrador."); }
+                //    }
+                //}
+
+                foreach (DigitoVerificadorModel digito in digitos)
                 {
-                    foreach (DigitoVerificadorModel digito in digitos)
+                    try
                     {
-                        if(digito.digitoVerificador == user.digitoVerificador && digito.digitoVerificador == DigitoVerificarUsuario(user))
+                        var user = dBUsers.Where(x => x.id_dv.ToString() == digito.id_dv).ToList().First();
+                        if (user.digitoVerificador == digito.digitoVerificador)
                         {
                             listaChecker.Add(true);
-                            break;
                         }
+                        else
+                        {
+                            MessageBox.Show($"El usuario {user.UserName} tiene un cambio no esperado en sus datos. Por favor contacte a un administrador.");
+                            listaChecker.Add(false);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        var usuarioRecuperado = dgs.obtenerUsuario(digito.digitoVerificador);
+                        MessageBox.Show($"El usuario {usuarioRecuperado.UserName} tiene un cambio no esperado en sus datos. Por favor contacte a un administrador.");
+                        listaChecker.Add(false);
                     }
                 }
+
                 if (listaChecker.Contains(false) || listaChecker.Count != digitos.Count)
                 {
                     check = false;
+                    if(listaChecker.Count != digitos.Count) MessageBox.Show("La cantidad de usuarios no coincide con la cantidad de digitos verificados. Por favor contactar al administrador del sistema");
                     MessageBox.Show("Hay un item que no concuerda con la verificacion");
                 }
             }
@@ -251,8 +280,9 @@ namespace Business
             {
                 bool result = false;
 
-                if (ComprarDigitoVertical() && CompararDigitoVerificadorHorizontal())
+                if (CompararDigitoVerificadorHorizontal()&& ComprarDigitoVertical())
                     result = true;
+
 
                 return result;
             }
@@ -271,10 +301,13 @@ namespace Business
                 {
                     return true;
                 }
+                MessageBox.Show("Error validando digito verificador Vertical. Se hicieron cambios en la base de datos posiblemente no deseados");
                 return false;
             }
             catch (Exception)
             {
+                MessageBox.Show("Error validando digito verificador Vertical. Se hicieron cambios en la base de datos posiblemente no deseados");
+
                 return false;
             }
         }
