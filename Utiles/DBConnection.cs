@@ -208,7 +208,7 @@ namespace Utiles
                 DataSource = System.Environment.MachineName + @"\SQLEXPRESS";
             }
 
-            var cn = new SqlConnection(@"Server="+ DataSource + "; Initial Catalog=master;Integrated Security=True");
+            var cn = new SqlConnection(@"Server="+ DataSource + "; Initial Catalog=campo;Integrated Security=True");
             var cmd = new SqlCommand();
 
             cn.Open();
