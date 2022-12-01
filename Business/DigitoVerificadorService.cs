@@ -128,7 +128,7 @@ namespace Business
                     try
                     {
                         var user = dBUsers.Where(x => x.id_dv.ToString() == digito.id_dv).ToList().First();
-                        if (user.digitoVerificador == digito.digitoVerificador)
+                        if (user.digitoVerificador == digito.digitoVerificador && dgs.DigitoVerificarUsuario(user) == user.digitoVerificador)
                         {
                             listaChecker.Add(true);
                         }
