@@ -136,13 +136,20 @@ namespace Business
                         {
                             MessageBox.Show($"El usuario {user.UserName} tiene un cambio no esperado en sus datos. Por favor contacte a un administrador.");
                             listaChecker.Add(false);
+                            var usuarioRecuperado = dgs.obtenerUsuario(digito.digitoVerificador);
                         }
-
                     }
                     catch (Exception ex)
                     {
-                        var usuarioRecuperado = dgs.obtenerUsuario(digito.digitoVerificador);
-                        MessageBox.Show($"El usuario {usuarioRecuperado.UserName} tiene un cambio no esperado en sus datos. Por favor contacte a un administrador.");
+                        try
+                        {
+                            var usuarioRecuperado = dgs.obtenerUsuario(digito.digitoVerificador);
+                            MessageBox.Show($"El usuario {usuarioRecuperado.UserName} tiene un cambio no esperado en sus datos. Por favor contacte a un administrador.");
+                        }
+                        catch (Exception ex2)
+                        {
+                            MessageBox.Show("Hay un usuario que tiene problemas con el digito verificador. El ssitema tiene problemas para encontrar que usuario es el del problema. Se recomienda restaurar la ultima version backupeada de la base de datos");
+                        }
                         listaChecker.Add(false);
                     }
                 }
