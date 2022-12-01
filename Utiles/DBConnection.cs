@@ -115,8 +115,17 @@ namespace Utiles
         {
             ////var cn = new SqlConnection(@"Server=" + System.Environment.MachineName + @"\SQLEXPRESS" + "; Initial Catalog=master;Integrated Security=True");
             ////var cmd = new SqlCommand();
+            string DataSource = "";
+            if (System.Environment.MachineName.Contains("LAB"))
+            {
+                DataSource = System.Environment.MachineName;
+            }
+            else
+            {
+                DataSource = System.Environment.MachineName + @"\SQLEXPRESS";
+            }
 
-            string sqlConnectionString = (@"Integrated Security=SSPI; Persist Security Info=False; Initial Catalog=master; Data Source=DESKTOP-CUHS3KR\SQLEXPRESS;");
+            string sqlConnectionString = (@"Integrated Security=SSPI; Persist Security Info=False; Initial Catalog=master; Data Source="+DataSource+";");
 
             //Microsoft.Data.SqlClient.SqlConnection conn = new Microsoft.Data.SqlClient.SqlConnection(sqlConnectionString);
             ////
