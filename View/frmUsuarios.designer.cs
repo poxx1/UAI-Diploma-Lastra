@@ -271,6 +271,7 @@
             this.Name = "frmUsuarios";
             this.Text = "Gestión de usuarios";
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmUsuarios_HelpRequested);
             this.grpPatentes.ResumeLayout(false);
             this.grpPatentes.PerformLayout();
             this.ResumeLayout(false);

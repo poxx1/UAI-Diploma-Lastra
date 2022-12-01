@@ -135,7 +135,12 @@ namespace View
             }
                 comboBox2.Items.Add("campo");
         }
-
+        private void frmBackupDB_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
+            //MessageBox.Show(path);
+        }
         private void frmBackupDB_FormClosed(object sender, FormClosedEventArgs e)
         {
             Session.GetInstance.removeObserber(this);

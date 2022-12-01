@@ -163,6 +163,7 @@
             this.Name = "frmDigitoVerificador";
             this.Text = "Digito verificador";
             this.Load += new System.EventHandler(this.frmDigitoVerificador_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmDigitoVerificador_HelpRequested);
             this.ResumeLayout(false);
             this.PerformLayout();
 

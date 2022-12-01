@@ -423,6 +423,7 @@
             this.Name = "frmControlCambios";
             this.Text = "Control de cambios de los usuarios";
             this.Load += new System.EventHandler(this.frmControlCambios_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmControlCambios_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

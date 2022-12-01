@@ -101,7 +101,12 @@ namespace View
         {
             MessageBox.Show("Remito de entrada generado");
         }
-
+        private void frmIngresos_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
+            //MessageBox.Show(path);
+        }
         private void frmIngresos_Load(object sender, EventArgs e)
         {
             updateLanguage(Session.GetInstance.language);

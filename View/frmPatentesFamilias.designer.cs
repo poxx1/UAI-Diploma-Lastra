@@ -425,6 +425,7 @@
             this.Name = "frmPatentesFamilias";
             this.Text = "Configurar seguridad";
             this.Load += new System.EventHandler(this.FrmSeguridad_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmPatentesFamilias_HelpRequested);
             this.grpPatentes.ResumeLayout(false);
             this.grpPatentes.PerformLayout();
             this.groupBox5.ResumeLayout(false);

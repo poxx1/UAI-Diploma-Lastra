@@ -272,6 +272,7 @@
             this.Name = "frmIngresos";
             this.Text = "Ingreso de maquinas";
             this.Load += new System.EventHandler(this.frmIngresos_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmIngresos_HelpRequested);
             this.ResumeLayout(false);
             this.PerformLayout();
 

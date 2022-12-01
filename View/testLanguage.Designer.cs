@@ -107,6 +107,7 @@
             this.Name = "testLanguage";
             this.Text = "testLanguage";
             this.Load += new System.EventHandler(this.testLanguage_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.testLanguage_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

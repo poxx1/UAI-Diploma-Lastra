@@ -267,6 +267,7 @@ namespace View
             this.Name = "Approvals";
             this.Text = "Aprobaciones";
             this.Load += new System.EventHandler(this.Approvals_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Approvals_HelpRequested);
             this.ResumeLayout(false);
             this.PerformLayout();
 

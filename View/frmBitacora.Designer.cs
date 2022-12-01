@@ -267,6 +267,7 @@
             this.Name = "frmBitacora";
             this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.frmBitacora_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmBitacora_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

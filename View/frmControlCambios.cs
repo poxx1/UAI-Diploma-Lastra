@@ -57,7 +57,12 @@ namespace View
                 MessageBox.Show(ex.Message);
             }            //Current item o como verga sea
         }
-
+        private void frmControlCambios_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
+            //MessageBox.Show(path);
+        }
         private void frmControlCambios_Load(object sender, EventArgs e)
         {
             Session.GetInstance.addObserber(this);

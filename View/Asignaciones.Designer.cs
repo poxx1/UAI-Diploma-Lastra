@@ -199,6 +199,7 @@
             this.Name = "Asignaciones";
             this.Text = "Asignaciones";
             this.Load += new System.EventHandler(this.Asignaciones_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Asignaciones_HelpRequested);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -303,6 +303,7 @@
             this.Name = "frmCreateUser";
             this.Text = "Crear usuario";
             this.Load += new System.EventHandler(this.frmCreateUser_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmCreateUser_HelpRequested);
             this.ResumeLayout(false);
             this.PerformLayout();
 

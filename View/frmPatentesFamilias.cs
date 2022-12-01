@@ -34,6 +34,12 @@ namespace View
             this.cboFamilias.DataSource = permissionsService.GetAllFamilies();
             cboFamilias2.DataSource = permissionsService.GetAllFamilies().FindAll(familia => familia.Id != ((Family)cboFamilias.SelectedItem).Id);
         }
+        private void frmPatentesFamilias_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
+            //MessageBox.Show(path);
+        }
         private void FrmSeguridad_Load(object sender, EventArgs e)
         {
             updateLanguage(Session.GetInstance.language);

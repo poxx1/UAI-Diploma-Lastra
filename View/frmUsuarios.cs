@@ -141,7 +141,12 @@ namespace View
                 MessageBox.Show("Error al guardar el usuario");
             }
         }
-
+        private void frmUsuarios_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
+            //MessageBox.Show(path);
+        }
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             updateLanguage(Session.GetInstance.language);

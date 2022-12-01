@@ -29,7 +29,12 @@ namespace View
             updateLanguage(Session.GetInstance.language);
 
         }
-
+        private void Approvals_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
+            //MessageBox.Show(path);
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             //Calcula las horas y se la pasa a aprobaciones. La marco como revisada.

@@ -263,6 +263,7 @@
             this.Name = "frmReparaciones";
             this.Text = "Reparaciones";
             this.Load += new System.EventHandler(this.frmReparaciones_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmReparaciones_HelpRequested);
             this.ResumeLayout(false);
             this.PerformLayout();
 

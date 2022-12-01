@@ -152,7 +152,12 @@ namespace View
                 //throw ex;
             }
         }
-
+        private void frmCreateUser_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
+            //MessageBox.Show(path);
+        }
         private void frmCreateUser_Load(object sender, EventArgs e)
         {
 

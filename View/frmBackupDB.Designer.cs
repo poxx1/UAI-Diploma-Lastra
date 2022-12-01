@@ -218,6 +218,7 @@
             this.Name = "frmBackupDB";
             this.Text = " Backup y restore";
             this.Load += new System.EventHandler(this.frmBackupDB_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.frmBackupDB_HelpRequested);
             this.ResumeLayout(false);
             this.PerformLayout();
 

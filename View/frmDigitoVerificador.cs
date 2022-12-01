@@ -57,7 +57,12 @@ namespace View
             }
             else label4.Text = "Error validando la clave de recuperacion";
         }
-
+        private void frmDigitoVerificador_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string path = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("View.exe", "");
+            Help.ShowHelp(this, path + @"\Extras\Proyecto.chm"); //, "content.html"
+            //MessageBox.Show(path);
+        }
         private void frmDigitoVerificador_Load(object sender, EventArgs e)
         {
             Session.GetInstance.addObserber(this);
