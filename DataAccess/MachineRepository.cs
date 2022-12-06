@@ -213,16 +213,7 @@ namespace DataAccess
             }
         }
 
-        public void LoadMachine()
-        {
-            
-        }
-
-        public void DeleteMachine()
-        { 
-            
-        }
-        
+    
         public List<Machines> listMachines()
         {
             SqlConnection connection = ConnectionSingleton.getConnection();
