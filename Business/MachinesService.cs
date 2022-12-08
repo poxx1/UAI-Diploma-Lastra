@@ -18,9 +18,8 @@ namespace Business
         }
         public List<ColorModel> GetAllColors()
         {
-            MachineRepository mr = new MachineRepository();
-            List<ColorModel> colors = new List<ColorModel>();
-            return colors = mr.listColors();
+            MachineRepository mr = new MachineRepository();        
+            return mr.listColors();
         }
         public bool CheckIfExist(Machines machine)
         {
