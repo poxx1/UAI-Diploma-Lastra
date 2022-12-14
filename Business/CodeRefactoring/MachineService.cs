@@ -41,5 +41,6 @@ namespace Business.CodeRefactoring
             MachineRepository mr = new MachineRepository();
             mr.Approval(machine);
         }
+
     }
 }
