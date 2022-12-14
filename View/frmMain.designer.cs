@@ -159,7 +159,7 @@
             this.jActualizarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
             this.jActualizarUsuarioToolStripMenuItem.Tag = "1JActualizar";
             this.jActualizarUsuarioToolStripMenuItem.Text = "1. J Actualizar Usuario";
-            this.jActualizarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.jActualizarUsuarioToolStripMenuItem_Click);
+            this.jActualizarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.ActualizarUsuarioToolStripMenuItem_Click);
             // 
             // menuStrip
             // 

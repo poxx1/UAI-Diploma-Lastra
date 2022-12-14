@@ -440,7 +440,7 @@ namespace View
             }
         }
 
-        private void jActualizarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ActualizarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
           
 

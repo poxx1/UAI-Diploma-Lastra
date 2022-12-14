@@ -273,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackupRestoreService.cs" />
+    <Compile Include="CodeRefactoring\MachineAssignmentService.cs" />
     <Compile Include="CodeRefactoring\MachineService.cs" />
     <Compile Include="DigitoVerificadorService.cs" />
     <Compile Include="LanguageService.cs" />

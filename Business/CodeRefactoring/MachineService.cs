@@ -9,87 +9,37 @@ namespace Business.CodeRefactoring
 {
     public class MachineService
     {
-        User user = new User();
-        UserService userService = new UserService();
-        MachineRepository machineRepository = new MachineRepository();
-        UserRepository userRepository = new UserRepository();
-        public void AssingMachineToEmployee(Machines machine)
+        public List<Machines> GetAll()
         {
-            machine.Id_User = CalculateAndGetRepairerUserID();
-
-            machineRepository.Assing(machine);
-            machineRepository.Approval(machine);
-
-            //El unico que tiene esta responsabilidad es la UI.
-            MessageBox.Show($"La maquina se le asigno al empleado : {userRepository.GetAll().Where(x => x.Id == machine.Id_User).ToList().First().UserName}");
+            MachineRepository mr = new MachineRepository();
+            return mr.listMachines();
         }
-        private int CalculateAndGetRepairerUserID()
+        public List<ColorModel> GetAllColors()
         {
-            Dictionary<int, int> DictUserID_HoursAssigned = MapUserToReapairHours(sortListRepairUserByID(), ListMachinesToRepair());
-            return (from userID in DictUserID_HoursAssigned orderby userID.Value ascending select userID).First().Key;
+            MachineRepository mr = new MachineRepository();
+            return mr.listColors();
         }
-        private Dictionary<int, int> MapUserToReapairHours(List<User> usuariosReparadores,List<User_MachineModel> listMachinesToRepair)
+        public bool CheckIfExist(Machines machine)
         {
-            int contadorId = 0;
-            int horasTotales = 0;
-            int iteraciones = 0; //Valdria usar I?
-
-            Dictionary<int, int> dictUserToRepairHours = new Dictionary<int, int>();
-
-            foreach (User user in usuariosReparadores)
-            {
-                //if (user.Id != 55)
-                //{
-                    foreach (User_MachineModel m in listMachinesToRepair)
-                    {
-                        if (iteraciones == 0)
-                        {
-                            horasTotales += m.Time;
-                            contadorId = user.Id;
-                            iteraciones++;
-                            continue;
-                        }
-                        if (iteraciones <= machineRepository.listMachinesToRepair().Count - 1)
-                        {
-                            if (contadorId == m.Id_user)
-                            {
-                                horasTotales += m.Time;
-                            }
-                            iteraciones++;
-                        }
-                        else
-                        {
-                            contadorId = user.Id;
-                            horasTotales = 0;
-                            iteraciones = 1;
-                        }
-                    }
-                    dictUserToRepairHours.Add(contadorId, horasTotales);
-                //}
-            }
-            return dictUserToRepairHours;
+            MachineRepository mr = new MachineRepository();
+            return mr.CheckIfExist(machine);
+            //return mr.SaveMachine(machine); WTF
         }
-        private List<User> ListRepairUsers()
+        public void Save(Machines machine)
         {
-            List<User> listRepairUsers = new List<User>();
-
-            foreach (User user in userService.GetAll())
-            {
-                if (user.Tipo == 1)
-                {
-                    listRepairUsers.Add(user);
-                }
-            }
-            return listRepairUsers;
+            MachineRepository mr = new MachineRepository();
+            mr.SaveMachine(machine);
+            //return mr.SaveMachine(machine); WTF
         }
-        private List<User> sortListRepairUserByID()
+        public void Review(Machines machine)
         {
-            List<User> listRepairUsers = ListRepairUsers();
-            return (List<User>)listRepairUsers.OrderByDescending(x => x.Id);
+            MachineRepository mr = new MachineRepository();
+            mr.Review(machine);
         }
-        private List<User_MachineModel> ListMachinesToRepair()
+        public void Approval(Machines machine)
         {
-            return machineRepository.listMachinesToRepair();
+            MachineRepository mr = new MachineRepository();
+            mr.Approval(machine);
         }
     }
 }
