@@ -10,7 +10,7 @@ using Utiles;
 
 namespace DataAccess
 {
-    public  class MachineRepository
+    public  class MachineRepositoryV2
     {
         public void SaveMachine(Machines machine)
         {
@@ -56,7 +56,6 @@ namespace DataAccess
                 cmd.CommandText = query;
                 cmd.Connection = connection;
 
-                //cmd.Parameters.Add(new SqlParameter("Id_Machine", machine.Id_Machine));
                 cmd.Parameters.Add(new SqlParameter("Id_Brand", machine.Brand));
                 cmd.Parameters.Add(new SqlParameter("Id_Model", machine.Model));
                 cmd.Parameters.Add(new SqlParameter("Id_Color", machine.Color));
@@ -82,10 +81,10 @@ namespace DataAccess
                 throw ex;
             }
         }
+
         public bool CheckIfExist(Machines machine)
         {
             SqlConnection connection = ConnectionSingleton.getConnection();
-            //List<Machines> list = new List<Machines>();
 
             try
             {
@@ -101,10 +100,8 @@ namespace DataAccess
 
                 List<int> list = new List<int>();
 
-                //Machines machine = new Machines();
                 while (reader.Read())
                 {
-                    //User_MachineModel mm = new User_MachineModel();
                     int id = int.Parse(reader.GetString(reader.GetOrdinal("Id_Maquina")));
                     list.Add(id);
                 }
@@ -118,7 +115,6 @@ namespace DataAccess
                 }
                 else { return false; }     
 
-                //return list;
             }
             catch (Exception e)
             {
@@ -130,7 +126,6 @@ namespace DataAccess
         public List<User_MachineModel> listMachinesToRepair()
         {
             SqlConnection connection = ConnectionSingleton.getConnection();
-            //List<Machines> list = new List<Machines>();
 
             try
             {
@@ -146,7 +141,6 @@ namespace DataAccess
 
                 List<User_MachineModel> list = new List<User_MachineModel>();
 
-                //Machines machine = new Machines();
                 while (reader.Read())
                 {
                     User_MachineModel mm = new User_MachineModel();
@@ -171,7 +165,6 @@ namespace DataAccess
         public List<ColorModel> listColors()
         {
             SqlConnection connection = ConnectionSingleton.getConnection();
-            //List<Machines> list = new List<Machines>();
 
             try
             {
@@ -187,7 +180,6 @@ namespace DataAccess
 
                 List<ColorModel> list = new List<ColorModel>();
 
-                //Machines machine = new Machines();
                 while (reader.Read())
                 {
                     ColorModel color = new ColorModel();
@@ -226,7 +218,6 @@ namespace DataAccess
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                //Machines machine = new Machines();
                 while (reader.Read())
                 {
                     Machines machine = new Machines();
@@ -263,7 +254,7 @@ namespace DataAccess
                 throw e;
             }
         }
-        public void Approval(Machines machine)
+        public void ApproveMachine(Machines machine)
         {
            try
             {
@@ -290,7 +281,7 @@ namespace DataAccess
                 throw ex;
             }
         }
-        public void Assing(Machines machine)
+        public void AssingMachineToEmployee(Machines machine)
         {
             try
             {
@@ -326,7 +317,7 @@ namespace DataAccess
                 throw ex;
             }
         }
-        public void Review(Machines machine)
+        public void ReviewMachine(Machines machine)
         {
             try
             {

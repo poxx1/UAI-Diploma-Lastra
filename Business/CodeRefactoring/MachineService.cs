@@ -11,7 +11,7 @@ namespace Business.CodeRefactoring
     {
         public List<Machines> GetAll()
         {
-            MachineRepository mr = new MachineRepository();
+            MachineRepositoryV2 mr = new MachineRepositoryV2();
             return mr.listMachines();
         }
         public List<ColorModel> GetAllColors()
@@ -21,26 +21,23 @@ namespace Business.CodeRefactoring
         }
         public bool CheckIfExist(Machines machine)
         {
-            MachineRepository mr = new MachineRepository();
+            MachineRepositoryV2 mr = new MachineRepositoryV2();
             return mr.CheckIfExist(machine);
-            //return mr.SaveMachine(machine); WTF
         }
-        public void Save(Machines machine)
+        public void SaveMachine(Machines machine)
         {
-            MachineRepository mr = new MachineRepository();
+            MachineRepositoryV2 mr = new MachineRepositoryV2();
             mr.SaveMachine(machine);
-            //return mr.SaveMachine(machine); WTF
         }
-        public void Review(Machines machine)
+        public void ReviewMachine(Machines machine)
         {
-            MachineRepository mr = new MachineRepository();
-            mr.Review(machine);
+            MachineRepositoryV2 mr = new MachineRepositoryV2();
+            mr.ReviewMachine(machine);
         }
-        public void Approval(Machines machine)
+        public void ApproveMachine(Machines machine)
         {
-            MachineRepository mr = new MachineRepository();
-            mr.Approval(machine);
+            MachineRepositoryV2 mr = new MachineRepositoryV2();
+            mr.ApproveMachine(machine);
         }
-
     }
 }

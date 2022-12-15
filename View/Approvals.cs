@@ -55,7 +55,6 @@ namespace View
             if (ds == DialogResult.OK)
             {
                 MessageBox.Show("La maquina va a ser asignada al reparador con menor carga horaria");
-                //Calcula las horas y se la pasa a aprobaciones. La marco como revisada.
                 Machines m = new Machines();
                 MachinesService ms = new MachinesService();
                 m = getCurrent();
@@ -63,7 +62,6 @@ namespace View
                 m.isApproved = true;
 
                 ms.AssingToEmployee(m);
-                //Aca llamo al metodo que asigna las maquinas.
 
                 MessageBox.Show("Maquina aprobada y asignada a un usuario");
             }

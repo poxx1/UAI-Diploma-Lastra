@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using DataAccess;
@@ -9,19 +8,17 @@ namespace Business.CodeRefactoring
 {
     public class MachineAssignmentService
     {
-        User user = new User();
         UserService userService = new UserService();
-        MachineRepository machineRepository = new MachineRepository();
+        MachineRepositoryV2 machineRepository = new MachineRepositoryV2();
         UserRepository userRepository = new UserRepository();
 
         public void AssingMachineToEmployee(Machines machine)
         {
             machine.Id_User = CalculateAndGetRepairerUserID();
 
-            machineRepository.Assing(machine);
-            machineRepository.Approval(machine);
+            machineRepository.AssingMachineToEmployee(machine);
+            machineRepository.ApproveMachine(machine);
 
-            //El unico que tiene esta responsabilidad es la UI.
             MessageBox.Show($"La maquina se le asigno al empleado : {userRepository.GetAll().Where(x => x.Id == machine.Id_User).ToList().First().UserName}");
         }
         private int CalculateAndGetRepairerUserID()
